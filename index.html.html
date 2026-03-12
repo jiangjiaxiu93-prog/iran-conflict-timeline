@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美伊冲突实时更新 | Iran Conflict Live Update</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent-red: #f85149;
+    --accent-orange: #d29922;
+    --accent-blue: #58a6ff;
+    --accent-green: #3fb950;
+    --accent-purple: #bc8cff;
+    --accent-cyan: #39d2c0;
+    --timeline-line: #30363d;
+    --tag-military: #f8514933;
+    --tag-military-text: #f85149;
+    --tag-diplomacy: #58a6ff33;
+    --tag-diplomacy-text: #58a6ff;
+    --tag-market: #d2992233;
+    --tag-market-text: #d29922;
+    --tag-humanitarian: #bc8cff33;
+    --tag-humanitarian-text: #bc8cff;
+    --tag-energy: #3fb95033;
+    --tag-energy-text: #3fb950;
+    --tag-breaking: #f8514966;
+    --tag-breaking-text: #ff7b72;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a0000 0%, #0d1117 50%, #001a1a 100%);
+    border-bottom: 1px solid var(--accent-red);
+    padding: 40px 20px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-red), var(--accent-orange), var(--accent-red));
+  }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-red);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    animation: pulse 2s infinite;
+  }
+  .header-badge .dot {
+    width: 8px; height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    animation: blink 1.5s infinite;
+  }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(248,81,73,0.4); } 50% { box-shadow: 0 0 0 8px rgba(248,81,73,0); } }
+
+  .header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .header .subtitle {
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .header .meta {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .header .meta span { display: flex; align-items: center; gap: 4px; }
+
+  /* Stats Bar */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border-bottom: 1px solid var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .stat-item {
+    background: var(--card-bg);
+    padding: 16px 20px;
+    text-align: center;
+  }
+  .stat-item .label { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .stat-item .value { font-size: 22px; font-weight: 700; font-family: 'SF Mono', 'Cascadia Code', monospace; }
+  .stat-item .value.red { color: var(--accent-red); }
+  .stat-item .value.orange { color: var(--accent-orange); }
+  .stat-item .value.green { color: var(--accent-green); }
+  .stat-item .value.blue { color: var(--accent-blue); }
+
+  /* Filter */
+  .filter-bar {
+    max-width: 900px;
+    margin: 24px auto 0;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .filter-btn {
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--accent-blue);
+    color: #fff;
+    border-color: var(--accent-blue);
+  }
+
+  /* Timeline */
+  .timeline-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+    position: relative;
+  }
+
+  /* Day separator */
+  .day-header {
+    position: relative;
+    text-align: center;
+    margin: 40px 0 24px;
+    padding-left: 40px;
+  }
+  .day-header:first-child { margin-top: 10px; }
+  .day-header .day-label {
+    display: inline-block;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 8px 24px;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .day-header .day-label .day-num {
+    color: var(--accent-orange);
+    margin-left: 8px;
+    font-size: 13px;
+  }
+  .day-header::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    top: 50%;
+    height: 1px;
+    background: var(--border);
+    z-index: -1;
+  }
+
+  /* Timeline entry */
+  .timeline-entry {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 16px;
+  }
+  .timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: -16px;
+    width: 2px;
+    background: var(--timeline-line);
+  }
+  .timeline-entry:last-child::before { display: none; }
+
+  .timeline-dot {
+    position: absolute;
+    left: 8px;
+    top: 18px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    background: var(--card-bg);
+    z-index: 1;
+  }
+  .timeline-dot.military { border-color: var(--accent-red); background: #f8514933; }
+  .timeline-dot.diplomacy { border-color: var(--accent-blue); background: #58a6ff33; }
+  .timeline-dot.market { border-color: var(--accent-orange); background: #d2992233; }
+  .timeline-dot.humanitarian { border-color: var(--accent-purple); background: #bc8cff33; }
+  .timeline-dot.energy { border-color: var(--accent-green); background: #3fb95033; }
+  .timeline-dot.breaking { border-color: var(--accent-red); background: var(--accent-red); animation: pulse 2s infinite; }
+
+  .entry-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    transition: all 0.2s;
+  }
+  .entry-card:hover {
+    border-color: #484f58;
+    transform: translateX(4px);
+  }
+  .entry-card.breaking-card {
+    border-color: var(--accent-red);
+    border-left: 3px solid var(--accent-red);
+    background: linear-gradient(135deg, #1a0a0a 0%, var(--card-bg) 100%);
+  }
+
+  .entry-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .entry-time {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-family: 'SF Mono', 'Cascadia Code', monospace;
+    white-space: nowrap;
+  }
+  .entry-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tag-military { background: var(--tag-military); color: var(--tag-military-text); }
+  .tag-diplomacy { background: var(--tag-diplomacy); color: var(--tag-diplomacy-text); }
+  .tag-market { background: var(--tag-market); color: var(--tag-market-text); }
+  .tag-humanitarian { background: var(--tag-humanitarian); color: var(--tag-humanitarian-text); }
+  .tag-energy { background: var(--tag-energy); color: var(--tag-energy-text); }
+  .tag-breaking { background: var(--tag-breaking); color: var(--tag-breaking-text); font-weight: 700; }
+
+  .entry-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .entry-body {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  .entry-body strong { color: var(--text); font-weight: 600; }
+  .entry-body .num { color: var(--accent-orange); font-weight: 600; font-family: 'SF Mono', monospace; }
+
+  .entry-quote {
+    margin-top: 10px;
+    padding: 10px 16px;
+    border-left: 3px solid var(--accent-blue);
+    background: #161b2299;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+  .entry-quote .author { color: var(--accent-blue); font-style: normal; font-weight: 600; }
+
+  .entry-source {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #484f58;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-dim);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .header h1 { font-size: 24px; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .stat-item .value { font-size: 18px; }
+    .timeline-entry { padding-left: 32px; }
+    .entry-card { padding: 12px 14px; }
+  }
+
+  /* Scroll animations */
+  .timeline-entry {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.4s ease forwards;
+  }
+  @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-badge"><span class="dot"></span> LIVE UPDATE</div>
+  <h1>美伊冲突实时更新</h1>
+  <p class="subtitle">Operation "Epic Fury" — 美以联合打击伊朗全程追踪<br>2026年2月28日至今</p>
+  <div class="meta">
+    <span>📡 来源：Bloomberg · WSJ · WaPo · Reuters · CNBC</span>
+    <span>🕐 最后更新：2026-03-11</span>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="label">冲突持续</div><div class="value blue">12 天</div></div>
+  <div class="stat-item"><div class="label">伊朗死亡</div><div class="value red">1,255+</div></div>
+  <div class="stat-item"><div class="label">美军阵亡</div><div class="value red">8</div></div>
+  <div class="stat-item"><div class="label">布伦特原油</div><div class="value orange">$87.80</div></div>
+  <div class="stat-item"><div class="label">黄金</div><div class="value orange">$5,092</div></div>
+  <div class="stat-item"><div class="label">打击目标</div><div class="value green">5,000+</div></div>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">全部</button>
+  <button class="filter-btn" data-filter="military">军事</button>
+  <button class="filter-btn" data-filter="diplomacy">外交</button>
+  <button class="filter-btn" data-filter="market">市场</button>
+  <button class="filter-btn" data-filter="energy">能源</button>
+  <button class="filter-btn" data-filter="humanitarian">人道</button>
+</div>
+
+<div class="timeline-container" id="timeline">
+
+<!-- ====== 前序 ====== -->
+<div class="day-header"><span class="day-label">2025 · 前序</span></div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot military"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">2025年6月</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">美以首次联合打击伊朗核设施 — "午夜之锤"行动</div>
+    <div class="entry-body">美以联合打击伊朗三处核设施（Fordow、Natanz、Isfahan），代号<strong>"Midnight Hammer"</strong>，持续12天，发射<span class="num">500+</span>枚弹道导弹。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="humanitarian">
+  <div class="timeline-dot humanitarian"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">2025年12月</span>
+      <span class="entry-tag tag-humanitarian">人道</span>
+    </div>
+    <div class="entry-title">伊朗爆发大规模反政府抗议</div>
+    <div class="entry-body">安全部队镇压致<strong><span class="num">6,800+</span>人死亡</strong>、<span class="num">5万+</span>人被捕。</div>
+  </div>
+</div>
+
+<!-- ====== 2026年1-2月 ====== -->
+<div class="day-header"><span class="day-label">2026年1-2月 · 战争准备</span></div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">2026年1月</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">沙特秘密游说美国攻击伊朗</div>
+    <div class="entry-body">沙特国防部长哈立德·本·萨勒曼赴华盛顿闭门游说。MBS过去一个月<strong>多次私下致电特朗普</strong>主张攻击。特朗普几乎下令打击但顾问称火力不足。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot military"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">1-2月</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">中东最大规模军事集结</div>
+    <div class="entry-body">特朗普下令部署：两艘航母、约<span class="num">13</span>艘驱逐舰、首次向以色列部署约<span class="num">12</span>架F-22战斗机。总兵力<strong>30,000-40,000人</strong>。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">2/25 周二</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">特朗普国情咨文警告伊朗</div>
+    <div class="entry-body">特朗普警告伊朗"再次追求核野心"；国务卿Rubio向国会"八人帮"做机密简报——暗示<strong>"以色列要打，我们跟不跟"</strong>。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">2/26-27</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">日内瓦第三轮核谈判破裂</div>
+    <div class="entry-body">Kushner和Witkoff经<span class="num">16</span>小时谈判未获突破返回华盛顿。伊朗提案将浓缩度从60%降至1.5%，美方认为不够。</div>
+    <div class="entry-quote">"去他妈的。" <span class="author">— 参议员 Lindsey Graham，对"允许伊朗保留少量浓缩铀以保全面子"方案的回应</span></div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">2/28 周五</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">最后外交努力失败 — 发现"三会窗口"</div>
+    <div class="entry-body">阿曼外长紧急飞往华盛顿做最后斡旋。美以情报发现伊朗高层<strong>三个会议同时进行的罕见窗口</strong>——特朗普飞往Mar-a-Lago，录制宣战讲话。</div>
+  </div>
+</div>
+
+<!-- ====== Day 1 ====== -->
+<div class="day-header"><span class="day-label">2月28日 周六<span class="day-num">DAY 1</span></span></div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot breaking"></div>
+  <div class="entry-card breaking-card">
+    <div class="entry-header">
+      <span class="entry-time">~01:00 ET</span>
+      <span class="entry-tag tag-breaking">BREAKING</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">Operation "Epic Fury" 正式开始</div>
+    <div class="entry-body">美军军舰发射战斧巡航导弹，B-2/B-1/B-52战略轰炸机从美国本土出击，首次实战部署<strong>LUCAS一次性攻击无人机</strong>。以色列出动<strong>超200架战机</strong>打击超<span class="num">500</span>个目标——以色列史上最大规模单次空中战役。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot breaking"></div>
+  <div class="entry-card breaking-card">
+    <div class="entry-header">
+      <span class="entry-time">~01:15 ET</span>
+      <span class="entry-tag tag-breaking">BREAKING</span>
+    </div>
+    <div class="entry-title">哈梅内伊遇袭 — 30枚炸弹投向其综合设施</div>
+    <div class="entry-body">以色列战机向最高领袖哈梅内伊的德黑兰办公室投下<span class="num">30</span>枚炸弹。同时击杀<span class="num">7</span>名伊朗高级官员，包括IRGC地面部队司令、国防部长等。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">02:30 ET</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">特朗普发布8分钟宣战视频</div>
+    <div class="entry-body">特朗普身着白色"USA"棒球帽，发布视频宣布"major combat operations"。随后接受WaPo电话采访，称目标是伊朗人民的<strong>"自由"</strong>。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot military"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">白天</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">伊朗发动大规模报复 — 攻击至少9个国家</div>
+    <div class="entry-body">伊朗向以色列、阿联酋、巴林、科威特、沙特、约旦、伊拉克、卡塔尔及<strong>首次攻击调停国阿曼</strong>发射导弹和无人机。耶路撒冷附近<span class="num">9</span>人死亡，特拉维夫<span class="num">1</span>人死亡。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="humanitarian">
+  <div class="timeline-dot humanitarian"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">白天</span>
+      <span class="entry-tag tag-humanitarian">人道</span>
+    </div>
+    <div class="entry-title">伊朗Minab女子小学被炸</div>
+    <div class="entry-body">伊朗南部Minab市Shajarah Tayyiba女子小学被空袭击中。伊朗驻联合国大使称超<span class="num">100</span>名儿童死亡（未经独立证实）。伊朗红新月会报告全国<span class="num">201</span>人死亡、<span class="num">747</span>人受伤，涉及24个省份。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="energy">
+  <div class="timeline-dot energy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">白天</span>
+      <span class="entry-tag tag-energy">能源</span>
+    </div>
+    <div class="entry-title">迪拜机场遇袭 · 油轮被攻击 · 海峡事实关闭</div>
+    <div class="entry-body">迪拜国际机场航站楼受损、棕榈岛火灾、帆船酒店(Burj Al Arab)受损。<span class="num">2,300+</span>航班取消。三艘油轮在海峡入口遇袭。IRGC通过海事无线电指令禁止通过海峡。</div>
+  </div>
+</div>
+
+<!-- ====== Day 2 ====== -->
+<div class="day-header"><span class="day-label">3月1日 周日<span class="day-num">DAY 2</span></span></div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot breaking"></div>
+  <div class="entry-card breaking-card">
+    <div class="entry-header">
+      <span class="entry-time">05:00 德黑兰</span>
+      <span class="entry-tag tag-breaking">BREAKING</span>
+    </div>
+    <div class="entry-title">伊朗国家电视台确认哈梅内伊死亡</div>
+    <div class="entry-body">最高领袖阿亚图拉·阿里·哈梅内伊（86岁）死亡得到正式确认。宣布全国哀悼40天。特朗普在Truth Social称其为 <em>"one of the most evil people in History, is dead"</em>。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">伊朗成立三人临时领导委员会</div>
+    <div class="entry-body">伊朗政治系统试图在混乱中维持运转。美国民主党推动战争权力投票，要求限制特朗普对伊行动授权。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="humanitarian">
+  <div class="timeline-dot humanitarian"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-humanitarian">人道</span>
+    </div>
+    <div class="entry-title">卡拉奇美领馆抗议10死34伤 · 多城反战示威</div>
+    <div class="entry-body">巴基斯坦卡拉奇美国领事馆外亲伊朗抗议导致<span class="num">10</span>人死亡、<span class="num">34</span>人受伤。华盛顿白宫外数百人抗议。纽约、伦敦等多城爆发反战示威。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="energy">
+  <div class="timeline-dot energy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">晚间</span>
+      <span class="entry-tag tag-energy">能源</span>
+    </div>
+    <div class="entry-title">OPEC+通过增产 · 分析师警告油价冲击</div>
+    <div class="entry-body">OPEC+通过4月起增产<span class="num">20.6万</span>桶/日。Barclays警告周一布伦特可能冲击<strong>$100/桶</strong>。但核心矛盾是："增产了也运不出去"。</div>
+    <div class="entry-quote">"你可以宣布提高产量，但如果油轮在霍尔木兹受阻，物理市场依然紧张。" <span class="author">— Rystad Jorge Leon</span></div>
+  </div>
+</div>
+
+<!-- ====== Day 3 ====== -->
+<div class="day-header"><span class="day-label">3月2日 周一<span class="day-num">DAY 3</span></span></div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot breaking"></div>
+  <div class="entry-card breaking-card">
+    <div class="entry-header">
+      <span class="entry-time">凌晨</span>
+      <span class="entry-tag tag-breaking">BREAKING</span>
+    </div>
+    <div class="entry-title">IRGC第六波报复：导弹攻击27个美军基地</div>
+    <div class="entry-body">IRGC发动大规模导弹+无人机攻击<span class="num">27</span>个美军中东基地及以色列军事总部。CENTCOM确认<strong>3名美军阵亡、5人重伤</strong>——Epic Fury首批美军战斗伤亡。IRGC宣称4枚导弹命中林肯号航母，CENTCOM否认。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market">
+  <div class="timeline-dot market"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">开盘</span>
+      <span class="entry-tag tag-market">市场</span>
+    </div>
+    <div class="entry-title">全球市场剧震 · 布伦特+13% · 道指跌500点</div>
+    <div class="entry-body">布伦特跳空高开<span class="num">+9%</span>至$79.41，盘中触及<span class="num">$82</span>（+13%）。道指期货跌<span class="num">500</span>点。黄金+2%。交易员策略：<strong>"Haven first, ask questions later"</strong>。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="energy">
+  <div class="timeline-dot energy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-energy">能源</span>
+    </div>
+    <div class="entry-title">霍尔木兹海峡通行量骤降70% · Maersk暂停通行</div>
+    <div class="entry-body">海峡船舶通行量<strong>骤降70%</strong>。约<span class="num">150</span>艘油轮在海湾开阔水域抛锚等待。<strong>Maersk宣布暂停所有海峡通行</strong>。美旗油轮Stena Imperative号在巴林港遭攻击起火。沙特利雅得美国大使馆遭两架无人机袭击。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">欧盟首次明确支持政权更迭 · 特朗普称"四周或更短"</div>
+    <div class="entry-body">欧盟委员会主席冯德莱恩公开支持伊朗<strong>"可信过渡"（regime change）</strong>——欧盟首次明确支持政权更迭。特朗普告诉CNBC行动"ahead of schedule"，可能"四周或更短"完成。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot breaking"></div>
+  <div class="entry-card breaking-card">
+    <div class="entry-header">
+      <span class="entry-time">晚间</span>
+      <span class="entry-tag tag-breaking">BREAKING</span>
+    </div>
+    <div class="entry-title">真主党正式参战 · 黎巴嫩政府禁止真主党军事活动</div>
+    <div class="entry-body">真主党向以色列北部<strong>Ramat David空军基地</strong>发射无人机蜂群。以色列报复轰炸贝鲁特南郊，<span class="num">52</span>人死亡。黎巴嫩总统奥恩宣布<strong>立即禁止真主党一切军事活动</strong>，要求交出武器。</div>
+    <div class="entry-quote">"以色列想要全面战争，那就全面战争。忍耐时代已经结束。" <span class="author">— 真主党声明</span></div>
+  </div>
+</div>
+
+<!-- ====== Day 4 ====== -->
+<div class="day-header"><span class="day-label">3月3日 周二<span class="day-num">DAY 4</span></span></div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot military"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">凌晨</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">美军阵亡升至6人 · 以色列地面入侵南黎巴嫩</div>
+    <div class="entry-body">CENTCOM确认美军阵亡总数升至<span class="num">6</span>人。以色列国防部长授权IDF进入南黎巴嫩。以色列同时对<strong>德黑兰和贝鲁特</strong>军事目标发动打击——<strong>双线同步作战</strong>。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="energy">
+  <div class="timeline-dot breaking"></div>
+  <div class="entry-card breaking-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-breaking">BREAKING</span>
+      <span class="entry-tag tag-energy">能源</span>
+    </div>
+    <div class="entry-title">IRGC宣布霍尔木兹海峡"正式关闭"</div>
+    <div class="entry-body">IRGC高级官员宣布海峡<strong>"已关闭"</strong>，警告任何试图通过的船只将遭攻击。通行量降至<strong>~零</strong>。VLCC中东→中国运费创历史新高<span class="num">$423,736</span>/天。油轮保险公司集体撤销战争风险保障。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market">
+  <div class="timeline-dot market"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-market">市场</span>
+    </div>
+    <div class="entry-title">布伦特升至$82 · 黄金触及$5,400 · 欧洲天然气飙涨20%</div>
+    <div class="entry-body">布伦特升至<span class="num">$81-82</span>/桶（8个月高点）。黄金一度触及<span class="num">$5,400</span>/oz。美元指数涨0.95%至5周高点。特朗普改口称冲突可能持续<strong>"四到五周"</strong>。<span class="num">3万</span>黎巴嫩人流离失所。</div>
+  </div>
+</div>
+
+<!-- ====== Day 5 ====== -->
+<div class="day-header"><span class="day-label">3月4日 周三<span class="day-num">DAY 5</span></span></div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">参议院53-47否决战争权力决议 · 伊朗求和遭拒</div>
+    <div class="entry-body">参议院以<span class="num">53-47</span>否决限制特朗普对伊行动的战争权力决议。CNBC报道伊朗向CIA通过第三国间接提出停战讨论。特朗普拒绝：<strong>"too late"</strong>。布伦特升至~$85+。</div>
+  </div>
+</div>
+
+<!-- ====== Day 6 ====== -->
+<div class="day-header"><span class="day-label">3月5日 周四<span class="day-num">DAY 6</span></span></div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">众议院否决战争权力决议 · CIA武装库尔德武装</div>
+    <div class="entry-body">众议院以<span class="num">219-212</span>否决战争权力决议。特朗普公开声援库尔德进攻。CNN披露<strong>CIA正在武装库尔德武装</strong>。黎巴嫩宣布逮捕并遣返一切与IRGC有关人员。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="energy">
+  <div class="timeline-dot energy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-energy">能源</span>
+    </div>
+    <div class="entry-title">IRGC修改海峡封锁策略 · 油价一周飙涨35%</div>
+    <div class="entry-body">IRGC宣布海峡<strong>仅对美国、以色列和西方盟国船只关闭</strong>——伊朗和中国旗船只继续通行。道指暴跌<span class="num">~800</span>点。CNBC：油价一周飙涨<strong>35%</strong>——1983年以来期货最大单周涨幅。</div>
+  </div>
+</div>
+
+<!-- ====== Day 7 ====== -->
+<div class="day-header"><span class="day-label">3月6日 周五<span class="day-num">DAY 7</span></span></div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot military"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">以色列摧毁80%伊朗防空 · 美以战机无阻飞行</div>
+    <div class="entry-body">以色列宣布已摧毁<strong>80%伊朗防空系统</strong>和至少<strong>60%导弹发射能力</strong>。美以战机在伊朗领空<strong>无阻飞行</strong>。以色列击毙真主党指挥官及哈马斯指挥官。第8名美军阵亡确认。布伦特升至<span class="num">$90</span>。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">特朗普要求伊朗"无条件投降" — "MAKE IRAN GREAT AGAIN"</div>
+    <div class="entry-body">特朗普发文要求伊朗<strong>"UNCONDITIONAL SURRENDER"</strong>，承诺给投降领导人豁免，喊出<strong>"MAKE IRAN GREAT AGAIN (MIGA!)"</strong>。库尔德PDKI称"我们的大部队已经在伊朗境内"。</div>
+  </div>
+</div>
+
+<!-- ====== Day 8 ====== -->
+<div class="day-header"><span class="day-label">3月7日 周六<span class="day-num">DAY 8</span></span></div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot military"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">伊朗声称抓获美军 · 阿联酋宣布自卫行动</div>
+    <div class="entry-body">伊朗国安委秘书长Ali Larijani声称抓获美军士兵，CENTCOM否认。阿联酋宣布自卫行动——称遭伊朗<span class="num">1,400+</span>枚导弹和无人机袭击。巴林国家石油公司宣布不可抗力。土耳其NATO防御系统第二次拦截伊朗导弹。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">伊朗拒绝停火 · 总统道歉但强硬派誓言继续</div>
+    <div class="entry-body">伊朗外长Araghchi拒绝停火。伊朗总统Pezeshkian就攻击邻国<strong>道歉</strong>，但强硬派誓言继续作战。</div>
+    <div class="entry-quote">"我们不需要停火……我们不需要在被攻击两次后再谈判。" <span class="author">— 伊朗外长 Araghchi</span></div>
+  </div>
+</div>
+
+<!-- ====== Day 9 ====== -->
+<div class="day-header"><span class="day-label">3月8日 周日<span class="day-num">DAY 9</span></span></div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot breaking"></div>
+  <div class="entry-card breaking-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-breaking">BREAKING</span>
+    </div>
+    <div class="entry-title">穆杰塔巴·哈梅内伊被选为新最高领袖</div>
+    <div class="entry-body"><strong>穆杰塔巴·哈梅内伊</strong>（56岁，已故领袖之子）被专家会议选为新最高领袖——IRGC施压投票。特朗普回应：<em>"I am not happy... not going through this to end up with another Khamenei."</em></div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market">
+  <div class="timeline-dot breaking"></div>
+  <div class="entry-card breaking-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-breaking">BREAKING</span>
+      <span class="entry-tag tag-market">市场</span>
+    </div>
+    <div class="entry-title">布伦特突破$100 · 日经跌5% · 道指期货跌1,000点</div>
+    <div class="entry-body">布伦特原油<strong>突破$100</strong>——自2022年俄乌战争以来首次。道指期货跌<span class="num">1,000</span>点。日经跌<span class="num">5%+</span>。韩国KOSPI跌<span class="num">6%+</span>。霍尔木兹海峡单日通行量降至冲突以来最低——仅2艘伊朗旗出港船，零入港。</div>
+  </div>
+</div>
+
+<!-- ====== Day 10 ====== -->
+<div class="day-header"><span class="day-label">3月9日 周一<span class="day-num">DAY 10</span></span></div>
+
+<div class="timeline-entry" data-cat="market">
+  <div class="timeline-dot market"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-market">市场</span>
+    </div>
+    <div class="entry-title">布伦特盘中暴涨至$119.50后急剧反转</div>
+    <div class="entry-body">布伦特盘中暴涨30%至<span class="num">$119.50</span>/桶，随后急剧反转跌至<span class="num">~$86-89</span>。黄金报<span class="num">$5,092</span>/oz。美国汽油均价升至<span class="num">$3.45</span>/加仑——战争开始以来涨~50美分（+17%）。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot military"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">穆杰塔巴首次下令发射导弹 · 特朗普称"还没赢够"</div>
+    <div class="entry-body">新最高领袖穆杰塔巴上任后首次下令发射导弹。伊朗全国集会宣誓效忠。以色列称过去一周黎巴嫩对以攻击次数超过伊朗。特朗普告诉众议院共和党人：<em>"we have won, <strong>but we haven't won enough</strong>"</em>。<span class="num">32,000+</span>美国人已撤离中东。</div>
+  </div>
+</div>
+
+<!-- ====== Day 11-12 ====== -->
+<div class="day-header"><span class="day-label">3月10日 周二<span class="day-num">DAY 11-12</span></span></div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot breaking"></div>
+  <div class="entry-card breaking-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-breaking">BREAKING</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">Hegseth宣布"史上最猛烈一天" · 伊朗开始布雷</div>
+    <div class="entry-body">国防部长Hegseth宣布<strong>"史上最猛烈一天的打击"</strong>——投入最多战机、轰炸机和打击架次。特朗普称已打击超<span class="num">5,000</span>个目标。CNN报道伊朗<strong>开始在霍尔木兹海峡布雷</strong>——已布设数十枚水雷。CENTCOM摧毁<span class="num">16</span>艘伊朗布雷艇。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot military"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">美军伤亡全面更新 · 俄罗斯向伊朗分享美军坐标</div>
+    <div class="entry-body">五角大楼确认：<strong>~140名美军受伤（8人重伤）、8人阵亡</strong>（Pentagon此前仅公布"不到12人"受伤——Reuters曝光后被迫声明）。WSJ独家：<strong>俄罗斯正在向伊朗分享美军在中东的位置坐标</strong>——包括军舰和飞机坐标。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="humanitarian">
+  <div class="timeline-dot humanitarian"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-humanitarian">人道</span>
+    </div>
+    <div class="entry-title">伊朗累计1,255+死 · 黎巴嫩486+死70万+流离失所</div>
+    <div class="entry-body">伊朗全国累计<span class="num">1,255+</span>人死亡、<span class="num">1万+</span>人受伤。德黑兰住宅楼被炸致<span class="num">40</span>人死亡。黎巴嫩死亡升至<span class="num">486+</span>人（含83名儿童），<span class="num">70万+</span>流离失所。马龙派神父被以色列坦克射击打死。伊朗互联网中断已达<span class="num">240</span>小时。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market">
+  <div class="timeline-dot market"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-market">市场</span>
+    </div>
+    <div class="entry-title">布伦特暴跌11%至$87.80 · 能源部长错误发帖引崩盘</div>
+    <div class="entry-body">布伦特暴跌<span class="num">11.28%</span>至<span class="num">$87.80</span>（日高$103.47）。<strong>能源部长Chris Wright错误宣称海军已护送油轮过海峡后删帖</strong>——油价盘中急挫17%。特朗普宣布将解除部分产油国制裁以平抑油价（路透：考虑放松俄罗斯石油制裁）。G7讨论释放战略储备未达共识。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="diplomacy">
+  <div class="timeline-dot diplomacy"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-diplomacy">外交</span>
+    </div>
+    <div class="entry-title">伊朗拒绝停火 · 特朗普称"战争very soon结束"</div>
+    <div class="entry-body">伊朗IRGC发言人：<strong>"伊朗决定战争何时结束"</strong>。议长Ghalibaf："绝不寻求停火"。特朗普："I think the war is very complete, pretty much"→随后改口"不会本周结束"但"very soon"。中国、俄罗斯、法国分别联系伊朗商讨停火前景。</div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="military">
+  <div class="timeline-dot military"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-military">军事</span>
+    </div>
+    <div class="entry-title">全球防空弹药危机 · 乌克兰成为"军火超市"</div>
+    <div class="entry-body">11天内美国及盟友已发射超<span class="num">1,000</span>枚PAC-3拦截弹。泽连斯基：乌克兰自俄乌战争以来才获得<span class="num">600</span>枚。乌克兰无人机制造商Skyfall收到中东多国采购请求，准备立即发货<span class="num">5,000-10,000</span>架。</div>
+    <div class="entry-quote">"Everyone's phone is ringing constantly. Calls from Oman, Dubai, Qatar, U.A.E." <span class="author">— Yury Hudymenko, Skyfall</span></div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="humanitarian">
+  <div class="timeline-dot humanitarian"></div>
+  <div class="entry-card">
+    <div class="entry-header">
+      <span class="entry-time">日间</span>
+      <span class="entry-tag tag-humanitarian">人道</span>
+    </div>
+    <div class="entry-title">澳大利亚向伊朗女足球员发放人道签证</div>
+    <div class="entry-body">澳大利亚向5名拒唱国歌的<strong>伊朗女足球员</strong>发放人道主义签证。伊朗国家电视台此前将她们称为叛徒。3/10-11又有2名球员和1名工作人员获签，总计<span class="num">7</span>人获庇护。</div>
+  </div>
+</div>
+
+</div><!-- end timeline-container -->
+
+<footer class="footer">
+  <p>数据来源：Bloomberg · Wall Street Journal · Washington Post · Reuters · CNBC · Al Jazeera · Goldman Sachs · CNN</p>
+  <p style="margin-top: 8px">本页面为研究用途，基于公开报道整理，不构成任何投资建议。</p>
+</footer>
+
+<script>
+// Filter functionality
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.timeline-entry').forEach(entry => {
+      if (filter === 'all' || entry.dataset.cat === filter) {
+        entry.style.display = '';
+      } else {
+        entry.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Stagger animations
+document.querySelectorAll('.timeline-entry').forEach((entry, i) => {
+  entry.style.animationDelay = `${i * 0.05}s`;
+});
+</script>
+
+</body>
+</html>
