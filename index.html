@@ -309,7 +309,7 @@
     <!-- Chart 1: 布伦特原油走势 -->
     <div class="chart-card">
       <h3>布伦特原油价格走势</h3>
-      <div class="chart-subtitle">2/28开战 → 3/17（美元/桶）· 资料来源：Bloomberg</div>
+      <div class="chart-subtitle">2/28开战 → 3/17收盘（美元/桶）· 资料来源：Bloomberg</div>
       <div class="chart-area">
         <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
           <line x1="50" y1="20" x2="50" y2="180" stroke="#E0E0E0" stroke-width="1"/>
@@ -328,34 +328,36 @@
               <stop offset="100%" stop-color="#FF0000" stop-opacity="0.02"/>
             </linearGradient>
           </defs>
-          <!-- Data: 2/27=$72.5, 3/1=$79, 3/2=$79, 3/3=$82, 3/4=$85, 3/5=$85, 3/7=$90, 3/8=$100, 3/9=$119.5→$88, 3/10=$88→$101, 3/12=$101, 3/14=$103.14, 3/15=$103.82, 3/16=$103 -->
-          <polygon points="50,148 78,142 106,142 134,110 162,105 190,105 218,90 246,70 274,70 302,52 330,20 358,90 386,90 414,62 442,62 470,58 500,51 500,180 50,180" fill="url(#oilGrad)"/>
-          <polyline points="50,148 78,142 106,142 134,110 162,105 190,105 218,90 246,70 274,70 302,52 330,20 358,90 386,90 414,62 442,62 470,58 500,51" fill="none" stroke="#FF0000" stroke-width="2.25" stroke-linejoin="round"/>
-          <circle cx="50" cy="148" r="3" fill="#FF0000"/>
-          <circle cx="330" cy="20" r="5" fill="#FF0000" stroke="#fff" stroke-width="2"/>
-          <text x="330" y="14" fill="#FF0000" font-size="10" font-family="Arial" text-anchor="middle" font-weight="700">$119.5</text>
-          <circle cx="500" cy="51" r="4" fill="#044E7E" stroke="#fff" stroke-width="2"/>
-          <text x="490" y="44" fill="#044E7E" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">$103</text>
-          <text x="50" y="162" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">$72.5</text>
+          <!-- Data: 2/27=$72.5, 3/1=$79, 3/3=$82, 3/5=$85, 3/7=$90, 3/8=$100, 3/9peak=$119.5, 3/10crash=$88, 3/10recover=$101, 3/12=$101, 3/14=$103, 3/15=$104, 3/16=$105, 3/17am=$102, 3/17close=$97 -->
+          <polygon points="50,147 82,129 114,121 146,113 178,100 210,73 242,21 274,105 306,71 338,71 370,65 402,63 434,60 467,68 500,81 500,180 50,180" fill="url(#oilGrad)"/>
+          <polyline points="50,147 82,129 114,121 146,113 178,100 210,73 242,21 274,105 306,71 338,71 370,65 402,63 434,60 467,68 500,81" fill="none" stroke="#FF0000" stroke-width="2.25" stroke-linejoin="round"/>
+          <circle cx="50" cy="147" r="3" fill="#FF0000"/>
+          <circle cx="242" cy="21" r="5" fill="#FF0000" stroke="#fff" stroke-width="2"/>
+          <text x="242" y="14" fill="#FF0000" font-size="10" font-family="Arial" text-anchor="middle" font-weight="700">$119.5</text>
+          <circle cx="500" cy="81" r="4" fill="#2E7D32" stroke="#fff" stroke-width="2"/>
+          <text x="490" y="76" fill="#2E7D32" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">$97 ▼5%</text>
+          <text x="50" y="161" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">$72.5</text>
+          <!-- X-axis labels -->
           <text x="50" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">2/27</text>
-          <text x="106" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/1</text>
-          <text x="162" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/3</text>
-          <text x="218" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/5</text>
-          <text x="274" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/7</text>
-          <text x="330" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/9</text>
-          <text x="386" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/10</text>
-          <text x="442" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/12</text>
-          <text x="500" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/16</text>
-          <line x1="50" y1="148" x2="50" y2="180" stroke="#FF0000" stroke-width="1" stroke-dasharray="3"/>
+          <text x="82" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/1</text>
+          <text x="146" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/5</text>
+          <text x="242" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/9</text>
+          <text x="338" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/12</text>
+          <text x="402" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/15</text>
+          <text x="500" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/17</text>
+          <!-- Event annotations -->
+          <line x1="50" y1="147" x2="50" y2="180" stroke="#FF0000" stroke-width="1" stroke-dasharray="3"/>
           <text x="55" y="175" fill="#FF0000" font-size="8" font-family="Calibri">开战</text>
-          <line x1="302" y1="52" x2="302" y2="180" stroke="#FF3333" stroke-width="1" stroke-dasharray="3"/>
-          <text x="295" y="175" fill="#FF3333" font-size="8" font-family="Calibri">破$100</text>
-          <line x1="358" y1="90" x2="358" y2="180" stroke="#044E7E" stroke-width="1" stroke-dasharray="3"/>
-          <text x="351" y="175" fill="#044E7E" font-size="8" font-family="Calibri">暴跌</text>
-          <line x1="414" y1="62" x2="414" y2="180" stroke="#FF3333" stroke-width="1" stroke-dasharray="3"/>
-          <text x="408" y="175" fill="#FF3333" font-size="8" font-family="Calibri">IEA释储</text>
-          <line x1="470" y1="58" x2="470" y2="180" stroke="#FF3333" stroke-width="1" stroke-dasharray="3"/>
-          <text x="463" y="175" fill="#FF3333" font-size="8" font-family="Calibri">哈尔克岛</text>
+          <line x1="210" y1="73" x2="210" y2="180" stroke="#FF3333" stroke-width="1" stroke-dasharray="3"/>
+          <text x="205" y="175" fill="#FF3333" font-size="8" font-family="Calibri">破$100</text>
+          <line x1="274" y1="105" x2="274" y2="180" stroke="#044E7E" stroke-width="1" stroke-dasharray="3"/>
+          <text x="268" y="175" fill="#044E7E" font-size="8" font-family="Calibri">暴跌</text>
+          <line x1="338" y1="71" x2="338" y2="180" stroke="#FF3333" stroke-width="1" stroke-dasharray="3"/>
+          <text x="332" y="175" fill="#FF3333" font-size="8" font-family="Calibri">IEA释储</text>
+          <line x1="402" y1="63" x2="402" y2="180" stroke="#FF3333" stroke-width="1" stroke-dasharray="3"/>
+          <text x="396" y="175" fill="#FF3333" font-size="8" font-family="Calibri">哈尔克岛</text>
+          <line x1="467" y1="68" x2="467" y2="180" stroke="#2E7D32" stroke-width="1" stroke-dasharray="3"/>
+          <text x="460" y="175" fill="#2E7D32" font-size="8" font-family="Calibri">Bessent</text>
         </svg>
       </div>
     </div>
@@ -363,19 +365,19 @@
     <!-- Chart 2: 伊朗导弹/无人机发射量 -->
     <div class="chart-card">
       <h3>伊朗攻击武器发射量（累计）</h3>
-      <div class="chart-subtitle">19天累计：2,600+架无人机 + 850+枚弹道导弹 · 资料来源：Bloomberg</div>
+      <div class="chart-subtitle">19天累计：2,700+架无人机 + 850+枚弹道导弹 · 资料来源：Bloomberg/Pentagon</div>
       <div class="chart-area">
         <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
           <line x1="50" y1="20" x2="50" y2="180" stroke="#E0E0E0" stroke-width="1"/>
           <line x1="50" y1="180" x2="500" y2="180" stroke="#E0E0E0" stroke-width="1"/>
-          <text x="45" y="24" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">2,500</text>
+          <text x="45" y="24" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">3,000</text>
           <line x1="50" y1="20" x2="500" y2="20" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="56" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">2,000</text>
-          <line x1="50" y1="52" x2="500" y2="52" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="88" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">1,500</text>
-          <line x1="50" y1="84" x2="500" y2="84" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="120" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">1,000</text>
-          <line x1="50" y1="116" x2="500" y2="116" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="52" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">2,500</text>
+          <line x1="50" y1="48" x2="500" y2="48" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="84" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">2,000</text>
+          <line x1="50" y1="80" x2="500" y2="80" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="116" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">1,000</text>
+          <line x1="50" y1="112" x2="500" y2="112" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
           <text x="45" y="152" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">500</text>
           <line x1="50" y1="148" x2="500" y2="148" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
           <defs>
@@ -388,24 +390,24 @@
               <stop offset="100%" stop-color="#044E7E" stop-opacity="0.02"/>
             </linearGradient>
           </defs>
-          <polygon points="50,167 82,154 114,142 146,129 178,116 210,103 242,90 274,84 306,77 338,65 370,42 402,36 434,32 468,28 500,20 500,180 50,180" fill="url(#droneGrad)"/>
-          <polyline points="50,167 82,154 114,142 146,129 178,116 210,103 242,90 274,84 306,77 338,65 370,42 402,36 434,32 468,28 500,20" fill="none" stroke="#FF0000" stroke-width="2.25" stroke-linejoin="round"/>
-          <circle cx="500" cy="20" r="4" fill="#FF0000"/>
-          <text x="490" y="14" fill="#FF0000" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">2,500+</text>
-          <polygon points="50,175 82,170 114,164 146,159 178,155 210,149 242,144 274,148 306,145 338,140 370,136 402,134 434,132 468,130 500,128 500,180 50,180" fill="url(#missileGrad)"/>
-          <polyline points="50,175 82,170 114,164 146,159 178,155 210,149 242,144 274,148 306,145 338,140 370,136 402,134 434,132 468,130 500,128" fill="none" stroke="#044E7E" stroke-width="2.25" stroke-linejoin="round"/>
-          <circle cx="500" cy="128" r="4" fill="#044E7E"/>
-          <text x="490" y="123" fill="#044E7E" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">820+</text>
+          <!-- Drones: D1~200, D3~400, D5~650, D7~900, D9~1100, D11~1500, D13~1800, D15~2100, D17~2400, D19~2700 -->
+          <polygon points="50,169 100,156 150,145 200,132 250,121 300,100 350,84 400,68 450,52 500,36 500,180 50,180" fill="url(#droneGrad)"/>
+          <polyline points="50,169 100,156 150,145 200,132 250,121 300,100 350,84 400,68 450,52 500,36" fill="none" stroke="#FF0000" stroke-width="2.25" stroke-linejoin="round"/>
+          <circle cx="500" cy="36" r="4" fill="#FF0000"/>
+          <text x="490" y="30" fill="#FF0000" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">2,700+</text>
+          <!-- Missiles: D1~50, D3~100, D5~150, D7~250, D9~350, D11~500, D13~600, D15~700, D17~780, D19~850 -->
+          <polygon points="50,177 100,174 150,172 200,166 250,161 300,153 350,148 400,143 450,139 500,135 500,180 50,180" fill="url(#missileGrad)"/>
+          <polyline points="50,177 100,174 150,172 200,166 250,161 300,153 350,148 400,143 450,139 500,135" fill="none" stroke="#044E7E" stroke-width="2.25" stroke-linejoin="round"/>
+          <circle cx="500" cy="135" r="4" fill="#044E7E"/>
+          <text x="490" y="130" fill="#044E7E" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">850+</text>
           <text x="50" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D1</text>
-          <text x="114" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D3</text>
-          <text x="178" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D5</text>
-          <text x="242" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D7</text>
-          <text x="306" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D9</text>
-          <text x="370" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D11</text>
-          <text x="434" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D13</text>
-          <text x="500" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D15</text>
-          <rect x="300" y="2" rx="3" width="125" height="16" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/>
-          <text x="362" y="13" fill="#044E7E" font-size="9" font-family="Calibri" text-anchor="middle">PAC-3拦截弹消耗 1,000+</text>
+          <text x="100" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D3</text>
+          <text x="200" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D7</text>
+          <text x="300" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D11</text>
+          <text x="400" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D15</text>
+          <text x="500" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D19</text>
+          <rect x="290" y="2" rx="3" width="170" height="16" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/>
+          <text x="375" y="13" fill="#044E7E" font-size="9" font-family="Calibri" text-anchor="middle">PAC-3消耗1,000+ · MQ-9损失~12架</text>
         </svg>
         <div class="chart-legend">
           <div class="legend-item"><div class="legend-dot" style="background:#FF0000"></div>攻击无人机（架）</div>
@@ -464,19 +466,24 @@
           <div class="bar-track"><div class="bar-fill" style="width:3%; background:#FF3333;"></div></div>
           <div class="bar-value" style="color:#FF3333">伊朗/印度油轮</div>
         </div>
+        <div class="bar-row">
+          <div class="bar-label">Day 19</div>
+          <div class="bar-track"><div class="bar-fill" style="width:5%; background:linear-gradient(90deg, #2E7D32, #81A6BE);"></div></div>
+          <div class="bar-value" style="color:#2E7D32; font-weight:700">巴基斯坦+LPG</div>
+        </div>
       </div>
       <div style="margin-top:10px; padding:6px 10px; background:#F5F5F5; border-radius:4px; font-size:11px; color:#555; border-left:3px solid #FF0000;">
         滞留船只：<strong style="color:#FF0000">600+艘</strong>（海峡区域1,000+艘）&nbsp;|&nbsp;
         VLCC运费：<strong style="color:#FF0000">$423,736/天</strong>（历史新高）&nbsp;|&nbsp;
-        保险：<strong style="color:#FF0000">已撤销</strong> &nbsp;|&nbsp;
-        DFC+Chubb再保险：<strong style="color:#044E7E">$200亿</strong>
+        Bessent：<strong style="color:#2E7D32">允许伊朗出口石油</strong> &nbsp;|&nbsp;
+        沙特：<strong style="color:#044E7E">启用Yanbu管线绕道</strong>
       </div>
     </div>
 
     <!-- Chart 4: 伤亡对比 & 弹药消耗 -->
     <div class="chart-card">
       <h3>各方伤亡与弹药消耗</h3>
-      <div class="chart-subtitle">截至 Day 19（3月17日22:00更新）· 资料来源：WaPo/Pentagon/Al Jazeera/Hengaw</div>
+      <div class="chart-subtitle">截至 Day 19（3月18日07:30更新）· 资料来源：WaPo/Pentagon/Al Jazeera/Hengaw</div>
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 14px;">
         <div>
           <div style="font-size:11px; color:var(--primary-blue); margin-bottom:8px; font-weight:700;">伤亡统计</div>
@@ -514,8 +521,8 @@
         <div>
           <div style="font-size:11px; color:var(--primary-blue); margin-bottom:8px; font-weight:700;">军费开支</div>
           <div style="text-align:center; margin-bottom:10px;">
-            <div style="font-size:34px; font-weight:800; color:#FF0000; font-family:Arial,sans-serif;">$11.3B</div>
-            <div style="font-size:10px; color:#838383;">首周总花费$113亿（弹药$56亿+行动$57亿）</div>
+            <div style="font-size:34px; font-weight:800; color:#FF0000; font-family:Arial,sans-serif;">$12B+</div>
+            <div style="font-size:10px; color:#838383;">19天累计$120亿+（首周$113亿+后续行动）</div>
           </div>
           <div style="font-size:11px; color:#838383; margin-bottom:4px;">拦截弹库存压力</div>
           <div class="h-metric">
