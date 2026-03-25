@@ -135,13 +135,13 @@
   .bar-track { flex: 1; height: 22px; background: var(--bg-alt); border-radius: 3px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 3px; }
   .bar-value { font-size: 11px; font-weight: 700; width: 65px; font-family: Arial, sans-serif; flex-shrink: 0; }
-  /* 垂直柱状图 */
-  .vbar-chart { display:flex; align-items:flex-end; height:150px; gap:3px; border-bottom:1.5px solid var(--border); padding:0 2px; }
-  .vbar-col { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; }
-  .vbar-val { font-size:9px; font-weight:700; font-family:Arial,sans-serif; margin-bottom:2px; white-space:nowrap; line-height:1.1; text-align:center; }
-  .vbar-bar { width:70%; border-radius:3px 3px 0 0; min-height:2px; }
-  .vbar-labels { display:flex; gap:3px; padding:3px 2px 0; }
-  .vbar-lbl { flex:1; text-align:center; font-size:9px; color:var(--text-dim); white-space:nowrap; }
+  /* 水平条形图（霍尔木兹海峡） */
+  .hbar-chart { display:flex; flex-direction:column; gap:3px; }
+  .hbar-row { display:flex; align-items:center; gap:0; height:20px; }
+  .hbar-label { width:52px; text-align:right; font-size:9px; font-weight:700; color:#555; flex-shrink:0; padding-right:6px; font-family:Arial,sans-serif; }
+  .hbar-track { flex:1; height:16px; background:#f5f5f5; border-radius:3px; overflow:hidden; position:relative; }
+  .hbar-bar { height:100%; border-radius:3px; min-width:2px; transition:width 0.3s; }
+  .hbar-desc { width:130px; font-size:8.5px; font-weight:600; flex-shrink:0; padding-left:6px; line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
   .h-metric { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
   .h-metric .h-label { font-size: 11px; color: var(--text-dim); width: 90px; flex-shrink: 0; text-align: right; }
@@ -522,85 +522,82 @@
       </div>
     </div>
 
-    <!-- Chart 3: 霍尔木兹海峡通行量 -->
-    <div class="chart-card">
+    <!-- Chart 3: 霍尔木兹海峡通行量（水平条形图） -->
+    <div class=”chart-card”>
       <h3>霍尔木兹海峡日均船舶通行量</h3>
-      <div class="chart-subtitle">全球海运原油~1/5、LNG出口~20%经此通过 · 资料来源：Windward AIS</div>
-      <div class="vbar-chart">
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#044E7E">~110</div>
-          <div class="vbar-bar" style="height:140px; background:#81A6BE;"></div>
+      <div class=”chart-subtitle”>全球海运原油~1/5、LNG出口~20%经此通过 · 资料来源：Windward AIS</div>
+      <div class=”hbar-chart”>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#044E7E”>战前</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:100%; background:#81A6BE;”></div></div>
+          <div class=”hbar-desc” style=”color:#044E7E”>~110艘/日 正常水平</div>
         </div>
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#367198">~60</div>
-          <div class="vbar-bar" style="height:77px; background:#B4CAD8;"></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#367198”>D1</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:55%; background:#B4CAD8;”></div></div>
+          <div class=”hbar-desc” style=”color:#367198”>~60 急剧下降</div>
         </div>
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#FF3333">~30</div>
-          <div class="vbar-bar" style="height:38px; background:#FF8080;"></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#CC3333”>D2</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:27%; background:#FF8080;”></div></div>
+          <div class=”hbar-desc” style=”color:#CC3333”>~30 IRGC警告</div>
         </div>
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#FF3333">~20</div>
-          <div class="vbar-bar" style="height:25px; background:#FF8080;"></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#CC3333”>D3</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:18%; background:#FF8080;”></div></div>
+          <div class=”hbar-desc” style=”color:#CC3333”>~20 航运公司撤离</div>
         </div>
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#FF0000">~5</div>
-          <div class="vbar-bar" style="height:7px; background:#FF0000;"></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#CC0000”>D4</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:5%; background:#FF0000;”></div></div>
+          <div class=”hbar-desc” style=”color:#CC0000”>~5 接近瘫痪</div>
         </div>
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#FF0000; font-size:8px">封锁</div>
-          <div class="vbar-bar" style="height:3px; background:#FF0000;"></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#CC0000; font-weight:800”>D5-10</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:1.5%; background:#CC0000;”></div></div>
+          <div class=”hbar-desc” style=”color:#CC0000; font-weight:800”>🚫 封锁 伊朗宣布关闭海峡</div>
         </div>
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#FF0000; font-weight:800; font-size:8px">布雷!</div>
-          <div class="vbar-bar" style="height:4px; background:repeating-linear-gradient(45deg, #FF0000, #FF0000 3px, #FF8080 3px, #FF8080 6px);"></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#CC0000; font-weight:800”>D11</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:2%; background:repeating-linear-gradient(90deg, #FF0000, #FF0000 4px, #FF8080 4px, #FF8080 8px);”></div></div>
+          <div class=”hbar-desc” style=”color:#CC0000; font-weight:800”>💣 布雷! 水雷封锁</div>
         </div>
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#FF3333; font-size:8px">零星</div>
-          <div class="vbar-bar" style="height:5px; background:#FF3333;"></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#CC3333”>D13-18</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:3%; background:#FF5555;”></div></div>
+          <div class=”hbar-desc” style=”color:#CC3333”>零星通行 极少数船只</div>
         </div>
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#2E7D32; font-size:8px">"许可"</div>
-          <div class="vbar-bar" style="height:7px; background:linear-gradient(0deg, #2E7D32, #B4CAD8);"></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#2E7D32”>D19-22</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:5%; background:linear-gradient(90deg, #2E7D32, #81A6BE);”></div></div>
+          <div class=”hbar-desc” style=”color:#2E7D32”>”许可”制 选择性放行</div>
         </div>
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#2E7D32; font-size:7px; line-height:1.1">🇮🇳🇯🇵<br>选择放行</div>
-          <div class="vbar-bar" style="height:10px; background:linear-gradient(0deg, #2E7D32 60%, #044E7E);"></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#2E7D32”>D23</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:7%; background:linear-gradient(90deg, #2E7D32 60%, #044E7E);”></div></div>
+          <div class=”hbar-desc” style=”color:#2E7D32”>🇮🇳🇯🇵 选择放行印日船只</div>
         </div>
-        <div class="vbar-col">
-          <div class="vbar-val" style="color:#FF0000; font-size:7px; line-height:1.1; font-weight:800">⚠️48h<br>通牒</div>
-          <div class="vbar-bar" style="height:7px; background:repeating-linear-gradient(45deg, #FF0000, #FF0000 3px, #FF3333 3px, #FF3333 6px);"></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#CC0000; font-weight:800”>D24-25</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:3%; background:repeating-linear-gradient(90deg, #FF0000, #FF0000 4px, #FF5555 4px, #FF5555 8px);”></div></div>
+          <div class=”hbar-desc” style=”color:#CC0000; font-weight:800”>⚠️ 48h通牒 倒计时</div>
         </div>
-        <div class=”vbar-col”>
-          <div class=”vbar-val” style=”color:#2E7D32; font-size:7px; line-height:1.1”>🇮🇳×2<br>”许可”通行</div>
-          <div class=”vbar-bar” style=”height:10px; background:linear-gradient(0deg, #2E7D32 60%, #044E7E);”></div>
+        <div class=”hbar-row”>
+          <div class=”hbar-label” style=”color:#2E7D32”>D26</div>
+          <div class=”hbar-track”><div class=”hbar-bar” style=”width:5%; background:linear-gradient(90deg, #2E7D32 60%, #044E7E);”></div></div>
+          <div class=”hbar-desc” style=”color:#2E7D32”>🇮🇳×2 “许可”通行</div>
         </div>
-        <div class=”vbar-col”>
-          <div class=”vbar-val” style=”color:#B8860B; font-size:7px; line-height:1.1; font-weight:800”>💰收费<br>$200万</div>
-          <div class=”vbar-bar” style=”height:8px; background:linear-gradient(0deg, #B8860B 60%, #2E7D32);”></div>
+        <div class=”hbar-row” style=”height:24px;”>
+          <div class=”hbar-label” style=”color:#B8860B; font-weight:800; font-size:10px”>D27</div>
+          <div class=”hbar-track” style=”height:20px; border:1.5px solid #B8860B;”><div class=”hbar-bar” style=”width:4%; background:linear-gradient(90deg, #B8860B 60%, #2E7D32);”></div></div>
+          <div class=”hbar-desc” style=”color:#B8860B; font-weight:800; font-size:9px”>💰 收费$200万/次 议会推立法</div>
         </div>
       </div>
-      <div class=”vbar-labels”>
-        <div class=”vbar-lbl”>战前</div>
-        <div class=”vbar-lbl”>D1</div>
-        <div class=”vbar-lbl”>D2</div>
-        <div class=”vbar-lbl”>D3</div>
-        <div class=”vbar-lbl”>D4</div>
-        <div class=”vbar-lbl”>D5-10</div>
-        <div class=”vbar-lbl”>D11</div>
-        <div class=”vbar-lbl”>D13-18</div>
-        <div class=”vbar-lbl”>D19-22</div>
-        <div class=”vbar-lbl”>D23</div>
-        <div class=”vbar-lbl”>D24-25</div>
-        <div class=”vbar-lbl”>D26</div>
-        <div class=”vbar-lbl” style=”color:#B8860B; font-weight:700”>D27</div>
-      </div>
-      <div style="margin-top:10px; padding:6px 10px; background:#F5F5F5; border-radius:4px; font-size:11px; color:#555; border-left:3px solid #FF0000;">
-        滞留船只：<strong style="color:#FF0000">650+艘</strong>（海峡区域1,100+艘）&nbsp;|&nbsp;
-        VLCC运费：<strong style="color:#FF0000">$430,000+/天</strong>（历史新高）&nbsp;|&nbsp;
-        D27：<strong style="color:#B8860B">伊朗对通过商船收取"过境费"$200万/次 · 议会推立法永久化</strong> &nbsp;|&nbsp;
-        <strong style="color:#2E7D32">Trump宣布"战争已赢" · 泰国货轮通过</strong> &nbsp;|&nbsp;
-        <strong style="color:#FF0000">⚠️ 高盛：10周不开放→布伦特破$147</strong>
+      <div style=”margin-top:10px; padding:6px 10px; background:#F5F5F5; border-radius:4px; font-size:11px; color:#555; border-left:3px solid #FF0000;”>
+        滞留船只：<strong style=”color:#FF0000”>650+艘</strong>（海峡区域1,100+艘）&nbsp;|&nbsp;
+        VLCC运费：<strong style=”color:#FF0000”>$430,000+/天</strong>（历史新高）&nbsp;|&nbsp;
+        <strong style=”color:#2E7D32”>Trump宣布”战争已赢” · 泰国货轮通过</strong> &nbsp;|&nbsp;
+        <strong style=”color:#FF0000”>⚠️ 高盛：10周不开放→布伦特破$147</strong>
       </div>
     </div>
 
