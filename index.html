@@ -517,83 +517,85 @@
     </div>
 
     <!-- Chart 3: 霍尔木兹海峡通行量（SVG水平条形图） -->
-    <div class=”chart-card”>
+    <div class="chart-card">
       <h3>霍尔木兹海峡日均船舶通行量</h3>
-      <div class=”chart-subtitle”>全球海运原油~1/5、LNG出口~20%经此通过 · 资料来源：Windward AIS</div>
-      <svg viewBox=”0 0 540 340” style=”width:100%; font-family:Arial,Helvetica,sans-serif;”>
+      <div class="chart-subtitle">全球海运原油~1/5、LNG出口~20%经此通过 · 资料来源：Windward AIS</div>
+      <div class="chart-area">
+      <svg viewBox="0 0 540 340" xmlns="http://www.w3.org/2000/svg">
         <!-- 背景网格 -->
-        <line x1=”62” y1=”5” x2=”62” y2=”325” stroke=”#ddd” stroke-width=”0.5”/>
-        <line x1=”162” y1=”5” x2=”162” y2=”325” stroke=”#eee” stroke-width=”0.5”/>
-        <line x1=”262” y1=”5” x2=”262” y2=”325” stroke=”#eee” stroke-width=”0.5”/>
-        <line x1=”342” y1=”5” x2=”342” y2=”325” stroke=”#eee” stroke-width=”0.5”/>
+        <line x1="62" y1="5" x2="62" y2="325" stroke="#ddd" stroke-width="0.5"/>
+        <line x1="162" y1="5" x2="162" y2="325" stroke="#eee" stroke-width="0.5"/>
+        <line x1="262" y1="5" x2="262" y2="325" stroke="#eee" stroke-width="0.5"/>
+        <line x1="342" y1="5" x2="342" y2="325" stroke="#eee" stroke-width="0.5"/>
         <!-- 刻度标签 -->
-        <text x=”62” y=”338” font-size=”7” fill=”#999” text-anchor=”middle”>0</text>
-        <text x=”162” y=”338” font-size=”7” fill=”#999” text-anchor=”middle”>~40</text>
-        <text x=”262” y=”338” font-size=”7” fill=”#999” text-anchor=”middle”>~80</text>
-        <text x=”342” y=”338” font-size=”7” fill=”#999” text-anchor=”middle”>~110</text>
+        <text x="62" y="338" font-size="7" fill="#999" text-anchor="middle">0</text>
+        <text x="162" y="338" font-size="7" fill="#999" text-anchor="middle">~40</text>
+        <text x="262" y="338" font-size="7" fill="#999" text-anchor="middle">~80</text>
+        <text x="342" y="338" font-size="7" fill="#999" text-anchor="middle">~110</text>
         <!-- Row 1: 战前 -->
-        <text x=”58” y=”20” font-size=”10” fill=”#044E7E” font-weight=”700” text-anchor=”end”>战前</text>
-        <rect x=”62” y=”8” width=”280” height=”18” rx=”3” fill=”#81A6BE”/>
-        <text x=”348” y=”21” font-size=”9” fill=”#044E7E” font-weight=”700”>~110艘/日 正常水平</text>
+        <text x="58" y="20" font-size="10" fill="#044E7E" font-weight="700" text-anchor="end">战前</text>
+        <rect x="62" y="8" width="280" height="18" rx="3" fill="#81A6BE"/>
+        <text x="348" y="21" font-size="9" fill="#044E7E" font-weight="700">~110艘/日 正常水平</text>
         <!-- Row 2: D1 -->
-        <text x=”58” y=”45” font-size=”10” fill=”#367198” font-weight=”700” text-anchor=”end”>D1</text>
-        <rect x=”62” y=”33” width=”153” height=”18” rx=”3” fill=”#B4CAD8”/>
-        <text x=”220” y=”46” font-size=”9” fill=”#367198” font-weight=”700”>~60 急剧下降</text>
+        <text x="58" y="45" font-size="10" fill="#367198" font-weight="700" text-anchor="end">D1</text>
+        <rect x="62" y="33" width="153" height="18" rx="3" fill="#B4CAD8"/>
+        <text x="220" y="46" font-size="9" fill="#367198" font-weight="700">~60 急剧下降</text>
         <!-- Row 3: D2 -->
-        <text x=”58” y=”70” font-size=”10” fill=”#CC3333” font-weight=”700” text-anchor=”end”>D2</text>
-        <rect x=”62” y=”58” width=”76” height=”18” rx=”3” fill=”#FF8080”/>
-        <text x=”143” y=”71” font-size=”9” fill=”#CC3333” font-weight=”700”>~30 IRGC警告</text>
+        <text x="58" y="70" font-size="10" fill="#CC3333" font-weight="700" text-anchor="end">D2</text>
+        <rect x="62" y="58" width="76" height="18" rx="3" fill="#FF8080"/>
+        <text x="143" y="71" font-size="9" fill="#CC3333" font-weight="700">~30 IRGC警告</text>
         <!-- Row 4: D3 -->
-        <text x=”58” y=”95” font-size=”10” fill=”#CC3333” font-weight=”700” text-anchor=”end”>D3</text>
-        <rect x=”62” y=”83” width=”51” height=”18” rx=”3” fill=”#FF8080”/>
-        <text x=”118” y=”96” font-size=”9” fill=”#CC3333” font-weight=”700”>~20 航运公司撤离</text>
+        <text x="58" y="95" font-size="10" fill="#CC3333" font-weight="700" text-anchor="end">D3</text>
+        <rect x="62" y="83" width="51" height="18" rx="3" fill="#FF8080"/>
+        <text x="118" y="96" font-size="9" fill="#CC3333" font-weight="700">~20 航运公司撤离</text>
         <!-- Row 5: D4 -->
-        <text x=”58” y=”120” font-size=”10” fill=”#CC0000” font-weight=”700” text-anchor=”end”>D4</text>
-        <rect x=”62” y=”108” width=”13” height=”18” rx=”3” fill=”#FF0000”/>
-        <text x=”80” y=”121” font-size=”9” fill=”#CC0000” font-weight=”700”>~5 接近瘫痪</text>
+        <text x="58" y="120" font-size="10" fill="#CC0000" font-weight="700" text-anchor="end">D4</text>
+        <rect x="62" y="108" width="13" height="18" rx="3" fill="#FF0000"/>
+        <text x="80" y="121" font-size="9" fill="#CC0000" font-weight="700">~5 接近瘫痪</text>
         <!-- Row 6: D5-10 封锁 -->
-        <text x=”58” y=”145” font-size=”9” fill=”#CC0000” font-weight=”800” text-anchor=”end”>D5-10</text>
-        <rect x=”62” y=”133” width=”4” height=”18” rx=”2” fill=”#CC0000”/>
-        <text x=”71” y=”146” font-size=”9” fill=”#CC0000” font-weight=”800”>🚫 封锁 — 伊朗宣布关闭海峡</text>
+        <text x="58" y="145" font-size="9" fill="#CC0000" font-weight="800" text-anchor="end">D5-10</text>
+        <rect x="62" y="133" width="4" height="18" rx="2" fill="#CC0000"/>
+        <text x="71" y="146" font-size="9" fill="#CC0000" font-weight="800">🚫 封锁 — 伊朗宣布关闭海峡</text>
         <!-- Row 7: D11 布雷 -->
-        <text x=”58” y=”170” font-size=”10” fill=”#CC0000” font-weight=”800” text-anchor=”end”>D11</text>
-        <rect x=”62” y=”158” width=”5” height=”18” rx=”2” fill=”#CC0000”/>
-        <rect x=”67” y=”158” width=”3” height=”18” rx=”1” fill=”#FF8080”/>
-        <rect x=”70” y=”158” width=”5” height=”18” rx=”2” fill=”#CC0000”/>
-        <text x=”80” y=”171” font-size=”9” fill=”#CC0000” font-weight=”800”>💣 布雷! 水雷封锁</text>
+        <text x="58" y="170" font-size="10" fill="#CC0000" font-weight="800" text-anchor="end">D11</text>
+        <rect x="62" y="158" width="5" height="18" rx="2" fill="#CC0000"/>
+        <rect x="67" y="158" width="3" height="18" rx="1" fill="#FF8080"/>
+        <rect x="70" y="158" width="5" height="18" rx="2" fill="#CC0000"/>
+        <text x="80" y="171" font-size="9" fill="#CC0000" font-weight="800">💣 布雷! 水雷封锁</text>
         <!-- Row 8: D13-18 零星 -->
-        <text x=”58” y=”195” font-size=”9” fill=”#CC3333” font-weight=”700” text-anchor=”end”>D13-18</text>
-        <rect x=”62” y=”183” width=”8” height=”18” rx=”3” fill=”#FF5555”/>
-        <text x=”75” y=”196” font-size=”9” fill=”#CC3333” font-weight=”600”>零星通行 极少数船只</text>
-        <!-- Row 9: D19-22 “许可”制 -->
-        <text x=”58” y=”220” font-size=”9” fill=”#2E7D32” font-weight=”700” text-anchor=”end”>D19-22</text>
-        <rect x=”62” y=”208” width=”13” height=”18” rx=”3” fill=”#2E7D32”/>
-        <text x=”80” y=”221” font-size=”9” fill=”#2E7D32” font-weight=”600”>”许可”制 选择性放行</text>
+        <text x="58" y="195" font-size="9" fill="#CC3333" font-weight="700" text-anchor="end">D13-18</text>
+        <rect x="62" y="183" width="8" height="18" rx="3" fill="#FF5555"/>
+        <text x="75" y="196" font-size="9" fill="#CC3333" font-weight="600">零星通行 极少数船只</text>
+        <!-- Row 9: D19-22 "许可"制 -->
+        <text x="58" y="220" font-size="9" fill="#2E7D32" font-weight="700" text-anchor="end">D19-22</text>
+        <rect x="62" y="208" width="13" height="18" rx="3" fill="#2E7D32"/>
+        <text x="80" y="221" font-size="9" fill="#2E7D32" font-weight="600">"许可"制 选择性放行</text>
         <!-- Row 10: D23 印日放行 -->
-        <text x=”58” y=”245” font-size=”10” fill=”#2E7D32” font-weight=”700” text-anchor=”end”>D23</text>
-        <rect x=”62” y=”233” width=”20” height=”18” rx=”3” fill=”#2E7D32”/>
-        <text x=”87” y=”246” font-size=”9” fill=”#2E7D32” font-weight=”600”>🇮🇳🇯🇵 选择放行印日船只</text>
+        <text x="58" y="245" font-size="10" fill="#2E7D32" font-weight="700" text-anchor="end">D23</text>
+        <rect x="62" y="233" width="20" height="18" rx="3" fill="#2E7D32"/>
+        <text x="87" y="246" font-size="9" fill="#2E7D32" font-weight="600">🇮🇳🇯🇵 选择放行印日船只</text>
         <!-- Row 11: D24-25 48h通牒 -->
-        <text x=”58” y=”270” font-size=”9” fill=”#CC0000” font-weight=”800” text-anchor=”end”>D24-25</text>
-        <rect x=”62” y=”258” width=”4” height=”18” rx=”2” fill=”#CC0000”/>
-        <rect x=”66” y=”258” width=”3” height=”18” rx=”1” fill=”#FF5555”/>
-        <rect x=”69” y=”258” width=”4” height=”18” rx=”2” fill=”#CC0000”/>
-        <text x=”78” y=”271” font-size=”9” fill=”#CC0000” font-weight=”800”>⚠️ 48h通牒 倒计时</text>
+        <text x="58" y="270" font-size="9" fill="#CC0000" font-weight="800" text-anchor="end">D24-25</text>
+        <rect x="62" y="258" width="4" height="18" rx="2" fill="#CC0000"/>
+        <rect x="66" y="258" width="3" height="18" rx="1" fill="#FF5555"/>
+        <rect x="69" y="258" width="4" height="18" rx="2" fill="#CC0000"/>
+        <text x="78" y="271" font-size="9" fill="#CC0000" font-weight="800">⚠️ 48h通牒 倒计时</text>
         <!-- Row 12: D26 许可通行 -->
-        <text x=”58” y=”295” font-size=”10” fill=”#2E7D32” font-weight=”700” text-anchor=”end”>D26</text>
-        <rect x=”62” y=”283” width=”13” height=”18” rx=”3” fill=”#2E7D32”/>
-        <text x=”80” y=”296” font-size=”9” fill=”#2E7D32” font-weight=”600”>🇮🇳×2 “许可”通行</text>
+        <text x="58" y="295" font-size="10" fill="#2E7D32" font-weight="700" text-anchor="end">D26</text>
+        <rect x="62" y="283" width="13" height="18" rx="3" fill="#2E7D32"/>
+        <text x="80" y="296" font-size="9" fill="#2E7D32" font-weight="600">🇮🇳×2 "许可"通行</text>
         <!-- Row 13: D27 收费 (highlighted) -->
-        <rect x=”59” y=”306” width=”480” height=”24” rx=”4” fill=”none” stroke=”#B8860B” stroke-width=”1.5” stroke-dasharray=”4,2”/>
-        <text x=”58” y=”322” font-size=”10” fill=”#B8860B” font-weight=”800” text-anchor=”end”>D27</text>
-        <rect x=”62” y=”310” width=”10” height=”16” rx=”3” fill=”#B8860B”/>
-        <text x=”78” y=”323” font-size=”9.5” fill=”#B8860B” font-weight=”800”>💰 收费$200万/次 · 议会推立法永久化 · 泰国货轮通过</text>
+        <rect x="59" y="306" width="480" height="24" rx="4" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <text x="58" y="322" font-size="10" fill="#B8860B" font-weight="800" text-anchor="end">D27</text>
+        <rect x="62" y="310" width="10" height="16" rx="3" fill="#B8860B"/>
+        <text x="78" y="323" font-size="9.5" fill="#B8860B" font-weight="800">💰 收费$200万/次 · 议会推立法永久化 · 泰国货轮通过</text>
       </svg>
-      <div style=”margin-top:8px; padding:6px 10px; background:#F5F5F5; border-radius:4px; font-size:11px; color:#555; border-left:3px solid #FF0000;”>
-        滞留船只：<strong style=”color:#FF0000”>650+艘</strong>（海峡区域1,100+艘）&nbsp;|&nbsp;
-        VLCC运费：<strong style=”color:#FF0000”>$430,000+/天</strong>（历史新高）&nbsp;|&nbsp;
-        <strong style=”color:#2E7D32”>Trump宣布”战争已赢” · 泰国货轮通过</strong> &nbsp;|&nbsp;
-        <strong style=”color:#FF0000”>⚠️ 高盛：10周不开放→布伦特破$147</strong>
+      </div>
+      <div style="margin-top:8px; padding:6px 10px; background:#F5F5F5; border-radius:4px; font-size:11px; color:#555; border-left:3px solid #FF0000;">
+        滞留船只：<strong style="color:#FF0000">650+艘</strong>（海峡区域1,100+艘）&nbsp;|&nbsp;
+        VLCC运费：<strong style="color:#FF0000">$430,000+/天</strong>（历史新高）&nbsp;|&nbsp;
+        <strong style="color:#2E7D32">Trump宣布"战争已赢" · 泰国货轮通过</strong> &nbsp;|&nbsp;
+        <strong style="color:#FF0000">⚠️ 高盛：10周不开放→布伦特破$147</strong>
       </div>
     </div>
 
