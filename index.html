@@ -307,100 +307,96 @@
   <h2>关键数据图表</h2>
   <div class="charts-grid">
 
-    <!-- Polymarket + 雷区地图 并排 -->
+    <!-- 霍尔木兹通行量 + 雷区地图 并排 -->
     <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; grid-column: 1 / -1;">
 
-    <!-- Chart: Polymarket 预测市场 -->
-    <div class="chart-card">
-      <h3>Polymarket 预测市场概率走势</h3>
-      <div class="chart-subtitle">Trump延长能源打击暂停至4/6 · S&P战争以来最大跌幅-1.7% · 82空降师接到部署令 · MAGA在CPAC公开分裂 · 资料来源：Polymarket API（每日收盘价）</div>
+        <div class="chart-card">
+      <h3>霍尔木兹海峡日均船舶通行量</h3>
+      <div class="chart-subtitle">全球海运原油~1/5、LNG出口~20%经此通过 · 资料来源：Windward AIS</div>
       <div class="chart-area">
-        <svg viewBox="0 0 520 240" xmlns="http://www.w3.org/2000/svg">
-          <!-- Y-axis -->
-          <line x1="50" y1="20" x2="50" y2="180" stroke="#E0E0E0" stroke-width="1"/>
-          <line x1="50" y1="180" x2="510" y2="180" stroke="#E0E0E0" stroke-width="1"/>
-          <!-- Y gridlines & labels -->
-          <text x="45" y="24" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">100%</text>
-          <line x1="50" y1="20" x2="510" y2="20" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="64" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">75%</text>
-          <line x1="50" y1="60" x2="510" y2="60" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="104" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">50%</text>
-          <line x1="50" y1="100" x2="510" y2="100" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="144" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">25%</text>
-          <line x1="50" y1="140" x2="510" y2="140" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <!-- X-axis labels -->
-          <text x="50" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">2/28</text>
-          <text x="76" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/1</text>
-          <text x="182" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/5</text>
-          <text x="288" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/9</text>
-          <text x="368" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/12</text>
-          <text x="447" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/15</text>
-          <text x="484" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/18</text>
-          <text x="494" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/20</text>
-          <text x="510" y="206" fill="#044E7E" font-size="9" font-family="Arial" text-anchor="end" font-weight="700">3/27</text>
-          <defs>
-            <linearGradient id="cfMar31Grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#FF0000" stop-opacity="0.08"/>
-              <stop offset="100%" stop-color="#FF0000" stop-opacity="0.01"/>
-            </linearGradient>
-            <linearGradient id="cfApr30Grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#044E7E" stop-opacity="0.08"/>
-              <stop offset="100%" stop-color="#044E7E" stop-opacity="0.01"/>
-            </linearGradient>
-            <linearGradient id="hormuzGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2E7D32" stop-opacity="0.08"/>
-              <stop offset="100%" stop-color="#2E7D32" stop-opacity="0.01"/>
-            </linearGradient>
-          </defs>
-          <!-- Line 1: Ceasefire by May 31 (red) — Polymarket API data -->
-          <!-- 3/3=74.5 3/4=64.5 3/5=64.5 3/6=63 3/7=61.5 3/8=61.5 3/9=55.5 3/10=62.5 3/11=63.5 3/12=58 3/14=53.5 3/15=51.5 3/16=46.5 3/17=50.5 3/18=47.5 3/20=43.5 3/23=50.5 3/25=60.5 3/26=59.5 3/27=53.5 -->
-          <polygon points="129,61 156,77 182,77 209,79 235,82 262,82 288,91 315,80 341,78 368,87 394,94 421,98 447,106 472,99 484,104 494,110 500,99 504,83 507,85 510,94 510,180 129,180" fill="url(#cfMar31Grad)"/>
-          <polyline points="129,61 156,77 182,77 209,79 235,82 262,82 288,91 315,80 341,78 368,87 394,94 421,98 447,106 472,99 484,104 494,110 500,99 504,83 507,85 510,94" fill="none" stroke="#FF0000" stroke-width="2" stroke-linejoin="round"/>
-          <circle cx="129" cy="61" r="3" fill="#FF0000"/>
-          <circle cx="510" cy="94" r="4" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
-          <text x="506" y="90" fill="#FF0000" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">53.5%</text>
-          <text x="135" y="57" fill="#FF0000" font-size="9" font-family="Arial" font-weight="600">74.5%</text>
-          <!-- Line 2: Ceasefire by Apr 30 (blue) — Polymarket API data -->
-          <!-- 3/2=60.5 3/3=67.5 3/4=56.5 3/5=53.5 3/6=45 3/7=48 3/8=46.5 3/9=46.5 3/10=53.5 3/11=53.5 3/12=49 3/14=39.5 3/15=36.5 3/16=35.5 3/17=39.5 3/18=40.5 3/20=31 3/23=39.5 3/25=50.5 3/26=48.5 3/27=39.5 -->
-          <polygon points="103,83 129,72 156,90 182,94 209,108 235,103 262,106 288,106 315,94 341,94 368,102 394,117 421,122 447,123 472,117 484,115 494,130 500,117 504,99 507,102 510,117 510,180 103,180" fill="url(#cfApr30Grad)"/>
-          <polyline points="103,83 129,72 156,90 182,94 209,108 235,103 262,106 288,106 315,94 341,94 368,102 394,117 421,122 447,123 472,117 484,115 494,130 500,117 504,99 507,102 510,117" fill="none" stroke="#044E7E" stroke-width="2" stroke-linejoin="round"/>
-          <circle cx="103" cy="83" r="3" fill="#044E7E"/>
-          <circle cx="510" cy="117" r="4" fill="#044E7E" stroke="#fff" stroke-width="1.5"/>
-          <text x="506" y="113" fill="#044E7E" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">39.5%</text>
-          <text x="109" y="79" fill="#044E7E" font-size="9" font-family="Arial" font-weight="600">60.5%</text>
-          <!-- Line 3: Hormuz traffic by Apr 30 (green, starts 3/10) — Polymarket API data -->
-          <!-- 3/10=68.5 3/11=50.5 3/12=45 3/14=36.5 3/15=32 3/16=28 3/17=25 3/18-19=23.5 3/20=24 3/23=33 3/25=39.5 3/26=33.5 3/27=29.5 -->
-          <polygon points="315,70 341,99 368,108 394,122 421,129 447,135 472,140 484,142 494,142 500,127 504,117 507,126 510,133 510,180 315,180" fill="url(#hormuzGrad)"/>
-          <polyline points="315,70 341,99 368,108 394,122 421,129 447,135 472,140 484,142 494,142 500,127 504,117 507,126 510,133" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6,3"/>
-          <circle cx="315" cy="70" r="3" fill="#2E7D32"/>
-          <circle cx="510" cy="133" r="4" fill="#2E7D32" stroke="#fff" stroke-width="1.5"/>
-          <text x="506" y="129" fill="#2E7D32" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">29.5%</text>
-          <text x="321" y="66" fill="#2E7D32" font-size="9" font-family="Arial" font-weight="600">68.5%</text>
-          <!-- 3/9 spike annotation -->
-          <line x1="288" y1="106" x2="288" y2="180" stroke="#838383" stroke-width="0.8" stroke-dasharray="3"/>
-          <text x="288" y="210" fill="#838383" font-size="8" font-family="Calibri" text-anchor="middle">3/9 Trump暗示</text>
-          <text x="288" y="220" fill="#838383" font-size="8" font-family="Calibri" text-anchor="middle">伊朗"想谈"</text>
-          <!-- War start annotation -->
-          <line x1="50" y1="83" x2="50" y2="180" stroke="#FF0000" stroke-width="0.8" stroke-dasharray="3"/>
-          <text x="55" y="175" fill="#FF0000" font-size="8" font-family="Calibri">开战</text>
-        </svg>
+      <svg viewBox="0 0 540 390" xmlns="http://www.w3.org/2000/svg">
+        <!-- 背景网格 -->
+        <line x1="62" y1="5" x2="62" y2="350" stroke="#ddd" stroke-width="0.5"/>
+        <line x1="162" y1="5" x2="162" y2="325" stroke="#eee" stroke-width="0.5"/>
+        <line x1="262" y1="5" x2="262" y2="325" stroke="#eee" stroke-width="0.5"/>
+        <line x1="342" y1="5" x2="342" y2="325" stroke="#eee" stroke-width="0.5"/>
+        <!-- 刻度标签 -->
+        <text x="62" y="338" font-size="7" fill="#999" text-anchor="middle">0</text>
+        <text x="162" y="338" font-size="7" fill="#999" text-anchor="middle">~40</text>
+        <text x="262" y="338" font-size="7" fill="#999" text-anchor="middle">~80</text>
+        <text x="342" y="338" font-size="7" fill="#999" text-anchor="middle">~110</text>
+        <!-- Row 1: 战前 -->
+        <text x="58" y="20" font-size="10" fill="#044E7E" font-weight="700" text-anchor="end">战前</text>
+        <rect x="62" y="8" width="280" height="18" rx="3" fill="#81A6BE"/>
+        <text x="348" y="21" font-size="9" fill="#044E7E" font-weight="700">~110艘/日 正常水平</text>
+        <!-- Row 2: D1 -->
+        <text x="58" y="45" font-size="10" fill="#367198" font-weight="700" text-anchor="end">D1</text>
+        <rect x="62" y="33" width="153" height="18" rx="3" fill="#B4CAD8"/>
+        <text x="220" y="46" font-size="9" fill="#367198" font-weight="700">~60 急剧下降</text>
+        <!-- Row 3: D2 -->
+        <text x="58" y="70" font-size="10" fill="#CC3333" font-weight="700" text-anchor="end">D2</text>
+        <rect x="62" y="58" width="76" height="18" rx="3" fill="#FF8080"/>
+        <text x="143" y="71" font-size="9" fill="#CC3333" font-weight="700">~30 IRGC警告</text>
+        <!-- Row 4: D3 -->
+        <text x="58" y="95" font-size="10" fill="#CC3333" font-weight="700" text-anchor="end">D3</text>
+        <rect x="62" y="83" width="51" height="18" rx="3" fill="#FF8080"/>
+        <text x="118" y="96" font-size="9" fill="#CC3333" font-weight="700">~20 航运公司撤离</text>
+        <!-- Row 5: D4 -->
+        <text x="58" y="120" font-size="10" fill="#CC0000" font-weight="700" text-anchor="end">D4</text>
+        <rect x="62" y="108" width="13" height="18" rx="3" fill="#FF0000"/>
+        <text x="80" y="121" font-size="9" fill="#CC0000" font-weight="700">~5 接近瘫痪</text>
+        <!-- Row 6: D5-10 封锁 -->
+        <text x="58" y="145" font-size="9" fill="#CC0000" font-weight="800" text-anchor="end">D5-10</text>
+        <rect x="62" y="133" width="4" height="18" rx="2" fill="#CC0000"/>
+        <text x="71" y="146" font-size="9" fill="#CC0000" font-weight="800">🚫 封锁 — 伊朗宣布关闭海峡</text>
+        <!-- Row 7: D11 布雷 -->
+        <text x="58" y="170" font-size="10" fill="#CC0000" font-weight="800" text-anchor="end">D11</text>
+        <rect x="62" y="158" width="5" height="18" rx="2" fill="#CC0000"/>
+        <rect x="67" y="158" width="3" height="18" rx="1" fill="#FF8080"/>
+        <rect x="70" y="158" width="5" height="18" rx="2" fill="#CC0000"/>
+        <text x="80" y="171" font-size="9" fill="#CC0000" font-weight="800">💣 布雷! 水雷封锁</text>
+        <!-- Row 8: D13-18 零星 -->
+        <text x="58" y="195" font-size="9" fill="#CC3333" font-weight="700" text-anchor="end">D13-18</text>
+        <rect x="62" y="183" width="8" height="18" rx="3" fill="#FF5555"/>
+        <text x="75" y="196" font-size="9" fill="#CC3333" font-weight="600">零星通行 极少数船只</text>
+        <!-- Row 9: D19-22 "许可"制 -->
+        <text x="58" y="220" font-size="9" fill="#2E7D32" font-weight="700" text-anchor="end">D19-22</text>
+        <rect x="62" y="208" width="13" height="18" rx="3" fill="#2E7D32"/>
+        <text x="80" y="221" font-size="9" fill="#2E7D32" font-weight="600">"许可"制 选择性放行</text>
+        <!-- Row 10: D23 印日放行 -->
+        <text x="58" y="245" font-size="10" fill="#2E7D32" font-weight="700" text-anchor="end">D23</text>
+        <rect x="62" y="233" width="20" height="18" rx="3" fill="#2E7D32"/>
+        <text x="87" y="246" font-size="9" fill="#2E7D32" font-weight="600">🇮🇳🇯🇵 选择放行印日船只</text>
+        <!-- Row 11: D24-25 48h通牒 -->
+        <text x="58" y="270" font-size="9" fill="#CC0000" font-weight="800" text-anchor="end">D24-25</text>
+        <rect x="62" y="258" width="4" height="18" rx="2" fill="#CC0000"/>
+        <rect x="66" y="258" width="3" height="18" rx="1" fill="#FF5555"/>
+        <rect x="69" y="258" width="4" height="18" rx="2" fill="#CC0000"/>
+        <text x="78" y="271" font-size="9" fill="#CC0000" font-weight="800">⚠️ 48h通牒 倒计时</text>
+        <!-- Row 12: D26 许可通行 -->
+        <text x="58" y="295" font-size="10" fill="#2E7D32" font-weight="700" text-anchor="end">D26</text>
+        <rect x="62" y="283" width="13" height="18" rx="3" fill="#2E7D32"/>
+        <text x="80" y="296" font-size="9" fill="#2E7D32" font-weight="600">🇮🇳×2 "许可"通行</text>
+        <!-- Row 13: D27 收费 -->
+        <text x="58" y="322" font-size="10" fill="#B8860B" font-weight="800" text-anchor="end">D27</text>
+        <rect x="62" y="310" width="10" height="16" rx="3" fill="#B8860B"/>
+        <text x="78" y="323" font-size="9.5" fill="#B8860B" font-weight="800">💰 收费$200万/次 · 议会推立法永久化 · 泰国货轮通过</text>
+        <!-- Row 14: D28 半正式通行制度 -->
+        <text x="58" y="348" font-size="10" fill="#B8860B" font-weight="800" text-anchor="end">D28</text>
+        <rect x="62" y="336" width="10" height="16" rx="3" fill="#B8860B"/>
+        <text x="78" y="349" font-size="9.5" fill="#B8860B" font-weight="800">📋 半正式制度：要求船员/货物/提单 · IRGC驱回不合规船 · 伊朗反要求霍尔木兹主权</text>
+        <!-- Row 15: D29 Trump称放行10艘 (highlighted) -->
+        <rect x="59" y="356" width="480" height="24" rx="4" fill="none" stroke="#2E7D32" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <text x="58" y="374" font-size="10" fill="#2E7D32" font-weight="800" text-anchor="end">D29</text>
+        <rect x="62" y="362" width="25" height="16" rx="3" fill="#2E7D32"/>
+        <text x="93" y="375" font-size="9.5" fill="#2E7D32" font-weight="800">🚢 Trump称10艘油轮通过（未核实）· 议会推通行费立法永久化 · 伊朗要求船员+货物详情</text>
+      </svg>
       </div>
-      <div class="chart-legend" style="display:flex; gap:16px; margin-top:6px; justify-content:center; flex-wrap:wrap;">
-        <div style="display:flex; align-items:center; gap:4px;">
-          <svg width="20" height="10"><line x1="0" y1="5" x2="20" y2="5" stroke="#FF0000" stroke-width="2"/></svg>
-          <span style="font-size:11px; color:#FF0000;">停火 by 5/31（53.5%）</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:4px;">
-          <svg width="20" height="10"><line x1="0" y1="5" x2="20" y2="5" stroke="#044E7E" stroke-width="2"/></svg>
-          <span style="font-size:11px; color:#044E7E;">停火 by 4/30（39.5%）</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:4px;">
-          <svg width="20" height="10"><line x1="0" y1="5" x2="20" y2="5" stroke="#2E7D32" stroke-width="2" stroke-dasharray="4,2"/></svg>
-          <span style="font-size:11px; color:#2E7D32;">海峡通行恢复 by 4月底（29.5%）</span>
-        </div>
-      </div>
-      <div style="margin-top:6px; font-size:10px; color:#838383; text-align:center;">
-        概率 = Polymarket "Yes" 合约价格 · 停火市场$52M成交量 · 数据截至 3/27 UTC · 数据来源：Polymarket CLOB API · 5/31市场3/3上线 · 霍尔木兹市场3/10上线
+      <div style="margin-top:8px; padding:6px 10px; background:#F5F5F5; border-radius:4px; font-size:11px; color:#555; border-left:3px solid #FF0000;">
+        滞留船只：<strong style="color:#FF0000">650+艘</strong>（海峡区域1,100+艘）&nbsp;|&nbsp;
+        VLCC运费：<strong style="color:#FF0000">$430,000+/天</strong>（历史新高）&nbsp;|&nbsp;
+        <strong style="color:#B8860B">伊朗建立半正式通行制度：船员名单+货物清单+提单</strong> &nbsp;|&nbsp;
+        <strong style="color:#FF0000">⚠️ 高盛：10周不开放→布伦特破$147</strong>
       </div>
     </div>
 
@@ -416,7 +412,7 @@
       </div>
     </div>
 
-    </div><!-- 关闭 Polymarket+雷区 并排容器 -->
+    </div><!-- 关闭 霍尔木兹通行量+雷区 并排容器 -->
 
     <!-- Chart 1: 布伦特原油走势 -->
     <div class="chart-card">
@@ -537,94 +533,96 @@
       </div>
     </div>
 
-    <!-- Chart 3: 霍尔木兹海峡通行量（SVG水平条形图） -->
-    <div class="chart-card">
-      <h3>霍尔木兹海峡日均船舶通行量</h3>
-      <div class="chart-subtitle">全球海运原油~1/5、LNG出口~20%经此通过 · 资料来源：Windward AIS</div>
+        <div class="chart-card">
+      <h3>Polymarket 预测市场概率走势</h3>
+      <div class="chart-subtitle">Trump延长能源打击暂停至4/6 · S&P战争以来最大跌幅-1.7% · 82空降师接到部署令 · MAGA在CPAC公开分裂 · 资料来源：Polymarket API（每日收盘价）</div>
       <div class="chart-area">
-      <svg viewBox="0 0 540 390" xmlns="http://www.w3.org/2000/svg">
-        <!-- 背景网格 -->
-        <line x1="62" y1="5" x2="62" y2="350" stroke="#ddd" stroke-width="0.5"/>
-        <line x1="162" y1="5" x2="162" y2="325" stroke="#eee" stroke-width="0.5"/>
-        <line x1="262" y1="5" x2="262" y2="325" stroke="#eee" stroke-width="0.5"/>
-        <line x1="342" y1="5" x2="342" y2="325" stroke="#eee" stroke-width="0.5"/>
-        <!-- 刻度标签 -->
-        <text x="62" y="338" font-size="7" fill="#999" text-anchor="middle">0</text>
-        <text x="162" y="338" font-size="7" fill="#999" text-anchor="middle">~40</text>
-        <text x="262" y="338" font-size="7" fill="#999" text-anchor="middle">~80</text>
-        <text x="342" y="338" font-size="7" fill="#999" text-anchor="middle">~110</text>
-        <!-- Row 1: 战前 -->
-        <text x="58" y="20" font-size="10" fill="#044E7E" font-weight="700" text-anchor="end">战前</text>
-        <rect x="62" y="8" width="280" height="18" rx="3" fill="#81A6BE"/>
-        <text x="348" y="21" font-size="9" fill="#044E7E" font-weight="700">~110艘/日 正常水平</text>
-        <!-- Row 2: D1 -->
-        <text x="58" y="45" font-size="10" fill="#367198" font-weight="700" text-anchor="end">D1</text>
-        <rect x="62" y="33" width="153" height="18" rx="3" fill="#B4CAD8"/>
-        <text x="220" y="46" font-size="9" fill="#367198" font-weight="700">~60 急剧下降</text>
-        <!-- Row 3: D2 -->
-        <text x="58" y="70" font-size="10" fill="#CC3333" font-weight="700" text-anchor="end">D2</text>
-        <rect x="62" y="58" width="76" height="18" rx="3" fill="#FF8080"/>
-        <text x="143" y="71" font-size="9" fill="#CC3333" font-weight="700">~30 IRGC警告</text>
-        <!-- Row 4: D3 -->
-        <text x="58" y="95" font-size="10" fill="#CC3333" font-weight="700" text-anchor="end">D3</text>
-        <rect x="62" y="83" width="51" height="18" rx="3" fill="#FF8080"/>
-        <text x="118" y="96" font-size="9" fill="#CC3333" font-weight="700">~20 航运公司撤离</text>
-        <!-- Row 5: D4 -->
-        <text x="58" y="120" font-size="10" fill="#CC0000" font-weight="700" text-anchor="end">D4</text>
-        <rect x="62" y="108" width="13" height="18" rx="3" fill="#FF0000"/>
-        <text x="80" y="121" font-size="9" fill="#CC0000" font-weight="700">~5 接近瘫痪</text>
-        <!-- Row 6: D5-10 封锁 -->
-        <text x="58" y="145" font-size="9" fill="#CC0000" font-weight="800" text-anchor="end">D5-10</text>
-        <rect x="62" y="133" width="4" height="18" rx="2" fill="#CC0000"/>
-        <text x="71" y="146" font-size="9" fill="#CC0000" font-weight="800">🚫 封锁 — 伊朗宣布关闭海峡</text>
-        <!-- Row 7: D11 布雷 -->
-        <text x="58" y="170" font-size="10" fill="#CC0000" font-weight="800" text-anchor="end">D11</text>
-        <rect x="62" y="158" width="5" height="18" rx="2" fill="#CC0000"/>
-        <rect x="67" y="158" width="3" height="18" rx="1" fill="#FF8080"/>
-        <rect x="70" y="158" width="5" height="18" rx="2" fill="#CC0000"/>
-        <text x="80" y="171" font-size="9" fill="#CC0000" font-weight="800">💣 布雷! 水雷封锁</text>
-        <!-- Row 8: D13-18 零星 -->
-        <text x="58" y="195" font-size="9" fill="#CC3333" font-weight="700" text-anchor="end">D13-18</text>
-        <rect x="62" y="183" width="8" height="18" rx="3" fill="#FF5555"/>
-        <text x="75" y="196" font-size="9" fill="#CC3333" font-weight="600">零星通行 极少数船只</text>
-        <!-- Row 9: D19-22 "许可"制 -->
-        <text x="58" y="220" font-size="9" fill="#2E7D32" font-weight="700" text-anchor="end">D19-22</text>
-        <rect x="62" y="208" width="13" height="18" rx="3" fill="#2E7D32"/>
-        <text x="80" y="221" font-size="9" fill="#2E7D32" font-weight="600">"许可"制 选择性放行</text>
-        <!-- Row 10: D23 印日放行 -->
-        <text x="58" y="245" font-size="10" fill="#2E7D32" font-weight="700" text-anchor="end">D23</text>
-        <rect x="62" y="233" width="20" height="18" rx="3" fill="#2E7D32"/>
-        <text x="87" y="246" font-size="9" fill="#2E7D32" font-weight="600">🇮🇳🇯🇵 选择放行印日船只</text>
-        <!-- Row 11: D24-25 48h通牒 -->
-        <text x="58" y="270" font-size="9" fill="#CC0000" font-weight="800" text-anchor="end">D24-25</text>
-        <rect x="62" y="258" width="4" height="18" rx="2" fill="#CC0000"/>
-        <rect x="66" y="258" width="3" height="18" rx="1" fill="#FF5555"/>
-        <rect x="69" y="258" width="4" height="18" rx="2" fill="#CC0000"/>
-        <text x="78" y="271" font-size="9" fill="#CC0000" font-weight="800">⚠️ 48h通牒 倒计时</text>
-        <!-- Row 12: D26 许可通行 -->
-        <text x="58" y="295" font-size="10" fill="#2E7D32" font-weight="700" text-anchor="end">D26</text>
-        <rect x="62" y="283" width="13" height="18" rx="3" fill="#2E7D32"/>
-        <text x="80" y="296" font-size="9" fill="#2E7D32" font-weight="600">🇮🇳×2 "许可"通行</text>
-        <!-- Row 13: D27 收费 -->
-        <text x="58" y="322" font-size="10" fill="#B8860B" font-weight="800" text-anchor="end">D27</text>
-        <rect x="62" y="310" width="10" height="16" rx="3" fill="#B8860B"/>
-        <text x="78" y="323" font-size="9.5" fill="#B8860B" font-weight="800">💰 收费$200万/次 · 议会推立法永久化 · 泰国货轮通过</text>
-        <!-- Row 14: D28 半正式通行制度 -->
-        <text x="58" y="348" font-size="10" fill="#B8860B" font-weight="800" text-anchor="end">D28</text>
-        <rect x="62" y="336" width="10" height="16" rx="3" fill="#B8860B"/>
-        <text x="78" y="349" font-size="9.5" fill="#B8860B" font-weight="800">📋 半正式制度：要求船员/货物/提单 · IRGC驱回不合规船 · 伊朗反要求霍尔木兹主权</text>
-        <!-- Row 15: D29 Trump称放行10艘 (highlighted) -->
-        <rect x="59" y="356" width="480" height="24" rx="4" fill="none" stroke="#2E7D32" stroke-width="1.5" stroke-dasharray="4,2"/>
-        <text x="58" y="374" font-size="10" fill="#2E7D32" font-weight="800" text-anchor="end">D29</text>
-        <rect x="62" y="362" width="25" height="16" rx="3" fill="#2E7D32"/>
-        <text x="93" y="375" font-size="9.5" fill="#2E7D32" font-weight="800">🚢 Trump称10艘油轮通过（未核实）· 议会推通行费立法永久化 · 伊朗要求船员+货物详情</text>
-      </svg>
+        <svg viewBox="0 0 520 240" xmlns="http://www.w3.org/2000/svg">
+          <!-- Y-axis -->
+          <line x1="50" y1="20" x2="50" y2="180" stroke="#E0E0E0" stroke-width="1"/>
+          <line x1="50" y1="180" x2="510" y2="180" stroke="#E0E0E0" stroke-width="1"/>
+          <!-- Y gridlines & labels -->
+          <text x="45" y="24" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">100%</text>
+          <line x1="50" y1="20" x2="510" y2="20" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="64" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">75%</text>
+          <line x1="50" y1="60" x2="510" y2="60" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="104" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">50%</text>
+          <line x1="50" y1="100" x2="510" y2="100" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="144" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">25%</text>
+          <line x1="50" y1="140" x2="510" y2="140" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <!-- X-axis labels -->
+          <text x="50" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">2/28</text>
+          <text x="76" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/1</text>
+          <text x="182" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/5</text>
+          <text x="288" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/9</text>
+          <text x="368" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/12</text>
+          <text x="447" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/15</text>
+          <text x="484" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/18</text>
+          <text x="494" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/20</text>
+          <text x="510" y="206" fill="#044E7E" font-size="9" font-family="Arial" text-anchor="end" font-weight="700">3/27</text>
+          <defs>
+            <linearGradient id="cfMar31Grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FF0000" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#FF0000" stop-opacity="0.01"/>
+            </linearGradient>
+            <linearGradient id="cfApr30Grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#044E7E" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#044E7E" stop-opacity="0.01"/>
+            </linearGradient>
+            <linearGradient id="hormuzGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2E7D32" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#2E7D32" stop-opacity="0.01"/>
+            </linearGradient>
+          </defs>
+          <!-- Line 1: Ceasefire by May 31 (red) — Polymarket API data -->
+          <!-- 3/3=74.5 3/4=64.5 3/5=64.5 3/6=63 3/7=61.5 3/8=61.5 3/9=55.5 3/10=62.5 3/11=63.5 3/12=58 3/14=53.5 3/15=51.5 3/16=46.5 3/17=50.5 3/18=47.5 3/20=43.5 3/23=50.5 3/25=60.5 3/26=59.5 3/27=53.5 -->
+          <polygon points="129,61 156,77 182,77 209,79 235,82 262,82 288,91 315,80 341,78 368,87 394,94 421,98 447,106 472,99 484,104 494,110 500,99 504,83 507,85 510,94 510,180 129,180" fill="url(#cfMar31Grad)"/>
+          <polyline points="129,61 156,77 182,77 209,79 235,82 262,82 288,91 315,80 341,78 368,87 394,94 421,98 447,106 472,99 484,104 494,110 500,99 504,83 507,85 510,94" fill="none" stroke="#FF0000" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="129" cy="61" r="3" fill="#FF0000"/>
+          <circle cx="510" cy="94" r="4" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
+          <text x="506" y="90" fill="#FF0000" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">53.5%</text>
+          <text x="135" y="57" fill="#FF0000" font-size="9" font-family="Arial" font-weight="600">74.5%</text>
+          <!-- Line 2: Ceasefire by Apr 30 (blue) — Polymarket API data -->
+          <!-- 3/2=60.5 3/3=67.5 3/4=56.5 3/5=53.5 3/6=45 3/7=48 3/8=46.5 3/9=46.5 3/10=53.5 3/11=53.5 3/12=49 3/14=39.5 3/15=36.5 3/16=35.5 3/17=39.5 3/18=40.5 3/20=31 3/23=39.5 3/25=50.5 3/26=48.5 3/27=39.5 -->
+          <polygon points="103,83 129,72 156,90 182,94 209,108 235,103 262,106 288,106 315,94 341,94 368,102 394,117 421,122 447,123 472,117 484,115 494,130 500,117 504,99 507,102 510,117 510,180 103,180" fill="url(#cfApr30Grad)"/>
+          <polyline points="103,83 129,72 156,90 182,94 209,108 235,103 262,106 288,106 315,94 341,94 368,102 394,117 421,122 447,123 472,117 484,115 494,130 500,117 504,99 507,102 510,117" fill="none" stroke="#044E7E" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="103" cy="83" r="3" fill="#044E7E"/>
+          <circle cx="510" cy="117" r="4" fill="#044E7E" stroke="#fff" stroke-width="1.5"/>
+          <text x="506" y="113" fill="#044E7E" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">39.5%</text>
+          <text x="109" y="79" fill="#044E7E" font-size="9" font-family="Arial" font-weight="600">60.5%</text>
+          <!-- Line 3: Hormuz traffic by Apr 30 (green, starts 3/10) — Polymarket API data -->
+          <!-- 3/10=68.5 3/11=50.5 3/12=45 3/14=36.5 3/15=32 3/16=28 3/17=25 3/18-19=23.5 3/20=24 3/23=33 3/25=39.5 3/26=33.5 3/27=29.5 -->
+          <polygon points="315,70 341,99 368,108 394,122 421,129 447,135 472,140 484,142 494,142 500,127 504,117 507,126 510,133 510,180 315,180" fill="url(#hormuzGrad)"/>
+          <polyline points="315,70 341,99 368,108 394,122 421,129 447,135 472,140 484,142 494,142 500,127 504,117 507,126 510,133" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6,3"/>
+          <circle cx="315" cy="70" r="3" fill="#2E7D32"/>
+          <circle cx="510" cy="133" r="4" fill="#2E7D32" stroke="#fff" stroke-width="1.5"/>
+          <text x="506" y="129" fill="#2E7D32" font-size="10" font-family="Arial" text-anchor="end" font-weight="700">29.5%</text>
+          <text x="321" y="66" fill="#2E7D32" font-size="9" font-family="Arial" font-weight="600">68.5%</text>
+          <!-- 3/9 spike annotation -->
+          <line x1="288" y1="106" x2="288" y2="180" stroke="#838383" stroke-width="0.8" stroke-dasharray="3"/>
+          <text x="288" y="210" fill="#838383" font-size="8" font-family="Calibri" text-anchor="middle">3/9 Trump暗示</text>
+          <text x="288" y="220" fill="#838383" font-size="8" font-family="Calibri" text-anchor="middle">伊朗"想谈"</text>
+          <!-- War start annotation -->
+          <line x1="50" y1="83" x2="50" y2="180" stroke="#FF0000" stroke-width="0.8" stroke-dasharray="3"/>
+          <text x="55" y="175" fill="#FF0000" font-size="8" font-family="Calibri">开战</text>
+        </svg>
       </div>
-      <div style="margin-top:8px; padding:6px 10px; background:#F5F5F5; border-radius:4px; font-size:11px; color:#555; border-left:3px solid #FF0000;">
-        滞留船只：<strong style="color:#FF0000">650+艘</strong>（海峡区域1,100+艘）&nbsp;|&nbsp;
-        VLCC运费：<strong style="color:#FF0000">$430,000+/天</strong>（历史新高）&nbsp;|&nbsp;
-        <strong style="color:#B8860B">伊朗建立半正式通行制度：船员名单+货物清单+提单</strong> &nbsp;|&nbsp;
-        <strong style="color:#FF0000">⚠️ 高盛：10周不开放→布伦特破$147</strong>
+      <div class="chart-legend" style="display:flex; gap:16px; margin-top:6px; justify-content:center; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:4px;">
+          <svg width="20" height="10"><line x1="0" y1="5" x2="20" y2="5" stroke="#FF0000" stroke-width="2"/></svg>
+          <span style="font-size:11px; color:#FF0000;">停火 by 5/31（53.5%）</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:4px;">
+          <svg width="20" height="10"><line x1="0" y1="5" x2="20" y2="5" stroke="#044E7E" stroke-width="2"/></svg>
+          <span style="font-size:11px; color:#044E7E;">停火 by 4/30（39.5%）</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:4px;">
+          <svg width="20" height="10"><line x1="0" y1="5" x2="20" y2="5" stroke="#2E7D32" stroke-width="2" stroke-dasharray="4,2"/></svg>
+          <span style="font-size:11px; color:#2E7D32;">海峡通行恢复 by 4月底（29.5%）</span>
+        </div>
+      </div>
+      <div style="margin-top:6px; font-size:10px; color:#838383; text-align:center;">
+        概率 = Polymarket "Yes" 合约价格 · 停火市场$52M成交量 · 数据截至 3/27 UTC · 数据来源：Polymarket CLOB API · 5/31市场3/3上线 · 霍尔木兹市场3/10上线
       </div>
     </div>
 
