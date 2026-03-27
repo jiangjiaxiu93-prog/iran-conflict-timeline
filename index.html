@@ -307,8 +307,11 @@
   <h2>关键数据图表</h2>
   <div class="charts-grid">
 
+    <!-- Polymarket + 雷区地图 并排 -->
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; grid-column: 1 / -1;">
+
     <!-- Chart: Polymarket 预测市场 -->
-    <div class="chart-card" style="grid-column: 1 / -1;">
+    <div class="chart-card">
       <h3>Polymarket 预测市场概率走势</h3>
       <div class="chart-subtitle">Trump延长能源打击暂停至4/6 · S&P战争以来最大跌幅-1.7% · 82空降师接到部署令 · MAGA在CPAC公开分裂 · 资料来源：Polymarket API（每日收盘价）</div>
       <div class="chart-area">
@@ -400,6 +403,20 @@
         概率 = Polymarket "Yes" 合约价格 · 停火市场$52M成交量 · 数据截至 3/27 UTC · 数据来源：Polymarket CLOB API · 5/31市场3/3上线 · 霍尔木兹市场3/10上线
       </div>
     </div>
+
+    <!-- Chart: 霍尔木兹海峡雷区战略地图 -->
+    <div class="chart-card">
+      <h3>霍尔木兹海峡雷区与通行态势</h3>
+      <div class="chart-subtitle">Maham-3/7水雷分布 · 伊朗"安全走廊"(拉拉克-格什姆) · COSCO航迹 · 资料来源：IISS/Janes/AIS</div>
+      <div style="text-align:center;">
+        <img src="chart_hormuz_mines.png" alt="霍尔木兹海峡雷区标注图" style="width:100%; max-width:520px; border-radius:6px; border:1px solid #e0e0e0;">
+      </div>
+      <div style="margin-top:6px; font-size:10px; color:#838383; text-align:center;">
+        🔴 三处疑似雷区（Maham-3磁性+声学触发300kg / Maham-7沉底220kg）· 🟢 伊朗"安全走廊" · 🟠 COSCO航迹 · 美军已击沉30+布雷艇
+      </div>
+    </div>
+
+    </div><!-- 关闭 Polymarket+雷区 并排容器 -->
 
     <!-- Chart 1: 布伦特原油走势 -->
     <div class="chart-card">
