@@ -359,9 +359,11 @@
         <text x="310" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D27</text>
         <text x="385" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D34</text>
         <text x="450" y="185" fill="#044E7E" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D39</text>
-        <!-- 骤降标注 -->
-        <text x="290" y="105" fill="#CC0000" font-size="12" font-family="Arial" font-weight="800" text-anchor="middle">▼ 97%</text>
-        <text x="290" y="118" fill="#838383" font-size="9" font-family="Calibri" text-anchor="middle">39天日均仅 ~5艘（战前110艘）</text>
+        <!-- 骤降标注：箭头从战前连到底部 -->
+        <line x1="70" y1="20" x2="70" y2="155" stroke="#CC0000" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+        <defs><marker id="arrowDown" markerWidth="6" markerHeight="6" refX="3" refY="6" orient="auto"><path d="M0,0 L3,6 L6,0" fill="#CC0000"/></marker></defs>
+        <text x="78" y="80" fill="#CC0000" font-size="13" font-family="Arial" font-weight="800">▼ 97%</text>
+        <text x="78" y="95" fill="#838383" font-size="9" font-family="Calibri">110 → ~5艘/日</text>
         <!-- IRGC声明 -->
         <rect x="180" y="192" rx="3" width="300" height="14" fill="#FFF5F5" stroke="#FF0000" stroke-width="0.5"/>
         <text x="330" y="202" fill="#CC0000" font-size="8.5" font-family="Calibri" text-anchor="middle" font-weight="700">IRGC："霍尔木兹永远不会恢复战前状态" · 伊朗正筹划波斯湾"新安全秩序"</text>
