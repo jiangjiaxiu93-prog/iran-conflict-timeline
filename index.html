@@ -303,7 +303,7 @@
 
     <div class="chart-card">
       <h3>霍尔木兹海峡日均船舶通行量</h3>
-      <div class="chart-subtitle">全球海运原油~1/5、LNG~20%经此通过 · 本图仅统计非伊朗关联船只的公开报道事件·Iran影子舰队常态过境未计入 · D45周日停火反弹(Bloomberg实19艘·Trump口径34艘注水) → D46 Trump海军封锁令22:00 Beijing生效·D47亚盘已确认2艘油轮放弃过境(Bloomberg追踪)· 资料来源：Bloomberg船舶追踪/Clarksons/S&P Global Market Intelligence/Economist</div>
+      <div class="chart-subtitle">全球海运原油~1/5、LNG~20%经此通过 · 本图仅统计非伊朗关联船只的公开报道事件·Iran影子舰队常态过境未计入 · D45周日停火反弹(Bloomberg实19艘·Trump口径34艘注水) → D46 Trump海军封锁令22:00 Beijing生效 → D47 2艘油轮折返+Rich Starry 24h内第二次测试 → D48早 伊朗考虑主动暂停出货换善意·沙特据WSJ施压华盛顿中止封锁·美海军12+舰24h执法(USS Tripoli+F-35+Marines) · 资料来源：Bloomberg船舶追踪/Clarksons/S&P Global Market Intelligence/Economist</div>
       <div class="chart-area">
       <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -329,9 +329,9 @@
         <line x1="45" y1="15" x2="550" y2="15" stroke="#044E7E" stroke-width="1.5" stroke-dasharray="6,3"/>
         <text x="554" y="13" fill="#044E7E" font-size="9" font-family="Arial" font-weight="700">战前 ~110/日</text>
         <!-- 面积图：通行量 -->
-        <!-- 数据(仅非伊朗关联公开报道): 战前110 → D1:60 → ... → D43:3 → D44:3(3超大油轮) → D45(周日4/12停火期反弹):19(Bloomberg双向统计·Trump口径34水分) → D46(4/13封锁22:00生效):~8 -->
-        <polygon points="45,15 58,83 71,128 84,146 97,163 200,161 360,161 385,158 398,153 411,161 424,163 437,163 450,160 463,142 476,147 489,164 502,167 515,167 528,119 541,155 541,170 45,170" fill="url(#hormuzFill)"/>
-        <polyline points="45,15 58,83 71,128 84,146 97,163 200,161 360,161 385,158 398,153 411,161 424,163 437,163 450,160 463,142 476,147 489,164 502,167 515,167 528,119 541,155" fill="none" stroke="#FF0000" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- 数据(仅非伊朗关联公开报道): 战前110 → D1:60 → ... → D43:3 → D44:3(3超大油轮) → D45(周日4/12停火期反弹):19(Bloomberg双向统计·Trump口径34水分) → D46(4/13封锁22:00生效):~8 → D47(4/14):~2(2油轮折返+Rich Starry 24h内第二次尝试) → D48(4/15早):伊朗据悉考虑主动暂停出货 -->
+        <polygon points="45,15 58,83 71,128 84,146 97,163 200,161 360,161 385,158 398,153 411,161 424,163 437,163 450,160 463,142 476,147 489,164 502,167 515,167 528,119 541,155 546,168 550,169 550,170 45,170" fill="url(#hormuzFill)"/>
+        <polyline points="45,15 58,83 71,128 84,146 97,163 200,161 360,161 385,158 398,153 411,161 424,163 437,163 450,160 463,142 476,147 489,164 502,167 515,167 528,119 541,155 546,168 550,169" fill="none" stroke="#FF0000" stroke-width="2.5" stroke-linejoin="round"/>
         <!-- 关键节点标注 -->
         <circle cx="45" cy="15" r="3" fill="#044E7E"/>
         <circle cx="97" cy="163" r="3.5" fill="#FF0000"/>
@@ -367,6 +367,10 @@
         <line x1="541" y1="155" x2="548" y2="200" stroke="#CC0000" stroke-width="0.8" stroke-dasharray="3"/>
         <text x="548" y="212" fill="#CC0000" font-size="8" font-family="Calibri" font-weight="700" text-anchor="middle">D46 封锁令</text>
         <text x="548" y="222" fill="#CC0000" font-size="7" font-family="Calibri" text-anchor="middle">(4/13 22:00生效)</text>
+        <!-- D47-48 封锁生效后极低通行 -->
+        <circle cx="550" cy="169" r="4" fill="#CC0000" stroke="#fff" stroke-width="1.5"/>
+        <text x="570" y="172" fill="#CC0000" font-size="9" font-family="Arial" font-weight="700" text-anchor="start">D47-48</text>
+        <text x="570" y="161" fill="#CC0000" font-size="7" font-family="Calibri" text-anchor="start">~0-2艘·伊朗考虑暂停</text>
         <!-- X轴标签（稀疏化避免重叠）-->
         <text x="45" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">战前</text>
         <text x="58" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D1</text>
@@ -377,22 +381,22 @@
         <text x="450" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D39</text>
         <text x="476" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D41</text>
         <text x="515" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D44</text>
-        <text x="541" y="185" fill="#CC0000" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D46</text>
+        <text x="541" y="185" fill="#CC0000" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D46-48</text>
       </svg>
       </div>
       <div style="margin-top:8px; padding:6px 10px; background:#F5F5F5; border-radius:4px; font-size:11px; color:#555; border-left:3px solid #FF0000;">
         滞留船只：<strong style="color:#FF0000">800+艘</strong>（WSJ 4/9：425+油轮+20 LNG·至少1,000艘滞留）&nbsp;|&nbsp;
         通行费：<strong style="color:#FF0000">$12-25万/船</strong>（Lloyd's List典型）·VLCC最高<strong style="color:#FF0000">$200万</strong>&nbsp;|&nbsp;
         战前基线：Clarksons <strong style="color:#555">~125艘/日</strong>·Vortexa油轮口径<strong style="color:#555">46艘/日</strong>&nbsp;|&nbsp;
-        46天非伊朗关联累计<strong style="color:#FF0000">~250艘</strong>（WSJ/S&P Global）&nbsp;|&nbsp;
-        D45 周日停火期反弹 <strong style="color:#CC0000">Bloomberg实19艘</strong>（Trump口径34艘注水） → D46 <strong style="color:#CC0000">封锁令22:00 Beijing生效</strong> → D47 亚盘已<strong style="color:#CC0000">2艘油轮折返</strong>·伊朗据悉考虑主动暂停出货换善意·沙特据WSJ施压华盛顿中止封锁·Rich Starry油轮24小时内第二次测试通过
+        48天非伊朗关联累计<strong style="color:#FF0000">~252艘</strong>（WSJ/S&P Global）&nbsp;|&nbsp;
+        D45 停火期反弹 <strong style="color:#CC0000">Bloomberg实19艘</strong> → D46 <strong style="color:#CC0000">封锁令22:00 Beijing生效</strong> → D47 <strong style="color:#CC0000">2艘油轮折返·Rich Starry 24h内第二次测试</strong> → D48早 <strong style="color:#CC0000">伊朗考虑主动暂停出货换善意</strong>·美财政部宣布伊朗豁免本周末到期·美海军12+舰24h执法(USS Tripoli+F-35+Marines登船)·沙特据WSJ施压华盛顿中止封锁
       </div>
     </div>
 
     <!-- Chart 2: 伊朗导弹/无人机发射量 -->
     <div class="chart-card">
       <h3>伊朗攻击武器发射量（累计）</h3>
-      <div class="chart-subtitle">45天累计：5,800+架无人机 + 1,730+枚弹道导弹 · 停火中发射暂停（伊仍每日~20枚） · 资料来源：Bloomberg/Pentagon/Soufan</div>
+      <div class="chart-subtitle">48天累计：5,800+架无人机 + 1,730+枚弹道导弹 · D41-48停火持续·发射暂停(伊每日~20枚低烈度) · 停火4/22到期倒计时 · 资料来源：Bloomberg/Pentagon/Soufan</div>
       <div class="chart-area">
         <svg viewBox="0 0 590 220" xmlns="http://www.w3.org/2000/svg">
           <line x1="50" y1="20" x2="50" y2="180" stroke="#E0E0E0" stroke-width="1"/>
@@ -429,9 +433,9 @@
           <text x="556" y="106" fill="#044E7E" font-size="10" font-family="Arial" text-anchor="start" font-weight="700">1,730+</text>
           <!-- D41 停火竖虚线 -->
           <line x1="550" y1="20" x2="550" y2="180" stroke="#2E7D32" stroke-width="1" stroke-dasharray="4,3"/>
-          <rect x="518" y="30" rx="3" width="64" height="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="0.8"/>
-          <text x="550" y="41" fill="#2E7D32" font-size="9" font-family="Calibri" text-anchor="middle" font-weight="700">D41 停火</text>
-          <text x="550" y="56" fill="#2E7D32" font-size="8" font-family="Calibri" text-anchor="middle">发射暂停</text>
+          <rect x="510" y="30" rx="3" width="80" height="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="0.8"/>
+          <text x="550" y="41" fill="#2E7D32" font-size="9" font-family="Calibri" text-anchor="middle" font-weight="700">D41-48 停火</text>
+          <text x="550" y="56" fill="#2E7D32" font-size="8" font-family="Calibri" text-anchor="middle">发射暂停·4/22到期</text>
           <text x="50" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D1</text>
           <text x="88" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D3</text>
           <text x="164" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D7</text>
@@ -440,7 +444,7 @@
           <text x="392" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D19</text>
           <text x="464" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D22</text>
           <text x="525" y="196" fill="#999" font-size="9" font-family="Arial" text-anchor="middle">D37</text>
-          <text x="550" y="196" fill="#044E7E" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D41 停火</text>
+          <text x="550" y="196" fill="#044E7E" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D41-48 停火</text>
           <rect x="300" y="2" rx="3" width="210" height="16" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/>
           <text x="405" y="13" fill="#044E7E" font-size="9" font-family="Calibri" text-anchor="middle">PAC-3消耗1,500+ · MQ-9损失~12架 · $30亿紧急采购1,512枚战斧</text>
         </svg>
@@ -478,7 +482,7 @@
           <text x="540" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">4/5</text>
           <text x="560" y="196" fill="#044E7E" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">4/8 停火</text>
           <text x="579" y="196" fill="#CC0000" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">4/12 破裂</text>
-          <text x="592" y="210" fill="#2E7D32" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">4/14晚</text>
+          <text x="594" y="210" fill="#2E7D32" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">4/15晨</text>
           <defs>
             <linearGradient id="cfMar31Grad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#FF0000" stop-opacity="0.08"/>
@@ -587,7 +591,7 @@
           <div style="font-size:11px; color:var(--primary-blue); margin-bottom:8px; font-weight:700;">军费开支</div>
           <div style="text-align:center; margin-bottom:10px;">
             <div style="font-size:34px; font-weight:800; color:#FF0000; font-family:Arial,sans-serif;">$25B+</div>
-            <div style="font-size:10px; color:#838383;">45天累计$250亿+ · 五角大楼拟申请$800-1,000亿补充军费（原$2,000亿缩减）</div>
+            <div style="font-size:10px; color:#838383;">48天累计$250亿+ · 五角大楼拟申请$800-1,000亿补充军费（原$2,000亿缩减）· 美海军霍尔木兹24h封锁执法(12+舰/USS Tripoli/F-35/Marines)</div>
           </div>
           <div style="font-size:11px; color:#838383; margin-bottom:4px;">拦截弹库存压力</div>
           <div class="h-metric">
