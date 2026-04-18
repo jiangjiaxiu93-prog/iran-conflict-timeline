@@ -329,9 +329,9 @@
         <line x1="45" y1="15" x2="550" y2="15" stroke="#044E7E" stroke-width="1.5" stroke-dasharray="6,3"/>
         <text x="554" y="13" fill="#044E7E" font-size="9" font-family="Arial" font-weight="700">战前 ~110/日</text>
         <!-- 面积图：通行量 -->
-        <!-- 数据(仅非伊朗关联公开报道): 战前110 → D1:60 → ... → D43:3 → D44:3(3超大油轮) → D45(周日4/12停火期反弹):19(Bloomberg双向统计·Trump口径34水分) → D46(4/13封锁22:00生效):~8 → D47(4/14):~5(2油轮折返+Rich Starry测试+Iraqi豁免船继续) → D48(4/15早):~4(伊朗考虑暂停但未执行·美海军选择性执法) -->
-        <polygon points="45,15 58,83 71,128 84,146 97,163 200,161 360,161 385,158 398,153 411,161 424,163 437,163 450,160 463,142 476,147 489,164 502,167 515,167 528,119 541,155 546,160 550,162 550,170 45,170" fill="url(#hormuzFill)"/>
-        <polyline points="45,15 58,83 71,128 84,146 97,163 200,161 360,161 385,158 398,153 411,161 424,163 437,163 450,160 463,142 476,147 489,164 502,167 515,167 528,119 541,155 546,160 550,162" fill="none" stroke="#FF0000" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- 数据(仅非伊朗关联公开报道): 战前110 → D1:60 → ... → D44:3(3超大油轮) → D45(4/12停火反弹):19 → D46(4/13封锁):~8 → D47-48:~3-5 → D49(新破口Qeshm/Larak):~11 → D50(4/17):~5(封锁累计逼返14艘) → D51(4/18 Iran宣布Hormuz completely open·8油轮+4Qatar LNG+2Adnoc LNG启动过境):~14 -->
+        <polygon points="45,15 58,83 71,128 84,146 97,163 200,161 360,161 385,158 398,153 411,161 424,163 437,163 450,160 463,142 476,147 489,164 502,167 515,167 528,119 541,155 546,160 550,162 555,155 555,170 45,170" fill="url(#hormuzFill)"/>
+        <polyline points="45,15 58,83 71,128 84,146 97,163 200,161 360,161 385,158 398,153 411,161 424,163 437,163 450,160 463,142 476,147 489,164 502,167 515,167 528,119 541,155 546,160 550,162 555,155" fill="none" stroke="#FF0000" stroke-width="2.5" stroke-linejoin="round"/>
         <!-- 关键节点标注 -->
         <circle cx="45" cy="15" r="3" fill="#044E7E"/>
         <circle cx="97" cy="163" r="3.5" fill="#FF0000"/>
@@ -367,10 +367,15 @@
         <line x1="541" y1="155" x2="548" y2="200" stroke="#CC0000" stroke-width="0.8" stroke-dasharray="3"/>
         <text x="548" y="212" fill="#CC0000" font-size="8" font-family="Calibri" font-weight="700" text-anchor="middle">D46 封锁令</text>
         <text x="548" y="222" fill="#CC0000" font-size="7" font-family="Calibri" text-anchor="middle">(4/13 22:00生效)</text>
-        <!-- D47-49 封锁持续·新破口G Summer/Hong Lu经Qeshm/Larak岛入湾 -->
+        <!-- D47-50 封锁持续·新破口G Summer/Hong Lu经Qeshm/Larak岛入湾 -->
         <circle cx="550" cy="162" r="4" fill="#CC0000" stroke="#fff" stroke-width="1.5"/>
-        <text x="570" y="165" fill="#CC0000" font-size="9" font-family="Arial" font-weight="700" text-anchor="start">D47-49</text>
-        <text x="570" y="154" fill="#CC0000" font-size="7" font-family="Calibri" text-anchor="start">~3-16艘(Qeshm/Larak破口)</text>
+        <text x="570" y="178" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="start">D47-50</text>
+        <text x="570" y="168" fill="#CC0000" font-size="7" font-family="Calibri" text-anchor="start">~3-16艘(Qeshm/Larak)</text>
+        <!-- D51 Iran宣布Hormuz open·14艘船启动过境尝试 -->
+        <circle cx="555" cy="155" r="5" fill="#2E7D32" stroke="#fff" stroke-width="1.5"/>
+        <line x1="555" y1="155" x2="580" y2="135" stroke="#2E7D32" stroke-width="0.8" stroke-dasharray="3"/>
+        <text x="580" y="130" fill="#2E7D32" font-size="9" font-family="Arial" font-weight="700" text-anchor="start">D51 开放</text>
+        <text x="580" y="140" fill="#2E7D32" font-size="7" font-family="Calibri" text-anchor="start">8油轮+4LNG+2空LNG启动</text>
         <!-- X轴标签（稀疏化避免重叠）-->
         <text x="45" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">战前</text>
         <text x="58" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D1</text>
@@ -381,7 +386,8 @@
         <text x="450" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D39</text>
         <text x="476" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D41</text>
         <text x="515" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D44</text>
-        <text x="541" y="185" fill="#CC0000" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D46-49</text>
+        <text x="541" y="185" fill="#CC0000" font-size="8" font-family="Arial" text-anchor="middle" font-weight="700">D46-50</text>
+        <text x="558" y="185" fill="#2E7D32" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D51</text>
       </svg>
       </div>
       <div style="margin-top:8px; padding:6px 10px; background:#F5F5F5; border-radius:4px; font-size:11px; color:#555; border-left:3px solid #FF0000;">
@@ -396,7 +402,7 @@
     <!-- Chart 2: 伊朗导弹/无人机发射量 -->
     <div class="chart-card">
       <h3>伊朗攻击武器发射量（累计）</h3>
-      <div class="chart-subtitle">49天累计：5,800+架无人机 + 1,730+枚弹道导弹 · D41-49停火持续·发射暂停(伊每日~20枚低烈度) · 美伊权衡两周停火延期·4/22到期倒计时 · 追加部署：USS George H.W. Bush(6,000人)+Boxer两栖群(4,200人) · 三航母齐聚(Bush+Lincoln+Ford)·美军中东规模逼近55,000 · 资料来源：Bloomberg/Pentagon/Soufan/USNI/WaPo</div>
+      <div class="chart-subtitle">51天累计：5,800+架无人机 + 1,730+枚弹道导弹 · D41-51停火持续·发射暂停(伊每日~20枚低烈度) · 4/22停火到期倒计时4天·Trump/Iran谈判4/20周一伊斯兰堡 · 追加部署：USS George H.W. Bush(6,000人)+Boxer两栖群(4,200人·4月下旬抵达) · 三航母齐聚(Bush+Lincoln+Ford)·美军中东规模逼近55,000 · Hegseth："locked and loaded"警告若破裂打击dual-use infrastructure · 资料来源：Bloomberg/Pentagon/Soufan/USNI/WaPo</div>
       <div class="chart-area">
         <svg viewBox="0 0 590 220" xmlns="http://www.w3.org/2000/svg">
           <line x1="50" y1="20" x2="50" y2="180" stroke="#E0E0E0" stroke-width="1"/>
@@ -434,7 +440,7 @@
           <!-- D41 停火竖虚线 -->
           <line x1="550" y1="20" x2="550" y2="180" stroke="#2E7D32" stroke-width="1" stroke-dasharray="4,3"/>
           <rect x="510" y="30" rx="3" width="80" height="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="0.8"/>
-          <text x="550" y="41" fill="#2E7D32" font-size="9" font-family="Calibri" text-anchor="middle" font-weight="700">D41-49 停火</text>
+          <text x="550" y="41" fill="#2E7D32" font-size="9" font-family="Calibri" text-anchor="middle" font-weight="700">D41-51 停火</text>
           <text x="550" y="56" fill="#2E7D32" font-size="8" font-family="Calibri" text-anchor="middle">发射暂停·4/22到期</text>
           <text x="50" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D1</text>
           <text x="88" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D3</text>
@@ -444,7 +450,7 @@
           <text x="392" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D19</text>
           <text x="464" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D22</text>
           <text x="525" y="196" fill="#999" font-size="9" font-family="Arial" text-anchor="middle">D37</text>
-          <text x="550" y="196" fill="#044E7E" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D41-49 停火</text>
+          <text x="550" y="196" fill="#044E7E" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D41-51 停火</text>
           <rect x="300" y="2" rx="3" width="210" height="16" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/>
           <text x="405" y="13" fill="#044E7E" font-size="9" font-family="Calibri" text-anchor="middle">PAC-3消耗1,500+ · MQ-9损失~12架 · $30亿紧急采购1,512枚战斧</text>
         </svg>
@@ -483,7 +489,7 @@
           <text x="560" y="196" fill="#044E7E" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">4/8 停火</text>
           <text x="579" y="196" fill="#CC0000" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">4/12 破裂</text>
           <text x="586" y="210" fill="#2E7D32" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">4/15晨</text>
-          <text x="593" y="222" fill="#044E7E" font-size="8" font-family="Arial" text-anchor="middle" font-weight="700">4/17</text>
+          <text x="596" y="222" fill="#2E7D32" font-size="8" font-family="Arial" text-anchor="middle" font-weight="700">4/17-18 Hormuz开放</text>
           <defs>
             <linearGradient id="cfMar31Grad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#FF0000" stop-opacity="0.08"/>
@@ -499,28 +505,28 @@
             </linearGradient>
           </defs>
           <!-- Line 1: Ceasefire by May 31 (red) — Polymarket API data -->
-          <!-- 3/3=74.5 … 4/8=98 4/9=85 4/10=80 4/11=72 4/12=68 (谈判破裂→大跌) -->
-          <polygon points="129,61 156,77 182,77 209,79 235,82 262,82 288,91 315,80 341,78 368,87 394,94 421,98 447,106 472,99 484,104 494,110 500,99 504,83 507,85 510,96 516,94 524,103 527,106 530,97 533,92 537,106 540,122 543,108 549,104 555,23 561,44 567,52 573,65 579,72 586,46 593,41 593,180 129,180" fill="url(#cfMar31Grad)"/>
-          <polyline points="129,61 156,77 182,77 209,79 235,82 262,82 288,91 315,80 341,78 368,87 394,94 421,98 447,106 472,99 484,104 494,110 500,99 504,83 507,85 510,96 516,94 524,103 527,106 530,97 533,92 537,106 540,122 543,108 549,104 555,23 561,44 567,52 573,65 579,72 586,46 593,41" fill="none" stroke="#FF0000" stroke-width="2" stroke-linejoin="round"/>
+          <!-- 3/3=74.5 … 4/8=98 4/9=85 4/10=80 4/11=72 4/12=68 4/17=87 4/18=93(Hormuz开放+Trump"unlimited") -->
+          <polygon points="129,61 156,77 182,77 209,79 235,82 262,82 288,91 315,80 341,78 368,87 394,94 421,98 447,106 472,99 484,104 494,110 500,99 504,83 507,85 510,96 516,94 524,103 527,106 530,97 533,92 537,106 540,122 543,108 549,104 555,23 561,44 567,52 573,65 579,72 586,46 593,41 600,31 600,180 129,180" fill="url(#cfMar31Grad)"/>
+          <polyline points="129,61 156,77 182,77 209,79 235,82 262,82 288,91 315,80 341,78 368,87 394,94 421,98 447,106 472,99 484,104 494,110 500,99 504,83 507,85 510,96 516,94 524,103 527,106 530,97 533,92 537,106 540,122 543,108 549,104 555,23 561,44 567,52 573,65 579,72 586,46 593,41 600,31" fill="none" stroke="#FF0000" stroke-width="2" stroke-linejoin="round"/>
           <circle cx="129" cy="61" r="3" fill="#FF0000"/>
-          <circle cx="593" cy="41" r="4" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
-          <text x="597" y="38" fill="#FF0000" font-size="10" font-family="Arial" font-weight="700">87%</text>
+          <circle cx="600" cy="31" r="4" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
+          <text x="604" y="28" fill="#FF0000" font-size="10" font-family="Arial" font-weight="700">93%</text>
           <text x="135" y="57" fill="#FF0000" font-size="9" font-family="Arial" font-weight="600">74.5%</text>
           <!-- Line 2: Ceasefire by Apr 30 (blue) — Polymarket API data -->
-          <!-- 3/2=60.5 … 4/5=22 4/6=27 4/7=29 4/8=98 4/9=82 (伊朗指控违约→回落) -->
-          <polygon points="103,83 129,72 156,90 182,94 209,108 235,103 262,106 288,106 315,94 341,94 368,102 394,117 421,122 447,123 472,117 484,115 494,130 500,117 504,99 507,102 510,120 516,116 524,127 527,130 530,124 533,116 537,138 540,145 543,137 549,134 555,23 561,49 567,60 573,76 579,87 586,52 593,47 593,180 103,180" fill="url(#cfApr30Grad)"/>
-          <polyline points="103,83 129,72 156,90 182,94 209,108 235,103 262,106 288,106 315,94 341,94 368,102 394,117 421,122 447,123 472,117 484,115 494,130 500,117 504,99 507,102 510,120 516,116 524,127 527,130 530,124 533,116 537,138 540,145 543,137 549,134 555,23 561,49 567,60 573,76 579,87 586,52 593,47" fill="none" stroke="#044E7E" stroke-width="2" stroke-linejoin="round"/>
+          <!-- 3/2=60.5 … 4/5=22 4/6=27 4/7=29 4/8=98 4/9=82 4/17=83 4/18=89(Hormuz开放+Trump主要条款完结) -->
+          <polygon points="103,83 129,72 156,90 182,94 209,108 235,103 262,106 288,106 315,94 341,94 368,102 394,117 421,122 447,123 472,117 484,115 494,130 500,117 504,99 507,102 510,120 516,116 524,127 527,130 530,124 533,116 537,138 540,145 543,137 549,134 555,23 561,49 567,60 573,76 579,87 586,52 593,47 600,37 600,180 103,180" fill="url(#cfApr30Grad)"/>
+          <polyline points="103,83 129,72 156,90 182,94 209,108 235,103 262,106 288,106 315,94 341,94 368,102 394,117 421,122 447,123 472,117 484,115 494,130 500,117 504,99 507,102 510,120 516,116 524,127 527,130 530,124 533,116 537,138 540,145 543,137 549,134 555,23 561,49 567,60 573,76 579,87 586,52 593,47 600,37" fill="none" stroke="#044E7E" stroke-width="2" stroke-linejoin="round"/>
           <circle cx="103" cy="83" r="3" fill="#044E7E"/>
-          <circle cx="593" cy="47" r="4" fill="#044E7E" stroke="#fff" stroke-width="1.5"/>
-          <text x="597" y="57" fill="#044E7E" font-size="10" font-family="Arial" font-weight="700">83%</text>
+          <circle cx="600" cy="37" r="4" fill="#044E7E" stroke="#fff" stroke-width="1.5"/>
+          <text x="604" y="47" fill="#044E7E" font-size="10" font-family="Arial" font-weight="700">89%</text>
           <text x="109" y="79" fill="#044E7E" font-size="9" font-family="Arial" font-weight="600">60.5%</text>
           <!-- Line 3: Hormuz traffic by Apr 30 (green, starts 3/10) — Polymarket API data -->
-          <!-- 3/10=68.5 … 4/5=14 4/6=15 4/7=16 4/8=65 4/9=48 (伊朗指控违约→回落) -->
-          <polygon points="315,70 341,99 368,108 394,122 421,129 447,135 472,140 484,142 494,142 500,127 504,117 507,126 510,131 516,138 524,145 527,148 530,145 533,145 537,161 540,158 543,156 549,154 555,76 561,103 567,110 573,128 579,140 586,146 593,142 593,180 315,180" fill="url(#hormuzGrad)"/>
-          <polyline points="315,70 341,99 368,108 394,122 421,129 447,135 472,140 484,142 494,142 500,127 504,117 507,126 510,131 516,138 524,145 527,148 530,145 533,145 537,161 540,158 543,156 549,154 555,76 561,103 567,110 573,128 579,140 586,146 593,142" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6,3"/>
+          <!-- 3/10=68.5 … 4/5=14 4/6=15 4/7=16 4/8=65 4/9=48 4/17=24 4/18=58(Iran宣布open+8油轮过境) -->
+          <polygon points="315,70 341,99 368,108 394,122 421,129 447,135 472,140 484,142 494,142 500,127 504,117 507,126 510,131 516,138 524,145 527,148 530,145 533,145 537,161 540,158 543,156 549,154 555,76 561,103 567,110 573,128 579,140 586,146 593,142 600,87 600,180 315,180" fill="url(#hormuzGrad)"/>
+          <polyline points="315,70 341,99 368,108 394,122 421,129 447,135 472,140 484,142 494,142 500,127 504,117 507,126 510,131 516,138 524,145 527,148 530,145 533,145 537,161 540,158 543,156 549,154 555,76 561,103 567,110 573,128 579,140 586,146 593,142 600,87" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6,3"/>
           <circle cx="315" cy="70" r="3" fill="#2E7D32"/>
-          <circle cx="593" cy="142" r="4" fill="#2E7D32" stroke="#fff" stroke-width="1.5"/>
-          <text x="597" y="145" fill="#2E7D32" font-size="10" font-family="Arial" font-weight="700">24%</text>
+          <circle cx="600" cy="87" r="4" fill="#2E7D32" stroke="#fff" stroke-width="1.5"/>
+          <text x="604" y="90" fill="#2E7D32" font-size="10" font-family="Arial" font-weight="700">58%</text>
           <text x="321" y="66" fill="#2E7D32" font-size="9" font-family="Arial" font-weight="600">68.5%</text>
           <!-- 3/9 spike annotation -->
           <line x1="288" y1="106" x2="288" y2="180" stroke="#838383" stroke-width="0.8" stroke-dasharray="3"/>
@@ -534,19 +540,19 @@
       <div class="chart-legend" style="display:flex; gap:16px; margin-top:6px; justify-content:center; flex-wrap:wrap;">
         <div style="display:flex; align-items:center; gap:4px;">
           <svg width="20" height="10"><line x1="0" y1="5" x2="20" y2="5" stroke="#FF0000" stroke-width="2"/></svg>
-          <span style="font-size:11px; color:#FF0000;">冲突停火 by 5/15（87%）</span>
+          <span style="font-size:11px; color:#FF0000;">冲突停火 by 5/15（93%）</span>
         </div>
         <div style="display:flex; align-items:center; gap:4px;">
           <svg width="20" height="10"><line x1="0" y1="5" x2="20" y2="5" stroke="#044E7E" stroke-width="2"/></svg>
-          <span style="font-size:11px; color:#044E7E;">冲突停火 by 4/30（83%）</span>
+          <span style="font-size:11px; color:#044E7E;">冲突停火 by 4/30（89%）</span>
         </div>
         <div style="display:flex; align-items:center; gap:4px;">
           <svg width="20" height="10"><line x1="0" y1="5" x2="20" y2="5" stroke="#2E7D32" stroke-width="2" stroke-dasharray="4,2"/></svg>
-          <span style="font-size:11px; color:#2E7D32;">Hormuz 通行恢复 by 4月底（24%）</span>
+          <span style="font-size:11px; color:#2E7D32;">Hormuz 通行恢复 by 4月底（58%）</span>
         </div>
       </div>
       <div style="margin-top:6px; font-size:10px; color:#838383; text-align:center;">
-        概率 = Polymarket "Yes" 合约价格 · 冲突停火事件$4,045万成交量 · Hormuz恢复$862万 · 美伊核协议by6/30=65% · 数据截至 4/17 07:30 Beijing · 资料来源：Polymarket Gamma API · 事件slug: iran-x-israelus-conflict-ends-by / strait-of-hormuz-traffic-returns-to-normal-by-april-30 / us-iran-nuclear-deal-by-june-30
+        概率 = Polymarket "Yes" 合约价格 · 冲突停火事件$4,045万成交量 · Hormuz恢复$862万 · 美伊核协议by6/30=72%(+7pts) · 数据截至 4/18 15:55 Beijing · 资料来源：Polymarket Gamma API · 事件slug: iran-x-israelus-conflict-ends-by / strait-of-hormuz-traffic-returns-to-normal-by-april-30 / us-iran-nuclear-deal-by-june-30
       </div>
     </div>
 
@@ -597,7 +603,7 @@
           <div style="font-size:11px; color:var(--primary-blue); margin-bottom:8px; font-weight:700;">军费开支</div>
           <div style="text-align:center; margin-bottom:10px;">
             <div style="font-size:34px; font-weight:800; color:#FF0000; font-family:Arial,sans-serif;">$25B+</div>
-            <div style="font-size:10px; color:#838383;">50天累计$250亿+ · 五角大楼拟申请$800-1,000亿补充军费 · 3航母战斗群/5万兵力(USS Bush+Boxer 4月下旬抵达) · 封锁已逼返14艘船</div>
+            <div style="font-size:10px; color:#838383;">51天累计$255亿+ · 五角大楼拟申请$800-1,000亿补充军费 · 3航母战斗群/5万兵力(USS Bush+Boxer 4月下旬抵达) · 封锁已逼返21艘船(CENTCOM 4/17)</div>
           </div>
           <div style="font-size:11px; color:#838383; margin-bottom:4px;">拦截弹库存压力</div>
           <div class="h-metric">
