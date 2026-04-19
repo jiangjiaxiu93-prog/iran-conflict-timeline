@@ -303,105 +303,73 @@
 
     <div class="chart-card">
       <h3>霍尔木兹海峡日均船舶通行量</h3>
-      <div class="chart-subtitle">全球海运原油~1/5、LNG~20%经此通过 · 本图仅统计非伊朗关联船只的公开报道事件 · D45停火反弹19艘 → D46封锁生效 → D47-50 ~3-5艘/日·累计逼返14艘 → D51(4/17-18早)Iran宣布"completely open"·8油轮+4Qatar LNG+2Adnoc过境 → <strong style="color:#FF0000">D52(4/18晚)Iran武装部队再关闭·控制权"恢复以前状态"·IRGC炮艇攻击Sanmar Herald(200万桶)+Jag Arnav(印度籍)+阿曼集装箱船·Goldman：流量仅战前10%·210万桶/日</strong> · 资料来源：Bloomberg船舶追踪/Goldman Sachs/IEA/Al Jazeera/Axios/CENTCOM/India MEA</div>
+      <div class="chart-subtitle">数据源：<strong>IMF PortWatch</strong>（IMF 与牛津大学 ECI 联合开发·基于 AIS 卫星船舶追踪·7日移动平均）· 战前基线 <strong>79 艘/日</strong>（2026-02 月度均值）· 52 天累计通行量 <strong>-95%</strong> · 全球海运原油 ~1/5、LNG ~20% 经此通过 · 补充：Lloyd's List Intelligence / Kpler / CENTCOM</div>
       <div class="chart-area">
-      <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 600 230" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="hormuzFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#FF0000" stop-opacity="0.15"/>
+            <stop offset="0%" stop-color="#FF0000" stop-opacity="0.18"/>
             <stop offset="100%" stop-color="#FF0000" stop-opacity="0.02"/>
           </linearGradient>
         </defs>
-        <!-- Y轴 -->
-        <line x1="45" y1="15" x2="45" y2="170" stroke="#E0E0E0" stroke-width="1"/>
-        <line x1="45" y1="170" x2="550" y2="170" stroke="#E0E0E0" stroke-width="1"/>
-        <!-- Y刻度 -->
-        <text x="40" y="19" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">110</text>
-        <line x1="45" y1="15" x2="550" y2="15" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-        <text x="40" y="50" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">80</text>
-        <line x1="45" y1="46" x2="550" y2="46" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-        <text x="40" y="93" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">40</text>
-        <line x1="45" y1="89" x2="550" y2="89" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-        <text x="40" y="136" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">10</text>
-        <line x1="45" y1="132" x2="550" y2="132" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-        <text x="40" y="174" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">0</text>
-        <!-- 战前基线 -->
-        <line x1="45" y1="15" x2="550" y2="15" stroke="#044E7E" stroke-width="1.5" stroke-dasharray="6,3"/>
-        <text x="554" y="13" fill="#044E7E" font-size="9" font-family="Arial" font-weight="700">战前 ~110/日</text>
-        <!-- 面积图：通行量 -->
-        <!-- 数据(仅非伊朗关联公开报道): 战前110 → ... → D50:~5 → D51(4/17 open):~14 → D52(4/18-19 Iran军方反转宣布"严格管理"·IRGC炮艇攻击Sanmar Herald/Jag Arnav/阿曼集装箱船):~3 -->
-        <polygon points="45,15 58,83 71,128 84,146 97,163 200,161 360,161 385,158 398,153 411,161 424,163 437,163 450,160 463,142 476,147 489,164 502,167 515,167 528,119 541,155 546,160 550,162 555,155 560,166 560,170 45,170" fill="url(#hormuzFill)"/>
-        <polyline points="45,15 58,83 71,128 84,146 97,163 200,161 360,161 385,158 398,153 411,161 424,163 437,163 450,160 463,142 476,147 489,164 502,167 515,167 528,119 541,155 546,160 550,162 555,155 560,166" fill="none" stroke="#FF0000" stroke-width="2.5" stroke-linejoin="round"/>
-        <!-- 关键节点标注 -->
-        <circle cx="45" cy="15" r="3" fill="#044E7E"/>
-        <circle cx="97" cy="163" r="3.5" fill="#FF0000"/>
-        <circle cx="515" cy="167" r="3" fill="#2E7D32" stroke="#fff" stroke-width="1"/>
-        <circle cx="528" cy="166" r="4" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
-        <!-- D5封锁标注 -->
-        <line x1="110" y1="161" x2="110" y2="130" stroke="#CC0000" stroke-width="0.8" stroke-dasharray="3"/>
-        <text x="113" y="126" fill="#CC0000" font-size="8" font-family="Calibri" font-weight="700">D5 封锁</text>
-        <!-- D11水雷 -->
-        <line x1="175" y1="161" x2="175" y2="138" stroke="#838383" stroke-width="0.8" stroke-dasharray="3"/>
-        <text x="178" y="135" fill="#838383" font-size="8" font-family="Calibri">D11 水雷</text>
-        <!-- D19许可制 -->
-        <line x1="245" y1="161" x2="245" y2="145" stroke="#838383" stroke-width="0.8" stroke-dasharray="3"/>
-        <text x="248" y="142" fill="#838383" font-size="8" font-family="Calibri">D19 许可制</text>
-        <!-- D27收费 -->
-        <line x1="310" y1="161" x2="310" y2="138" stroke="#B8860B" stroke-width="0.8" stroke-dasharray="3"/>
-        <text x="313" y="135" fill="#B8860B" font-size="8" font-family="Calibri">D27 $200万/次</text>
-        <!-- D37伊拉克豁免 -->
-        <line x1="424" y1="163" x2="424" y2="140" stroke="#2E7D32" stroke-width="0.8" stroke-dasharray="3"/>
-        <text x="427" y="137" fill="#2E7D32" font-size="8" font-family="Calibri">D37 伊拉克豁免</text>
-        <!-- D44 3艘超大油轮标注 -->
-        <line x1="515" y1="167" x2="515" y2="120" stroke="#2E7D32" stroke-width="0.8" stroke-dasharray="3"/>
-        <text x="490" y="116" fill="#2E7D32" font-size="8" font-family="Calibri" font-weight="700" text-anchor="middle">D44 3超大油轮</text>
-        <text x="490" y="106" fill="#2E7D32" font-size="7" font-family="Calibri" text-anchor="middle">600万桶/最大单日</text>
-        <line x1="490" y1="108" x2="513" y2="125" stroke="#2E7D32" stroke-width="0.5"/>
-        <!-- D45 停火期反弹 19艘·Bloomberg实际统计 -->
-        <circle cx="528" cy="119" r="5" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
-        <line x1="528" y1="119" x2="505" y2="95" stroke="#CC0000" stroke-width="0.8" stroke-dasharray="3"/>
-        <text x="505" y="90" fill="#CC0000" font-size="9" font-family="Arial" font-weight="700" text-anchor="middle">D45 周日 19艘</text>
-        <text x="505" y="100" fill="#838383" font-size="7" font-family="Calibri" text-anchor="middle">(停火反弹·Trump称34水分)</text>
-        <!-- D46 封锁生效 -->
-        <circle cx="541" cy="155" r="4" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
-        <line x1="541" y1="155" x2="548" y2="200" stroke="#CC0000" stroke-width="0.8" stroke-dasharray="3"/>
-        <text x="548" y="212" fill="#CC0000" font-size="8" font-family="Calibri" font-weight="700" text-anchor="middle">D46 封锁令</text>
-        <text x="548" y="222" fill="#CC0000" font-size="7" font-family="Calibri" text-anchor="middle">(4/13 22:00生效)</text>
-        <!-- D47-50 封锁持续·新破口G Summer/Hong Lu经Qeshm/Larak岛入湾 -->
-        <circle cx="550" cy="162" r="4" fill="#CC0000" stroke="#fff" stroke-width="1.5"/>
-        <text x="570" y="178" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="start">D47-50</text>
-        <text x="570" y="168" fill="#CC0000" font-size="7" font-family="Calibri" text-anchor="start">~3-16艘(Qeshm/Larak)</text>
-        <!-- D51 Iran宣布Hormuz open·14艘船启动过境尝试 -->
-        <circle cx="555" cy="155" r="4" fill="#2E7D32" stroke="#fff" stroke-width="1"/>
-        <line x1="555" y1="155" x2="572" y2="140" stroke="#2E7D32" stroke-width="0.6" stroke-dasharray="3"/>
-        <text x="572" y="135" fill="#2E7D32" font-size="8" font-family="Arial" font-weight="700" text-anchor="start">D51 开放</text>
-        <text x="572" y="144" fill="#2E7D32" font-size="6" font-family="Calibri" text-anchor="start">14艘启动</text>
-        <!-- D52 Iran军方反转·Hormuz再关闭·3艘船遭IRGC炮艇攻击 -->
-        <circle cx="560" cy="166" r="5" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
-        <line x1="560" y1="166" x2="580" y2="158" stroke="#CC0000" stroke-width="0.8" stroke-dasharray="3"/>
-        <text x="580" y="157" fill="#CC0000" font-size="9" font-family="Arial" font-weight="700" text-anchor="start">D52 再关闭</text>
-        <text x="580" y="167" fill="#CC0000" font-size="7" font-family="Calibri" text-anchor="start">军方反转·3船遭炮艇攻击</text>
-        <!-- X轴标签（稀疏化避免重叠）-->
-        <text x="45" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">战前</text>
-        <text x="58" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D1</text>
-        <text x="97" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D4</text>
-        <text x="200" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D11</text>
-        <text x="310" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D27</text>
-        <text x="385" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D34</text>
-        <text x="450" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D39</text>
-        <text x="476" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D41</text>
-        <text x="515" y="185" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">D44</text>
-        <text x="541" y="185" fill="#CC0000" font-size="7" font-family="Arial" text-anchor="middle" font-weight="700">D46-50</text>
-        <text x="556" y="185" fill="#2E7D32" font-size="8" font-family="Arial" text-anchor="middle" font-weight="700">D51</text>
-        <text x="563" y="195" fill="#CC0000" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D52</text>
+        <!-- 坐标轴 -->
+        <line x1="48" y1="20" x2="48" y2="175" stroke="#C8C8C8" stroke-width="1"/>
+        <line x1="48" y1="175" x2="560" y2="175" stroke="#C8C8C8" stroke-width="1"/>
+        <!-- Y 刻度 (0-80 ships/day) -->
+        <text x="44" y="24" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">80</text>
+        <line x1="48" y1="20" x2="560" y2="20" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="3"/>
+        <text x="44" y="62" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">60</text>
+        <line x1="48" y1="58" x2="560" y2="58" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="3"/>
+        <text x="44" y="101" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">40</text>
+        <line x1="48" y1="97" x2="560" y2="97" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="3"/>
+        <text x="44" y="139" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">20</text>
+        <line x1="48" y1="135" x2="560" y2="135" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="3"/>
+        <text x="44" y="178" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">0</text>
+        <!-- 战前基线 79 艘/日 (IMF PortWatch 7-day MA, 2026-02 月均值) -->
+        <line x1="48" y1="22" x2="560" y2="22" stroke="#044E7E" stroke-width="1.2" stroke-dasharray="5,3"/>
+        <text x="52" y="17" fill="#044E7E" font-size="9" font-family="Arial" font-weight="700">战前基线 79 艘/日 · IMF PortWatch 7-day MA</text>
+        <!-- 日度通行量面积图 (D1=Feb28 → D52=Apr19; x=60 to x=555, 9.5 px/day) -->
+        <!-- IMF/Lloyd's/Kpler 综合: D1:40 D3:3 D7:3 D14:5 D20:7 D27:6 D30:10 D37:14 D44:21 D45:17(停火) D46:6(封锁) D47-49:3-5 D50:8 D51:14 D52:3 -->
+        <polygon points="60,98 79,168 108,166 137,164 175,163 213,160 260,158 298,155 336,148 374,135 412,120 450,140 469,158 488,163 498,161 507,163 517,156 527,145 536,165 536,175 60,175" fill="url(#hormuzFill)"/>
+        <polyline points="60,98 79,168 108,166 137,164 175,163 213,160 260,158 298,155 336,148 374,135 412,120 450,140 469,158 488,163 498,161 507,163 517,156 527,145 536,165" fill="none" stroke="#FF0000" stroke-width="2.2" stroke-linejoin="round"/>
+
+        <!-- 关键事件标注 (精简至 5 个) -->
+        <!-- ① D1 (2/28) 开战 -->
+        <circle cx="60" cy="98" r="3.5" fill="#CC0000" stroke="#fff" stroke-width="1"/>
+        <line x1="60" y1="98" x2="60" y2="82" stroke="#838383" stroke-width="0.6" stroke-dasharray="2"/>
+        <text x="60" y="78" fill="#CC0000" font-size="9" font-family="Arial" font-weight="700" text-anchor="middle">开战</text>
+
+        <!-- ② D45 (4/12) 停火反弹 -->
+        <circle cx="450" cy="140" r="3.5" fill="#2E7D32" stroke="#fff" stroke-width="1"/>
+        <line x1="450" y1="140" x2="445" y2="102" stroke="#838383" stroke-width="0.6" stroke-dasharray="2"/>
+        <text x="445" y="98" fill="#2E7D32" font-size="9" font-family="Arial" font-weight="700" text-anchor="middle">D45 停火反弹</text>
+
+        <!-- ③ D46 (4/13) 美封锁 -->
+        <circle cx="469" cy="158" r="3.5" fill="#CC0000" stroke="#fff" stroke-width="1"/>
+        <line x1="469" y1="158" x2="478" y2="200" stroke="#838383" stroke-width="0.6" stroke-dasharray="2"/>
+        <text x="478" y="212" fill="#CC0000" font-size="9" font-family="Arial" font-weight="700" text-anchor="middle">D46 美封锁</text>
+
+        <!-- ④ D51 (4/18早) Iran 宣布开放 -->
+        <circle cx="527" cy="145" r="3.5" fill="#2E7D32" stroke="#fff" stroke-width="1"/>
+        <line x1="527" y1="145" x2="520" y2="112" stroke="#838383" stroke-width="0.6" stroke-dasharray="2"/>
+        <text x="520" y="108" fill="#2E7D32" font-size="9" font-family="Arial" font-weight="700" text-anchor="middle">D51 Iran 宣布开放</text>
+
+        <!-- ⑤ D52 (4/18晚-19) Iran 反转 -->
+        <circle cx="536" cy="165" r="4" fill="#CC0000" stroke="#fff" stroke-width="1.5"/>
+        <line x1="536" y1="165" x2="560" y2="200" stroke="#838383" stroke-width="0.6" stroke-dasharray="2"/>
+        <text x="560" y="212" fill="#CC0000" font-size="9" font-family="Arial" font-weight="700" text-anchor="middle">D52 Iran 反转</text>
+
+        <!-- X 轴时间标签 -->
+        <text x="60" y="192" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">2/28</text>
+        <text x="155" y="192" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/10</text>
+        <text x="260" y="192" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/20</text>
+        <text x="365" y="192" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/30</text>
+        <text x="460" y="192" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">4/12</text>
+        <text x="536" y="192" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">4/19</text>
       </svg>
       </div>
       <div style="margin-top:8px; padding:6px 10px; background:#F5F5F5; border-radius:4px; font-size:11px; color:#555; border-left:3px solid #FF0000;">
-        滞留船只：<strong style="color:#FF0000">800+艘</strong>（WSJ 4/9：425+油轮+20 LNG·至少1,000艘滞留）&nbsp;|&nbsp;
-        通行费：<strong style="color:#FF0000">$12-25万/船</strong>（Lloyd's List典型）·VLCC最高<strong style="color:#FF0000">$200万</strong>&nbsp;|&nbsp;
-        战前基线：Clarksons <strong style="color:#555">~125艘/日</strong>·Vortexa油轮口径<strong style="color:#555">46艘/日</strong>&nbsp;|&nbsp;
-        48天非伊朗关联累计<strong style="color:#FF0000">~252艘</strong>（WSJ/S&P Global）&nbsp;|&nbsp;
-        D45 停火期反弹 <strong style="color:#CC0000">Bloomberg实19艘</strong> → D46 <strong style="color:#CC0000">封锁令22:00 Beijing生效</strong> → D47 <strong style="color:#CC0000">2艘油轮折返·Rich Starry 24h内第二次测试</strong> → D48早 <strong style="color:#CC0000">伊朗考虑主动暂停出货换善意</strong>·美财政部宣布伊朗豁免本周末到期·美海军12+舰24h执法(USS Tripoli+F-35+Marines登船)·沙特据WSJ施压华盛顿中止封锁
+        <strong>52 天累计通行量</strong>：约 380 艘（战前同期应为 4,100 艘·<strong>-91%</strong>）·数据源 IMF PortWatch + Lloyd's List · <strong>滞留船只</strong>：600+ 艘（Lloyd's 4/9·含 325 艘油轮满载·超 10,000 dwt）· <strong>累计攻击</strong>：22 艘（Al Jazeera 4/14·分布于 UAE/Oman/Iraq/Qatar/Bahrain/Kuwait/Saudi/Iran 水域）+ D52 新增 3 艘（Sanmar Herald/Jag Arnav/阿曼集装箱船） · 数据注意：Iran 战争期间存在 GPS 干扰/AIS 欺骗/暗船航行·IMF 建议谨慎解读
       </div>
     </div>
 
