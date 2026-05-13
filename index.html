@@ -310,22 +310,22 @@
         <line x1="40" y1="25" x2="40" y2="185" stroke="#C8C8C8" stroke-width="1"/>
         <line x1="40" y1="185" x2="800" y2="185" stroke="#C8C8C8" stroke-width="1"/>
         <!-- Y 刻度 0-30·线性等距 (1 ship = 5.33 px) -->
-        <text x="36" y="29" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">30</text>
+        <text x="36" y="29" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">30</text>
         <line x1="40" y1="25" x2="795" y2="25" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="3"/>
-        <text x="36" y="56" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">25</text>
+        <text x="36" y="56" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">25</text>
         <line x1="40" y1="52" x2="795" y2="52" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="3"/>
-        <text x="36" y="83" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">20</text>
+        <text x="36" y="83" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">20</text>
         <line x1="40" y1="79" x2="795" y2="79" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="3"/>
-        <text x="36" y="110" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">15</text>
+        <text x="36" y="110" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">15</text>
         <line x1="40" y1="106" x2="795" y2="106" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="3"/>
-        <text x="36" y="136" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">10</text>
+        <text x="36" y="136" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">10</text>
         <line x1="40" y1="132" x2="795" y2="132" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="3"/>
-        <text x="36" y="163" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">5</text>
+        <text x="36" y="163" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">5</text>
         <line x1="40" y1="159" x2="795" y2="159" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="3"/>
-        <text x="36" y="188" fill="#838383" font-size="9" font-family="Arial" text-anchor="end">0</text>
+        <text x="36" y="188" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">0</text>
 
         <!-- 战前基线参考·"~100/日"=远超图表顶部 -->
-        <text x="790" y="17" fill="#044E7E" font-size="9" font-family="Arial" font-weight="700" text-anchor="end">战前基线 ~100 艘/日</text>
+        <text x="790" y="17" fill="#044E7E" font-size="11" font-family="Arial" font-weight="700" text-anchor="end">战前基线 ~100 艘/日</text>
 
         <!-- 日度柱状图·每 1 像素宽度=1 个柱体·Mar 1 起算 -->
         <!-- Kpler 实际值 Mar 1-Apr 12 (来自 Al Jazeera 4/14 图表) · Apr 13-19 为估算 -->
@@ -333,7 +333,6 @@
         <g fill="#5D6D7E">
           <!-- Mar 1: 29 -->
           <rect x="45" y="30" width="9" height="155"/>
-          <text x="49.5" y="27" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">29</text>
           <!-- Mar 2: 9 --><rect x="55.5" y="137" width="9" height="48"/>
           <!-- Mar 3: 3 --><rect x="66" y="169" width="9" height="16"/>
           <!-- Mar 4: 8 --><rect x="76.5" y="142.7" width="9" height="42.3"/>
@@ -394,135 +393,53 @@
         <rect x="528.5" y="158.3" width="9" height="26.7" fill="#5D6D7E"/>
         <!-- Apr 17: 8 (Kpler) 实底 -->
         <rect x="539" y="142.7" width="9" height="42.3" fill="#5D6D7E"/>
-        <!-- Apr 18: 15 总数 (Bloomberg HORMUZ TRACKER 4/18 明确: 12 outbound + 3 inbound·Iran下午起反转) 绿色 -->
+        <!-- Apr 18: 15 总数 (Iran下午起反转) 绿色 -->
         <rect x="549.5" y="105" width="9" height="80" fill="#2E7D32" opacity="0.85"/>
-        <text x="554" y="101" fill="#2E7D32" font-size="9" font-family="Arial" font-weight="700" text-anchor="middle">15</text>
-        <!-- Apr 19: 0 (分析师"没有看到任何油品通过"·Iran 关闭+IRGC 炮击·虚线) -->
-        <!-- Apr 20: 4 (Bloomberg Vortexa·全天仅2LPG+2油品·含1伊朗关联) -->
-        <rect x="560" y="163.7" width="9" height="21.3" fill="#CC0000" opacity="0.7"/>
-        <text x="564.5" y="161" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">4</text>
-        <!-- Apr 21 全天: ~10 (Bloomberg Hormuz Tracker 下午版·trickle of Iran-aligned ships·Dynacom Kerala+Iran 油轮海军护航+G Summer+周一7出3入多为Iran关联) -->
-        <rect x="570.5" y="131" width="9" height="54" fill="#CC0000" opacity="0.7"/>
-        <!-- Apr 22: ~3 (Iran IRGC 扣 2 艘 + 袭 1 艘·商船零通过) -->
-        <rect x="581" y="169" width="9" height="16" fill="#CC0000" opacity="0.7"/>
-        <!-- Apr 23: 1 (Bloomberg 明确"just one bulk carrier·none seen entering") -->
-        <rect x="591.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="0.85"/>
-        <!-- Apr 24: 6 (Vortexa·Yuri 突 Larak + 4 LPG/油 + 1 Iran 关联) -->
-        <rect x="602" y="153" width="9" height="32" fill="#CC0000" opacity="0.7"/>
-        <text x="606.5" y="151" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">6</text>
-        <!-- Apr 25 全天: 1 (Tehran 再宣关闭·UKMTO 本周累 5 起袭击·Iran 三连否认 direct meeting·商船零穿越·仅 1 Iran-flagged) -->
-        <rect x="612.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="0.9"/>
-        <!-- Apr 26 周日上午: 3 (Vortexa 4/25 Bloomberg Tracker·Iran-linked 2 燃料船+1 沿岸货船出 Gulf·无入港) -->
-        <rect x="623" y="169" width="9" height="16" fill="#CC0000" opacity="0.9"/>
-        <text x="627.5" y="167" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">3</text>
-        <!-- Apr 27 周一: ~0 (BBG 4/27"Daily transits are now close to zero, compared with about 135 before the conflict began Feb. 28") -->
-        <rect x="633.5" y="182.3" width="9" height="2.7" fill="#CC0000" opacity="1.0"/>
-        <text x="638" y="180" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">~0</text>
-        <!-- Apr 28 周二: 1 (Mubaraz UAE LNG 战后首船出关·passing 印度南端·BBG 4/28) -->
-        <rect x="644" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
-        <text x="648.5" y="177" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">1</text>
-        <!-- Apr 29 周三: 1 (Japan-linked supertanker 4/29 完成 Hormuz transit·美封锁 2 周内首艘大型油轮·BBG"traffic remains near zero"·谈判僵局·BBG"US Signals No Letup of Naval Blockade"·Kpler"Iran 储油剩 12-22 天"·Brent NY 收 $116.53·盘中触 $117·第 9 连阳·2022/6 来高位·IAEA Grossi"Iran 可访问 uranium 库存"·Hegseth 美众议院首次听证·5/1 War Powers 60 天) -->
-        <rect x="654.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
-        <text x="659" y="177" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">1</text>
-        <!-- Apr 30 周四: ~0 (Trump Axios 正式拒绝 Iran 提案·BBG 5/1"single Iran-linked fuel tanker on Thursday morning, no exits") -->
-        <rect x="665" y="182.3" width="9" height="2.7" fill="#CC0000" opacity="1.0"/>
-        <text x="669.5" y="180" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">~0</text>
-        <!-- May 1 周五: 4 (BBG 5/3 HORMUZ TRACKER·入关 3：bulk + Tehran-linked fuel + aggregate carrier·出关 1) -->
-        <rect x="675.5" y="163.7" width="9" height="21.3" fill="#CC0000" opacity="0.9"/>
-        <text x="680" y="161" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">4</text>
-        <!-- May 2 周六: 9 (BBG 5/3 HORMUZ TRACKER·出关 5：Sarv Shakti LPG + 2 China-linked + 1 Iran asphalt + 1 油品·入关 4：2 bulk + 1 燃料 + 1 LPG) -->
-        <rect x="686" y="137" width="9" height="48" fill="#CC0000" opacity="0.85"/>
-        <text x="690.5" y="134" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">9</text>
-        <!-- May 3 周日: 2 (BBG 5/3 HORMUZ TRACKER·"virtual standstill"·1 出关 Iran-linked bulk + 1 入关小型 Iran-linked cargo carrier·Trump Kan 访谈拒绝 14 点提案) -->
-        <rect x="696.5" y="174.3" width="9" height="10.7" fill="#CC0000" opacity="0.95"/>
-        <text x="701" y="172" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">2</text>
-        <!-- May 4 周一: 2 US-flagged 商船过境 (USS Truxtun + USS Mason 配 Apache 击毁 Iran 6 艇·CENTCOM Cooper 5/4 记者会确认·商船未被击中)·另 13 艘船因 Iran 控制区延至 UAE 而调头 -->
-        <rect x="707" y="174.3" width="9" height="10.7" fill="#044E7E" opacity="0.85"/>
-        <text x="711.5" y="172" fill="#044E7E" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">2</text>
-        <!-- May 5 周二: 1 (Trump 5/5 ET 晚暂停 Project Freedom·实际通行近零·Rubio"Operation Epic Fury concluded") -->
-        <rect x="717.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
-        <text x="722" y="177" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">1</text>
-        <!-- May 6 周三: 2 (CENTCOM USS Abraham Lincoln F/A-18 击瘫 Iranian-flagged 油轮 Hasna 号·Axios MOU 独家但通行未恢复) -->
-        <rect x="728" y="174.3" width="9" height="10.7" fill="#CC0000" opacity="0.95"/>
-        <text x="732.5" y="172" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">2</text>
-        <!-- May 7 周四: 1 (Iran 5/7 公开成立 Persian Gulf Strait Authority·5/7 ET 晚 Iran 攻 3 艘美驱逐舰+美军反击 Qeshm/Bandar Abbas) -->
-        <rect x="738.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
-        <text x="743" y="177" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">1</text>
-        <!-- May 8 周五: 2 (美军 F/A-18 击瘫 2 艘 empty Iranian 油轮·封锁拦截升至 70+ 艘/166M+ 桶) -->
-        <rect x="749" y="174.3" width="9" height="10.7" fill="#CC0000" opacity="0.95"/>
-        <text x="753.5" y="172" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">2</text>
-        <!-- May 9 周六: 4 (Qatar LNG Al Kharaitiyat 完成 Ras Laffan→Gulf of Oman 首单·Aramco+Adnoc 已 moved 部分 crude·走 Iran 海军单方授权 northern route) -->
-        <rect x="759.5" y="163.7" width="9" height="21.3" fill="#044E7E" opacity="0.7"/>
-        <text x="764" y="161" fill="#044E7E" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">4</text>
-        <!-- May 10 周日: 3 (零星 case-by-case·Qatar 商船 5/10 早遭无人机击中短暂起火·UAE/Kuwait 各 intercepted hostile drones) -->
-        <rect x="770" y="169" width="9" height="16" fill="#CC0000" opacity="0.85"/>
-        <text x="774.5" y="167" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">3</text>
-        <!-- May 11 周一: 1 (Qatar LNG 一艘 5/11 turn back·Iran 部署 Ghadir 潜艇·Trump 5/11 Oval Office"ceasefire on massive life support") -->
-        <rect x="780.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
-        <text x="785" y="177" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">1</text>
-        <!-- May 12 周二: 2 (Trump"life support"+CPI 3.8%+Brent +4%·case-by-case 通行) -->
-        <rect x="791" y="174.3" width="9" height="10.7" fill="#CC0000" opacity="1.0"/>
-        <text x="795.5" y="172" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">2</text>
-        <!-- May 13 周三: 1 (Kharg Island 卫星图显示数日无 tanker·越南国家石油公司 5/11 supertanker U-turn·Qatar LNG 要求关闭 transponders) -->
-        <rect x="801.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
-        <text x="806" y="177" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">1</text>
+        <!-- Apr 19: 0 (Iran 关闭+IRGC 炮击) -->
+        <!-- Apr 20: 4 --><rect x="560" y="163.7" width="9" height="21.3" fill="#CC0000" opacity="0.7"/>
+        <!-- Apr 21: ~10 --><rect x="570.5" y="131" width="9" height="54" fill="#CC0000" opacity="0.7"/>
+        <!-- Apr 22: ~3 --><rect x="581" y="169" width="9" height="16" fill="#CC0000" opacity="0.7"/>
+        <!-- Apr 23: 1 --><rect x="591.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="0.85"/>
+        <!-- Apr 24: 6 --><rect x="602" y="153" width="9" height="32" fill="#CC0000" opacity="0.7"/>
+        <!-- Apr 25: 1 --><rect x="612.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="0.9"/>
+        <!-- Apr 26: 3 --><rect x="623" y="169" width="9" height="16" fill="#CC0000" opacity="0.9"/>
+        <!-- Apr 27: ~0 --><rect x="633.5" y="182.3" width="9" height="2.7" fill="#CC0000" opacity="1.0"/>
+        <!-- Apr 28: 1 --><rect x="644" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
+        <!-- Apr 29: 1 --><rect x="654.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
+        <!-- Apr 30: ~0 --><rect x="665" y="182.3" width="9" height="2.7" fill="#CC0000" opacity="1.0"/>
+        <!-- May 1: 4 --><rect x="675.5" y="163.7" width="9" height="21.3" fill="#CC0000" opacity="0.9"/>
+        <!-- May 2: 9 --><rect x="686" y="137" width="9" height="48" fill="#CC0000" opacity="0.85"/>
+        <!-- May 3: 2 --><rect x="696.5" y="174.3" width="9" height="10.7" fill="#CC0000" opacity="0.95"/>
+        <!-- May 4: 2 US-flagged (Project Freedom) --><rect x="707" y="174.3" width="9" height="10.7" fill="#044E7E" opacity="0.85"/>
+        <!-- May 5: 1 --><rect x="717.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
+        <!-- May 6: 2 --><rect x="728" y="174.3" width="9" height="10.7" fill="#CC0000" opacity="0.95"/>
+        <!-- May 7: 1 --><rect x="738.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
+        <!-- May 8: 2 --><rect x="749" y="174.3" width="9" height="10.7" fill="#CC0000" opacity="0.95"/>
+        <!-- May 9: 4 --><rect x="759.5" y="163.7" width="9" height="21.3" fill="#044E7E" opacity="0.7"/>
+        <!-- May 10: 3 --><rect x="770" y="169" width="9" height="16" fill="#CC0000" opacity="0.85"/>
+        <!-- May 11: 1 --><rect x="780.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
+        <!-- May 12: 2 --><rect x="791" y="174.3" width="9" height="10.7" fill="#CC0000" opacity="1.0"/>
+        <!-- May 13: 1 --><rect x="801.5" y="179.7" width="9" height="5.3" fill="#CC0000" opacity="1.0"/>
 
-        <!-- 关键事件标注 (仅 3 个) -->
-        <!-- 3/2 IRGC 关闭海峡 -->
-        <line x1="55.5" y1="137" x2="70" y2="55" stroke="#838383" stroke-width="0.6" stroke-dasharray="2"/>
-        <text x="70" y="50" fill="#CC0000" font-size="9" font-family="Arial" font-weight="700" text-anchor="start">3/2 IRGC 关海峡</text>
-        <!-- 4/25 再宣关闭 -->
-        <text x="595" y="120" fill="#CC0000" font-size="9" font-family="Arial" font-weight="700" text-anchor="start">4/25-26</text>
-        <text x="595" y="132" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="start"><tspan font-weight="900">谈判破裂</tspan></text>
+        <!-- X 轴时间标签 (稀疏化·~每周一标) -->
+        <text x="49" y="200" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">3/1</text>
+        <text x="160" y="200" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">3/12</text>
+        <text x="286" y="200" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">3/24</text>
+        <text x="402" y="200" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">4/4</text>
+        <text x="518" y="200" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">4/15</text>
+        <text x="623" y="200" fill="#CC0000" font-size="11" font-family="Arial" font-weight="700" text-anchor="middle">4/26</text>
+        <text x="743" y="200" fill="#CC0000" font-size="11" font-family="Arial" font-weight="700" text-anchor="middle">5/7</text>
+        <text x="806" y="200" fill="#CC0000" font-size="11" font-family="Arial" font-weight="700" text-anchor="middle">5/13</text>
 
-        <!-- X 轴时间标签 -->
-        <text x="49" y="200" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">3/1</text>
-        <text x="97" y="200" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">3/6</text>
-        <text x="160" y="200" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">3/12</text>
-        <text x="223" y="200" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">3/18</text>
-        <text x="286" y="200" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">3/24</text>
-        <text x="339" y="200" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">3/29</text>
-        <text x="402" y="200" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">4/4</text>
-        <text x="465" y="200" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">4/10</text>
-        <text x="518" y="200" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">4/15</text>
-        <text x="560" y="200" fill="#838383" font-size="8" font-family="Arial" text-anchor="middle">4/19</text>
-        <text x="596" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">4/23</text>
-        <text x="617" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">4/25</text>
-        <text x="627.5" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">4/26</text>
-        <text x="638" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">4/27</text>
-        <text x="648.5" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">4/28</text>
-        <text x="659" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">4/29</text>
-        <text x="669.5" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">4/30</text>
-        <text x="680" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/1</text>
-        <text x="690.5" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/2</text>
-        <text x="701" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/3</text>
-        <text x="711.5" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/4</text>
-        <text x="722" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/5</text>
-        <text x="732.5" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/6</text>
-        <text x="743" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/7</text>
-        <text x="753.5" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/8</text>
-        <text x="764" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/9</text>
-        <text x="774.5" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/10</text>
-        <text x="785" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/11</text>
-        <text x="795.5" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/12</text>
-        <text x="806" y="200" fill="#CC0000" font-size="8" font-family="Arial" font-weight="700" text-anchor="middle">5/13</text>
-
-        <!-- Project Freedom 标注 -->
-        <line x1="711.5" y1="159" x2="711.5" y2="80" stroke="#044E7E" stroke-width="0.6" stroke-dasharray="2"/>
-        <text x="715" y="74" fill="#044E7E" font-size="8" font-family="Arial" font-weight="700" text-anchor="end">5/4 Project</text>
-        <text x="715" y="84" fill="#044E7E" font-size="8" font-family="Arial" font-weight="700" text-anchor="end">Freedom 启动</text>
-
-        <!-- 图例 -->
-        <rect x="50" y="215" width="12" height="8" fill="#5D6D7E"/>
-        <text x="66" y="222" fill="#555" font-size="9" font-family="Arial">Kpler 精准值</text>
-        <rect x="155" y="215" width="12" height="8" fill="#B8C0C5" stroke="#5D6D7E" stroke-width="0.5" stroke-dasharray="2,1"/>
-        <text x="171" y="222" fill="#555" font-size="9" font-family="Arial">估算 (4/14-15·4/19·无 Kpler 直接数)</text>
-        <rect x="390" y="215" width="12" height="8" fill="#E8F5E9"/>
-        <text x="406" y="222" fill="#555" font-size="9" font-family="Arial">停火期</text>
-        <rect x="450" y="215" width="12" height="8" fill="#FFEBEE"/>
-        <text x="466" y="222" fill="#555" font-size="9" font-family="Arial">美封锁期</text>
-        <rect x="525" y="215" width="12" height="8" fill="#044E7E" opacity="0.85"/>
-        <text x="541" y="222" fill="#555" font-size="9" font-family="Arial">5/4 Project Freedom 美 USS Truxtun+Mason 护送 2 US-flagged</text>
+        <!-- 图例 (简化) -->
+        <rect x="50" y="217" width="14" height="9" fill="#5D6D7E"/>
+        <text x="68" y="225" fill="#555" font-size="11" font-family="Arial">实测</text>
+        <rect x="135" y="217" width="14" height="9" fill="#E8F5E9"/>
+        <text x="153" y="225" fill="#555" font-size="11" font-family="Arial">停火期</text>
+        <rect x="225" y="217" width="14" height="9" fill="#FFEBEE"/>
+        <text x="243" y="225" fill="#555" font-size="11" font-family="Arial">美封锁期</text>
+        <rect x="325" y="217" width="14" height="9" fill="#044E7E" opacity="0.85"/>
+        <text x="343" y="225" fill="#555" font-size="11" font-family="Arial">Project Freedom 护航日</text>
       </svg>
       </div>
     </div>
@@ -532,19 +449,18 @@
       <h3>伊朗攻击武器发射量（累计）</h3>
       <div class="chart-subtitle">76 天累计：<strong>5,890+ 架无人机 + 1,910+ 枚弹道导弹 + 3 枚巡航</strong>（Pentagon 4/29 + UAE 5/4 + Day-71-75 多起袭击数据估算）· D41-67 停火期暂停·5/4 Project Freedom 启动·Hegseth/Caine 5/5 定调"未破"+ Caine"Iran 9 次袭船+10+ 次攻美军 all below the threshold·小艇仅用 small arms"·<strong>WaPo 5/6 卫星图独家</strong>开战来 Iran 已击中 15 处美军基地 228 个结构/装备·CSIS 美军已耗 53% THAAD + 43% Patriot 战前库存·5/7 ET 晚 Iran 同步对 3 艘美驱逐舰 fire missiles+drones+小艇·美军 self-defense strike Iran 多个 missile/drone launch sites·CIA 5/7 评估 Iran 仍保有 75% 移动发射架 + 70% 导弹库存·武装库存远未"decimated"·5/8 ET Iran 攻 UAE 2 枚弹道+3 架无人机·UAE 3 人 moderate 伤·美军 F/A-18 击瘫 2 艘 Iranian 油轮 M/T Sea Star III + Sevda·封锁拦截升至 70+ 艘 / 166M+ 桶· <strong>5/11 ET BREAKING：Iran Tasnim 报已部署 Ghadir-class midget submarines on Hormuz·anti-ship cruise missiles capable·当"invisible guardian"·Iran 副 FM Gharibabadi 警告 UK/France 驱舰将遭 decisive and immediate response·Trump 5/11 召集 NSC 讨论 possible military action + 考虑重启 Project Freedom·WaPo 5/11 独家 Pentagon 武器库存 burned through 已威胁 PURL Ukraine 援助。<strong>5/12-13 BREAKING：Hegseth+Caine 双院听证披露 Pentagon 战费已升至 $29B（不含基地损害·WaPo 此前披露 Iran 已击中 228 处美军 structures/equipment），Hegseth 拒披露 Iran 剩余导弹库存评估，Caine 拒判断 Hormuz 是否取得 victory"only political leaders decide"，UAE 5/12 公开确认开战早期对 Iran 报复（与 Israel 协调），Israel 派 Iron Dome 电池 + 操作员到 UAE，Reuters 5/12 报 Saudi Arabia 3 月期间亦进行了报复性打击</strong></div>
       <div class="chart-area">
-        <svg viewBox="0 0 590 220" xmlns="http://www.w3.org/2000/svg">
-          <line x1="50" y1="20" x2="50" y2="180" stroke="#E0E0E0" stroke-width="1"/>
-          <line x1="50" y1="180" x2="560" y2="180" stroke="#E0E0E0" stroke-width="1"/>
-          <text x="45" y="24" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">3,500</text>
-          <line x1="50" y1="20" x2="560" y2="20" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="52" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">2,500</text>
-          <line x1="50" y1="48" x2="560" y2="48" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="84" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">2,000</text>
-          <line x1="50" y1="80" x2="560" y2="80" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="116" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">1,000</text>
-          <line x1="50" y1="112" x2="560" y2="112" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="152" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">500</text>
-          <line x1="50" y1="148" x2="560" y2="148" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+        <svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- 坐标轴 -->
+          <line x1="55" y1="30" x2="55" y2="180" stroke="#C8C8C8" stroke-width="1"/>
+          <line x1="55" y1="180" x2="600" y2="180" stroke="#C8C8C8" stroke-width="1"/>
+          <!-- Y 刻度·0-6000 线性 (每 1000 = 25px) -->
+          <text x="50" y="34" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">6,000</text>
+          <line x1="55" y1="30" x2="600" y2="30" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="50" y="84" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">4,000</text>
+          <line x1="55" y1="80" x2="600" y2="80" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="50" y="134" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">2,000</text>
+          <line x1="55" y1="130" x2="600" y2="130" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="50" y="184" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">0</text>
           <defs>
             <linearGradient id="droneGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#FF0000" stop-opacity="0.15"/>
@@ -555,30 +471,25 @@
               <stop offset="100%" stop-color="#044E7E" stop-opacity="0.02"/>
             </linearGradient>
           </defs>
-          <!-- Drones cumulative: D1~200 … D37~5200 D38~5300 D39~5500 D40~5700 D41~5800 -->
-          <polygon points="50,171 88,160 126,149 164,138 202,129 240,110 278,96 316,82 354,66 392,52 430,44 464,34 500,22 510,14 520,8 525,6 530,4 535,3 540,1 545,-4 550,-6 550,180 50,180" fill="url(#droneGrad)"/>
-          <polyline points="50,171 88,160 126,149 164,138 202,129 240,110 278,96 316,82 354,66 392,52 430,44 464,34 500,22 510,14 520,8 525,6 530,4 535,3 540,1 545,-4 550,-6 555,-8" fill="none" stroke="#FF0000" stroke-width="2.25" stroke-linejoin="round"/>
-          <circle cx="555" cy="-8" r="4" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
-          <text x="561" y="-4" fill="#FF0000" font-size="10" font-family="Arial" text-anchor="start" font-weight="700">5,890+</text>
-          <!-- Missiles cumulative: D1~50 … D37~1560 D38~1600 D39~1650 D40~1700 D41~1730 -->
-          <polygon points="50,178 88,176 126,174 164,169 202,165 240,157 278,153 316,148 354,144 392,141 430,137 464,134 500,129 510,124 520,121 525,118 530,115 535,112 540,109 545,105 550,102 550,180 50,180" fill="url(#missileGrad)"/>
-          <polyline points="50,178 88,176 126,174 164,169 202,165 240,157 278,153 316,148 354,144 392,141 430,137 464,134 500,129 510,124 520,121 525,118 530,115 535,112 540,109 545,105 550,102 555,100" fill="none" stroke="#044E7E" stroke-width="2.25" stroke-linejoin="round"/>
-          <circle cx="555" cy="100" r="4" fill="#044E7E" stroke="#fff" stroke-width="1.5"/>
-          <text x="561" y="104" fill="#044E7E" font-size="10" font-family="Arial" text-anchor="start" font-weight="700">1,910+</text>
-          <!-- D41 停火竖虚线 -->
-          <line x1="550" y1="20" x2="550" y2="180" stroke="#2E7D32" stroke-width="1" stroke-dasharray="4,3"/>
-          <rect x="510" y="30" rx="3" width="80" height="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="0.8"/>
-          <text x="550" y="41" fill="#2E7D32" font-size="9" font-family="Calibri" text-anchor="middle" font-weight="700">D41-62 停火</text>
-          <text x="550" y="56" fill="#2E7D32" font-size="8" font-family="Calibri" text-anchor="middle">无限期延长</text>
-          <text x="50" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D1</text>
-          <text x="88" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D3</text>
-          <text x="164" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D7</text>
-          <text x="240" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D11</text>
-          <text x="316" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D15</text>
-          <text x="392" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D19</text>
-          <text x="464" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">D22</text>
-          <text x="525" y="196" fill="#999" font-size="9" font-family="Arial" text-anchor="middle">D37</text>
-          <text x="550" y="196" fill="#044E7E" font-size="9" font-family="Arial" text-anchor="middle" font-weight="700">D41-62 停火</text>
+          <!-- Drones cumulative: D1~200 → D76~5890 (Y: 0 = 180, 6000 = 30 · scale 150px/6000 = 0.025px/unit) -->
+          <polygon points="60,175 95,170 130,165 170,160 210,153 250,143 290,133 330,118 370,103 410,90 450,80 490,68 530,52 555,42 580,33 600,33 600,180 60,180" fill="url(#droneGrad)"/>
+          <polyline points="60,175 95,170 130,165 170,160 210,153 250,143 290,133 330,118 370,103 410,90 450,80 490,68 530,52 555,42 580,33 600,33" fill="none" stroke="#FF0000" stroke-width="2.25" stroke-linejoin="round"/>
+          <circle cx="600" cy="33" r="4" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
+          <text x="608" y="37" fill="#FF0000" font-size="13" font-family="Arial" font-weight="700">5,890+</text>
+          <!-- Missiles cumulative: D1~50 → D76~1910 (1910 scale ≈ 132) -->
+          <polygon points="60,179 95,178 130,177 170,176 210,174 250,172 290,168 330,164 370,160 410,156 450,152 490,148 530,142 555,138 580,135 600,132 600,180 60,180" fill="url(#missileGrad)"/>
+          <polyline points="60,179 95,178 130,177 170,176 210,174 250,172 290,168 330,164 370,160 410,156 450,152 490,148 530,142 555,138 580,135 600,132" fill="none" stroke="#044E7E" stroke-width="2.25" stroke-linejoin="round"/>
+          <circle cx="600" cy="132" r="4" fill="#044E7E" stroke="#fff" stroke-width="1.5"/>
+          <text x="608" y="136" fill="#044E7E" font-size="13" font-family="Arial" font-weight="700">1,910+</text>
+          <!-- 停火段竖虚线 (D41 ≈ x=400) -->
+          <line x1="395" y1="30" x2="395" y2="180" stroke="#2E7D32" stroke-width="1" stroke-dasharray="4,3"/>
+          <!-- X 轴时间标签 (稀疏化) -->
+          <text x="60" y="196" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">D1</text>
+          <text x="170" y="196" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">D15</text>
+          <text x="290" y="196" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">D30</text>
+          <text x="395" y="196" fill="#2E7D32" font-size="11" font-family="Arial" text-anchor="middle" font-weight="700">D41 停火</text>
+          <text x="530" y="196" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">D63</text>
+          <text x="600" y="196" fill="#CC0000" font-size="11" font-family="Arial" text-anchor="middle" font-weight="700">D76</text>
         </svg>
         <div class="chart-legend">
           <div class="legend-item"><div class="legend-dot" style="background:#FF0000"></div>攻击无人机（架）</div>
@@ -591,28 +502,27 @@
       <h3>Polymarket 预测市场概率走势</h3>
       <div class="chart-subtitle">概率 = Polymarket "Yes" 合约价格 · 数据截至 5/13 07:30 Beijing · 红线"<strong>停火 by 6/30</strong>"6 月底窗口合约（<strong>5/13 BREAKING：美 4月 CPI +3.8%YoY（2023/5来最高，超 3.7% 共识），core +2.8%，energy +17.9%YoY（2022/9来最强），gasoline +28.4%YoY，shelter 重新加速。Hegseth+Caine 双院听证披露 Pentagon 战费已 $29B，跨党派挫败 Graham/Collins/Murkowski/Coons "verge of strategic loss"。Trump"will be decimated one way or the other" + 称 Beijing 之行以贸易为主、Iran"very much under control"。Brent 5/12 ET 收 $107+/桶（+4%），WTI 周三亚洲 $102，DXY +0.3% 当月最大单日涨幅，MSCI EM Currency 3月以来最大跌幅，韩元领跌 Kospi -2.3% EWY 美上市 -7.4%，人民币在岸首次破 6.80（2023来首次）。Kharg Island 卫星显示数日无 tanker——开战来首次主枢纽长停摆。ECB Nagel 鹰派暗示 6/11 加息，停火概率 6/30 进一步下降</strong>）</div>
       <div class="chart-area">
-        <svg viewBox="0 0 705 240" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 870 220" xmlns="http://www.w3.org/2000/svg">
           <!-- Y-axis -->
-          <line x1="50" y1="20" x2="50" y2="180" stroke="#E0E0E0" stroke-width="1"/>
-          <line x1="50" y1="180" x2="600" y2="180" stroke="#E0E0E0" stroke-width="1"/>
+          <line x1="50" y1="20" x2="50" y2="180" stroke="#C8C8C8" stroke-width="1"/>
+          <line x1="50" y1="180" x2="820" y2="180" stroke="#C8C8C8" stroke-width="1"/>
           <!-- Y gridlines & labels -->
-          <text x="45" y="24" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">100%</text>
-          <line x1="50" y1="20" x2="600" y2="20" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="64" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">75%</text>
-          <line x1="50" y1="60" x2="600" y2="60" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="104" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">50%</text>
-          <line x1="50" y1="100" x2="600" y2="100" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
-          <text x="45" y="144" fill="#838383" font-size="10" font-family="Arial" text-anchor="end">25%</text>
-          <line x1="50" y1="140" x2="600" y2="140" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="24" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">100%</text>
+          <line x1="50" y1="20" x2="820" y2="20" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="64" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">75%</text>
+          <line x1="50" y1="60" x2="820" y2="60" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="104" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">50%</text>
+          <line x1="50" y1="100" x2="820" y2="100" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="144" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">25%</text>
+          <line x1="50" y1="140" x2="820" y2="140" stroke="#F0F0F0" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="45" y="184" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">0%</text>
           <!-- X-axis labels（稀疏化）-->
-          <text x="50" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">2/28</text>
-          <text x="182" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/5</text>
-          <text x="288" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/9</text>
-          <text x="368" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/12</text>
-          <text x="447" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/15</text>
-          <text x="494" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">3/20</text>
-          <text x="540" y="196" fill="#838383" font-size="9" font-family="Arial" text-anchor="middle">4/5</text>
-          <text x="610" y="234" fill="#CC0000" font-size="8" font-family="Arial" text-anchor="middle" font-weight="700">4/18晚反转 · 4/20-22扣船 · 4/23 Majestic X</text>
+          <text x="50" y="196" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">2/28</text>
+          <text x="235" y="196" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">3/8</text>
+          <text x="421" y="196" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">3/18</text>
+          <text x="600" y="196" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">4/15</text>
+          <text x="740" y="196" fill="#838383" font-size="11" font-family="Arial" text-anchor="middle">5/3</text>
+          <text x="814" y="196" fill="#CC0000" font-size="11" font-family="Arial" text-anchor="middle" font-weight="700">5/13</text>
           <defs>
             <linearGradient id="cfMar31Grad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#FF0000" stop-opacity="0.08"/>
@@ -633,35 +543,20 @@
           <polyline points="129,52 156,55 182,52 209,55 235,58 262,58 288,55 315,52 341,49 368,42 394,39 421,36 447,39 472,46 484,49 494,55 500,60 504,63 507,68 510,71 516,76 524,81 527,87 530,92 533,90 537,90 540,92 543,90 549,87 555,84 561,84 567,84 573,92 579,95 586,100 593,103 600,108 607,110 614,113 622,111 630,108 638,100 646,95 654,92 662,90 672,87 682,84 692,81 700,78 706,76 715,76 728,76 740,55 750,65 760,60 770,72 778,80 786,98 794,118 802,124 814,128" fill="none" stroke="#FF0000" stroke-width="2" stroke-linejoin="round"/>
           <circle cx="129" cy="52" r="3" fill="#FF0000"/>
           <circle cx="814" cy="128" r="4" fill="#FF0000" stroke="#fff" stroke-width="1.5"/>
-          <text x="818" y="125" fill="#FF0000" font-size="10" font-family="Arial" font-weight="700">30%</text>
-          <text x="135" y="48" fill="#FF0000" font-size="9" font-family="Arial" font-weight="600">80%</text>
+          <text x="824" y="131" fill="#FF0000" font-size="13" font-family="Arial" font-weight="700">30%</text>
           <!-- Line 2: 美伊永久和平协议 by 5/31 · 5/6 亚早=22 5/6 ET 上午=42 (MOU 高位) · 5/6 ET 中午=35 (Trump"bombing starts"+Pezeshkian"已对真主 surrendered" 部分回吐) · 5/7 Beijing 晚=32 (Pezeshkian"美方先解封锁"硬条件 + Iran 立场 unified 但条件硬化) · 5/8 Beijing 早=27 (5/7 ET 晚 Iran 攻 3 艘美驱逐舰+美军反击 Qeshm/Bandar Abbas Day-71 武力交火显化) · 5/9-10=20-15 (Iran response 拖至 5/10·deal 时间窗收紧) · 5/11=8 (Trump 拒绝 + Netanyahu"physical take out"双重否决) -->
           <polygon points="103,83 129,72 156,90 182,94 209,108 235,103 262,106 288,106 315,94 341,94 368,102 394,117 421,122 447,123 472,117 484,115 494,130 500,117 504,99 507,102 510,120 516,116 524,127 527,130 530,124 533,116 537,138 540,145 543,137 549,134 555,23 561,49 567,60 573,76 579,87 586,52 593,47 600,37 607,65 614,103 622,103 630,106 638,113 646,129 654,140 662,151 672,140 682,150 692,154 700,167 706,171 715,158 728,144 740,112 750,124 760,129 770,137 778,148 786,158 794,167 802,170 814,174 814,180 103,180" fill="url(#cfApr30Grad)"/>
           <polyline points="103,83 129,72 156,90 182,94 209,108 235,103 262,106 288,106 315,94 341,94 368,102 394,117 421,122 447,123 472,117 484,115 494,130 500,117 504,99 507,102 510,120 516,116 524,127 527,130 530,124 533,116 537,138 540,145 543,137 549,134 555,23 561,49 567,60 573,76 579,87 586,52 593,47 600,37 607,65 614,103 622,103 630,106 638,113 646,129 654,140 662,151 672,140 682,150 692,154 700,167 706,171 715,158 728,144 740,112 750,124 760,129 770,137 778,148 786,158 794,167 802,170 814,174" fill="none" stroke="#044E7E" stroke-width="2" stroke-linejoin="round"/>
           <circle cx="103" cy="83" r="3" fill="#044E7E"/>
-          <circle cx="672" cy="140" r="3" fill="#044E7E" stroke="#fff" stroke-width="1.2"/>
           <circle cx="814" cy="174" r="4" fill="#044E7E" stroke="#fff" stroke-width="1.5"/>
-          <text x="818" y="177" fill="#044E7E" font-size="10" font-family="Arial" font-weight="700">4%</text>
-          <text x="109" y="79" fill="#044E7E" font-size="9" font-family="Arial" font-weight="600">60.5%</text>
-          <!-- 4/30 合约结算注解 -->
-          <line x1="668" y1="167" x2="668" y2="180" stroke="#838383" stroke-width="0.6" stroke-dasharray="2"/>
-          <text x="668" y="226" fill="#838383" font-size="7" font-family="Calibri" text-anchor="middle">4/30 合约</text>
-          <text x="668" y="234" fill="#838383" font-size="7" font-family="Calibri" text-anchor="middle">结算 NO·终值 8%</text>
+          <text x="824" y="170" fill="#044E7E" font-size="13" font-family="Arial" font-weight="700">4%</text>
           <!-- Line 3: Hormuz traffic by May 31 (green→red reversal) — Polymarket API data -->
           <!-- 3/10=75 … 5/6 ET 上午=18 (Axios MOU 包含双方解除 Hormuz 限制) · 5/7 Beijing 晚=15 (Pezeshkian"美方先解封锁是 Hormuz 谈判前提"硬条件·物理通行恢复期延后) · 5/8 Beijing 早=10 (Iran 攻 3 美驱逐舰+美军反击 Qeshm/Bandar Abbas 直接武力交火使 5 月底通行恢复几无可能) · 5/9-10=7-6 (Qatar LNG 走 Iran 海军单方授权 northern route 实质上确认 Iran 海峡控制 ≠ 通行恢复) · 5/11=4 (Trump 拒绝 deal + Hormuz 重开 by 6/30 实际放至 68%·5月底前几无可能) -->
           <polygon points="315,70 341,90 368,96 394,106 421,111 447,115 472,118 484,120 494,120 500,109 504,102 507,109 510,112 516,117 524,122 527,124 530,122 533,122 537,133 540,131 543,129 549,128 555,74 561,93 567,98 573,110 579,118 586,122 593,120 600,82 607,126 614,139 622,140 630,140 638,141 646,142 654,144 662,144 672,145 682,152 692,158 700,169 706,173 715,167 728,160 740,151 760,156 770,164 778,170 786,173 794,174 802,175 814,177 814,180 315,180" fill="url(#hormuzGrad)"/>
           <polyline points="315,70 341,90 368,96 394,106 421,111 447,115 472,118 484,120 494,120 500,109 504,102 507,109 510,112 516,117 524,122 527,124 530,122 533,122 537,133 540,131 543,129 549,128 555,74 561,93 567,98 573,110 579,118 586,122 593,120 600,82 607,126 614,139 622,140 630,140 638,141 646,142 654,144 662,144 672,145 682,152 692,158 700,169 706,173 715,167 728,160 740,151 760,156 770,164 778,170 786,173 794,174 802,175 814,177" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6,3"/>
           <circle cx="315" cy="70" r="3" fill="#2E7D32"/>
           <circle cx="814" cy="177" r="4" fill="#CC0000" stroke="#fff" stroke-width="1.5"/>
-          <text x="818" y="180" fill="#CC0000" font-size="10" font-family="Arial" font-weight="700">2%</text>
-          <text x="321" y="66" fill="#2E7D32" font-size="9" font-family="Arial" font-weight="600">75%</text>
-          <!-- 3/9 spike annotation -->
-          <line x1="288" y1="106" x2="288" y2="180" stroke="#838383" stroke-width="0.8" stroke-dasharray="3"/>
-          <text x="288" y="210" fill="#838383" font-size="8" font-family="Calibri" text-anchor="middle">3/9 Trump暗示</text>
-          <text x="288" y="220" fill="#838383" font-size="8" font-family="Calibri" text-anchor="middle">伊朗"想谈"</text>
-          <!-- War start annotation -->
-          <line x1="50" y1="83" x2="50" y2="180" stroke="#FF0000" stroke-width="0.8" stroke-dasharray="3"/>
-          <text x="55" y="175" fill="#FF0000" font-size="8" font-family="Calibri">开战</text>
+          <text x="824" y="183" fill="#CC0000" font-size="13" font-family="Arial" font-weight="700">2%</text>
         </svg>
       </div>
       <div class="chart-legend" style="display:flex; gap:16px; margin-top:6px; justify-content:center; flex-wrap:wrap;">
@@ -735,9 +630,9 @@
           <div style="font-size:11px; color:var(--primary-blue); margin-bottom:8px; font-weight:700;">军费开支</div>
           <div style="text-align:center; margin-bottom:10px;">
             <div style="font-size:34px; font-weight:800; color:#FF0000; font-family:Arial,sans-serif;">$29B+</div>
-            <div style="font-size:10px; color:#838383;">Pentagon 代理 comptroller Jules Hurst 5/12 公开 · 不含基地损害(228 处美军 structures/equipment 被毁) · CBO 5/12 估"Golden Dome" $1.2T vs Trump $185B</div>
+            <div style="font-size:12px; color:#838383;">Pentagon 5/12 公开估算 · 不含基地损害</div>
           </div>
-          <div style="font-size:11px; color:#838383; margin-bottom:4px;">拦截弹库存压力</div>
+          <div style="font-size:12px; color:#838383; margin-bottom:4px;">拦截弹库存压力</div>
           <div class="h-metric">
             <div class="h-label" style="width:70px">PAC-3</div>
             <div class="h-bar"><div class="h-fill" style="width:100%; background:#FF0000;"></div></div>
@@ -748,8 +643,6 @@
             <div class="h-bar"><div class="h-fill" style="width:35%; background:#FF8080;"></div></div>
             <div class="h-val" style="color:#FF3333">~2周量</div>
           </div>
-          <div style="margin-top:6px; font-size:10px; color:#FF0000;">乌克兰全部PAC-3仅600枚 — 少于海湾11天消耗</div>
-          <div style="margin-top:3px; font-size:10px; color:#838383;">每枚Shahed &lt;$5万 vs 拦截弹~$300万</div>
         </div>
       </div>
     </div>
