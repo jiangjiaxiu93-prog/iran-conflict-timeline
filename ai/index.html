@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 产业实时追踪 | AI Industry Live Tracker</title>
+<style>
+  :root {
+    /* 中信建投品牌色 */
+    --primary-blue: #044E7E;
+    --primary-red: #FF0000;
+    --light-red: #FF8080;
+    --grey-blue: #81A6BE;
+    --pale-blue: #B4CAD8;
+    --dark-blue: #367198;
+    --grey: #808080;
+
+    /* 页面色 */
+    --bg: #FFFFFF;
+    --bg-alt: #F5F5F5;
+    --card-bg: #FFFFFF;
+    --border: #E0E0E0;
+    --border-light: #F0F0F0;
+    --text: #333333;
+    --text-dim: #838383;
+    --text-footer: #888888;
+
+    /* 五大分类标签 */
+    --tag-debt-bg: #FFE0E0;       --tag-debt-text: #CC0000;     /* 发债 */
+    --tag-funding-bg: #FFF0D0;    --tag-funding-text: #B8860B;  /* 融资 */
+    --tag-infra-bg: #E0F0E8;      --tag-infra-text: #2E7D32;    /* 基建 */
+    --tag-model-bg: #D8E8F3;      --tag-model-text: #044E7E;    /* 模型 */
+    --tag-market-bg: #F0E0F8;     --tag-market-text: #7B1FA2;   /* 市场 */
+    --tag-breaking-bg: #FF0000;   --tag-breaking-text: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Calibri, -apple-system, 'Segoe UI', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg-alt);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header { background: var(--primary-blue); padding: 36px 20px 28px; text-align: center; position: relative; color: #fff; }
+  .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--primary-red); }
+  .header-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--primary-red); color: #fff; font-size: 11px; font-weight: 700;
+    padding: 3px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px;
+  }
+  .header-badge .dot { width: 7px; height: 7px; background: #fff; border-radius: 50%; animation: blink 1.5s infinite; }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
+  .header h1 { font-size: 30px; font-weight: 800; margin-bottom: 6px; color: #fff; }
+  .header .subtitle { color: rgba(255,255,255,0.85); font-size: 14px; max-width: 760px; margin: 0 auto; }
+  .header .meta { margin-top: 14px; display: flex; justify-content: center; gap: 20px; font-size: 12px; color: rgba(255,255,255,0.6); flex-wrap: wrap; }
+
+  /* Stats Bar */
+  .stats-bar {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .stat-item { background: var(--card-bg); padding: 14px 16px; text-align: center; }
+  .stat-item .label { font-size: 10px; color: var(--text-dim); letter-spacing: 0.5px; margin-bottom: 3px; }
+  .stat-item .value { font-size: 20px; font-weight: 700; font-family: Arial, sans-serif; }
+  .stat-item .value.red { color: #CC0000; }
+  .stat-item .value.gold { color: #B8860B; }
+  .stat-item .value.green { color: #2E7D32; }
+  .stat-item .value.blue { color: var(--primary-blue); }
+  .stat-item .value.purple { color: #7B1FA2; }
+  .stat-item .sub { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+
+  /* Charts */
+  .charts-section { max-width: 1100px; margin: 0 auto; padding: 24px 20px 10px; }
+  .charts-section h2 { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--primary-blue); text-align: center; }
+  .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 980px; margin: 0 auto; }
+  .chart-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 6px; padding: 18px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); overflow: visible; }
+  .chart-card.wide { grid-column: 1 / -1; }
+  .chart-card h3 { font-size: 13px; font-weight: 700; color: var(--primary-blue); margin-bottom: 2px; }
+  .chart-card .chart-subtitle { font-size: 10px; color: var(--text-dim); margin-bottom: 12px; line-height: 1.5; }
+  .chart-area svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+  .bar-chart { display: flex; flex-direction: column; gap: 9px; }
+  .bar-row { display: flex; align-items: center; gap: 8px; }
+  .bar-label { font-size: 11px; color: var(--text-dim); width: 120px; text-align: right; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 20px; background: var(--bg-alt); border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; }
+  .bar-value { font-size: 11px; font-weight: 700; width: 62px; font-family: Arial, sans-serif; flex-shrink: 0; }
+  .chart-legend { display: flex; gap: 14px; margin-top: 12px; flex-wrap: wrap; justify-content: center; }
+  .legend-item { display: flex; align-items: center; gap: 4px; font-size: 10px; color: var(--text-dim); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+  /* Filter */
+  .filter-bar { max-width: 900px; margin: 20px auto 0; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; align-items: center; }
+  .filter-btn { padding: 5px 14px; border: 1px solid var(--border); border-radius: 16px; background: var(--card-bg); color: var(--text-dim); font-size: 12px; cursor: pointer; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { background: var(--primary-blue); color: #fff; border-color: var(--primary-blue); }
+  .sort-btn { padding: 5px 14px; border: 1px solid var(--primary-red); border-radius: 16px; background: var(--card-bg); color: var(--primary-red); font-size: 12px; cursor: pointer; transition: all 0.2s; margin-left: 6px; }
+  .sort-btn:hover { background: var(--primary-red); color: #fff; }
+
+  /* Timeline */
+  .timeline-container { max-width: 900px; margin: 0 auto; padding: 24px 20px 50px; }
+  .day-header { position: relative; text-align: center; margin: 32px 0 18px; }
+  .day-header:first-child { margin-top: 8px; }
+  .day-header .day-label { display: inline-block; background: var(--card-bg); border: 1px solid var(--border); padding: 6px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; color: var(--primary-blue); box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .day-header::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--border); z-index: -1; }
+
+  .timeline-entry { position: relative; padding-left: 36px; margin-bottom: 12px; }
+  .timeline-entry::before { content: ''; position: absolute; left: 12px; top: 0; bottom: -12px; width: 2px; background: var(--border-light); }
+  .timeline-entry:last-child::before { display: none; }
+  .entry-dot { position: absolute; left: 6px; top: 16px; width: 14px; height: 14px; border-radius: 50%; border: 3px solid var(--border); background: var(--card-bg); z-index: 1; }
+  .entry-dot.debt    { border-color: #CC0000; background: #FFD6D6; }
+  .entry-dot.funding { border-color: #B8860B; background: #FFF0D0; }
+  .entry-dot.infra   { border-color: #2E7D32; background: #E0F0E8; }
+  .entry-dot.model   { border-color: #044E7E; background: #D8E8F3; }
+  .entry-dot.market  { border-color: #7B1FA2; background: #F0E0F8; }
+  .entry-dot.breaking { border-color: var(--primary-red); background: var(--primary-red); }
+
+  .entry-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 6px; padding: 14px 18px; transition: all 0.15s; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .entry-card:hover { border-color: var(--grey-blue); transform: translateX(3px); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .entry-card.breaking-card { border-color: var(--primary-red); border-left: 3px solid var(--primary-red); background: linear-gradient(135deg, #FFF5F5 0%, #FFFFFF 100%); }
+
+  .entry-time { font-size: 11px; color: var(--text-dim); font-family: Arial, sans-serif; white-space: nowrap; margin-bottom: 4px; }
+  .entry-cat { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 9px; border-radius: 10px; letter-spacing: 0.3px; margin-bottom: 6px; }
+  .cat-debt    { background: var(--tag-debt-bg);    color: var(--tag-debt-text); }
+  .cat-funding { background: var(--tag-funding-bg); color: var(--tag-funding-text); }
+  .cat-infra   { background: var(--tag-infra-bg);   color: var(--tag-infra-text); }
+  .cat-model   { background: var(--tag-model-bg);   color: var(--tag-model-text); }
+  .cat-market  { background: var(--tag-market-bg);  color: var(--tag-market-text); }
+  .cat-breaking { background: var(--tag-breaking-bg); color: var(--tag-breaking-text); font-weight: 700; margin-left: 4px; }
+
+  .entry-title { font-size: 14px; font-weight: 700; line-height: 1.5; margin-bottom: 4px; color: var(--text); }
+  .entry-body { font-size: 13px; color: #555; line-height: 1.75; }
+  .entry-body p { margin-bottom: 8px; }
+  .entry-body p:last-child { margin-bottom: 0; }
+  .entry-body strong { color: var(--text); font-weight: 700; }
+
+  .footer { text-align: center; padding: 30px 20px; color: var(--text-footer); font-size: 11px; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+  .footer .brand { color: var(--primary-blue); font-weight: 700; }
+
+  @media (max-width: 640px) {
+    .header h1 { font-size: 22px; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .charts-grid { grid-template-columns: 1fr; }
+    .timeline-entry { padding-left: 28px; }
+    .entry-card { padding: 10px 12px; }
+    .bar-label { width: 96px; }
+  }
+  .timeline-entry { opacity: 0; transform: translateY(16px); animation: fadeInUp 0.35s ease forwards; }
+  @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-badge"><span class="dot"></span> LIVE TRACKER</div>
+  <h1>AI 产业实时追踪</h1>
+  <p class="subtitle">发债、融资、基建、模型与市场全景 ｜ 2025年9月至今。聚焦超大规模厂商与前沿模型公司如何用债券、私募信贷与表外结构，为这场万亿美元算力竞赛融资。</p>
+  <div class="meta">
+    <span>数据来源：Bloomberg、WSJ、华盛顿邮报、经济学人全文抓取</span>
+    <span>最后更新：2026-06-03 01:08</span>
+  </div>
+</header>
+
+<!-- ===== STATS ===== -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="label">大科技 2026 资本开支</div><div class="value green">$7,250亿</div><div class="sub">同比 +77%</div></div>
+  <div class="stat-item"><div class="label">表外数据中心租赁</div><div class="value gold">$8,200亿</div><div class="sub">上年仅 $2,700亿</div></div>
+  <div class="stat-item"><div class="label">远期算力收入合约</div><div class="value blue">$2万亿</div><div class="sub">上年 $7,300亿</div></div>
+  <div class="stat-item"><div class="label">超大厂商累计发债</div><div class="value red">$2,600亿</div><div class="sub">占美非金融发债 ¼</div></div>
+  <div class="stat-item"><div class="label">AI 私募信贷未偿</div><div class="value gold">$2,000亿+</div><div class="sub">由近零起步</div></div>
+  <div class="stat-item"><div class="label">Anthropic 估值</div><div class="value purple">$9,650亿</div><div class="sub">超越 OpenAI</div></div>
+  <div class="stat-item"><div class="label">循环融资规模</div><div class="value purple">$8,000亿+</div><div class="sub">供应链关联交易</div></div>
+  <div class="stat-item"><div class="label">英伟达市值</div><div class="value green">$5.5万亿</div><div class="sub">自 2023 年 +1400%</div></div>
+</div>
+
+<!-- ===== CHARTS ===== -->
+<section class="charts-section">
+  <h2>关键数据图表</h2>
+  <div class="charts-grid">
+
+    <!-- Chart 1: 超大厂商年度债券发行 -->
+    <div class="chart-card">
+      <h3>超大规模厂商年度债券发行规模</h3>
+      <div class="chart-subtitle">单位：十亿美元。亚马逊、微软、谷歌、Meta、Oracle 五家合计。2025 年发行量约为 2020–24 年均值的 4 倍；2026 年净供给预计再增 30–50%。来源：Mellon、CreditSights、彭博。</div>
+      <div class="chart-area">
+      <svg viewBox="0 0 600 230" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <!-- 坐标轴 -->
+        <line x1="52" y1="25" x2="52" y2="185" stroke="#C8C8C8" stroke-width="1"/>
+        <line x1="52" y1="185" x2="560" y2="185" stroke="#C8C8C8" stroke-width="1"/>
+        <!-- Y 刻度 0/40/80/120/160 -->
+        <text x="46" y="189" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">0</text>
+        <text x="46" y="149" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">40</text>
+        <line x1="52" y1="145" x2="560" y2="145" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3"/>
+        <text x="46" y="109" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">80</text>
+        <line x1="52" y1="105" x2="560" y2="105" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3"/>
+        <text x="46" y="69" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">120</text>
+        <line x1="52" y1="65" x2="560" y2="65" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3"/>
+        <text x="46" y="29" fill="#838383" font-size="11" font-family="Arial" text-anchor="end">160</text>
+        <line x1="52" y1="25" x2="560" y2="25" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3"/>
+        <!-- 柱 -->
+        <rect x="95" y="157" width="95" height="28" fill="#9AA7B0"/>
+        <text x="142" y="150" fill="#5D6D7E" font-size="13" font-family="Arial" font-weight="700" text-anchor="middle">28</text>
+        <text x="142" y="201" fill="#838383" font-size="11" text-anchor="middle">2020–24 均值</text>
+
+        <rect x="255" y="64" width="95" height="121" fill="#CC0000"/>
+        <text x="302" y="57" fill="#CC0000" font-size="13" font-family="Arial" font-weight="700" text-anchor="middle">121</text>
+        <text x="302" y="201" fill="#838383" font-size="11" text-anchor="middle">2025</text>
+
+        <rect x="415" y="45" width="95" height="140" fill="#FF8080"/>
+        <text x="462" y="38" fill="#CC0000" font-size="13" font-family="Arial" font-weight="700" text-anchor="middle">~140</text>
+        <text x="462" y="201" fill="#838383" font-size="11" text-anchor="middle">2026E</text>
+      </svg>
+      </div>
+    </div>
+
+    <!-- Chart 2: 2026 资本开支指引 -->
+    <div class="chart-card">
+      <h3>四大科技 + Oracle：2026 全年资本开支指引</h3>
+      <div class="chart-subtitle">单位：十亿美元。合计约 7,250 亿，同比增长约 77%；约 75% 投向 AI 相关基建。来源：各公司指引、CNBC、Futurum。</div>
+      <div class="bar-chart">
+        <div class="bar-row"><div class="bar-label">亚马逊</div><div class="bar-track"><div class="bar-fill" style="width:100%; background:#2E7D32;"></div></div><div class="bar-value" style="color:#2E7D32">$200B</div></div>
+        <div class="bar-row"><div class="bar-label">微软</div><div class="bar-track"><div class="bar-fill" style="width:95%; background:#3C9142;"></div></div><div class="bar-value" style="color:#2E7D32">$190B</div></div>
+        <div class="bar-row"><div class="bar-label">Alphabet</div><div class="bar-track"><div class="bar-fill" style="width:90%; background:#4FA557;"></div></div><div class="bar-value" style="color:#2E7D32">$180B</div></div>
+        <div class="bar-row"><div class="bar-label">Meta</div><div class="bar-track"><div class="bar-fill" style="width:62.5%; background:#6FB877;"></div></div><div class="bar-value" style="color:#2E7D32">$125B</div></div>
+        <div class="bar-row"><div class="bar-label">Oracle</div><div class="bar-track"><div class="bar-fill" style="width:24%; background:#9CCFA1;"></div></div><div class="bar-value" style="color:#2E7D32">$48B</div></div>
+      </div>
+    </div>
+
+    <!-- Chart 3: AI 债务版图 -->
+    <div class="chart-card wide">
+      <h3>AI 债务的两条腿：公开债券市场 vs 私募信贷</h3>
+      <div class="chart-subtitle">单位：十亿美元。AI 基建融资正同时利用公开债券与私募信贷两条管道，并大量借助表外特殊目的实体（SPV）。摩根士丹利预计私募信贷还将为数据中心提供约 8,000 亿美元增量。来源：摩根士丹利、彭博、Cryptopolitan。</div>
+      <div class="bar-chart">
+        <div class="bar-row"><div class="bar-label">2025 公开债券发行（5家）</div><div class="bar-track"><div class="bar-fill" style="width:15.1%; background:#CC0000;"></div></div><div class="bar-value" style="color:#CC0000">$121B</div></div>
+        <div class="bar-row"><div class="bar-label">表外 SPV 债务（4家）</div><div class="bar-track"><div class="bar-fill" style="width:15%; background:#B8860B;"></div></div><div class="bar-value" style="color:#B8860B">$120B</div></div>
+        <div class="bar-row"><div class="bar-label">AI 私募信贷未偿</div><div class="bar-track"><div class="bar-fill" style="width:25%; background:#D4A017;"></div></div><div class="bar-value" style="color:#B8860B">$200B</div></div>
+        <div class="bar-row"><div class="bar-label">私募信贷增量预测（大摩）</div><div class="bar-track"><div class="bar-fill" style="width:100%; background:#E8C66B;"></div></div><div class="bar-value" style="color:#B8860B">$800B</div></div>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item"><span class="legend-dot" style="background:#CC0000"></span>公开债券</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#B8860B"></span>私募信贷／表外</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FILTER ===== -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">全部</button>
+  <button class="filter-btn" data-filter="debt">发债</button>
+  <button class="filter-btn" data-filter="funding">融资</button>
+  <button class="filter-btn" data-filter="infra">基建</button>
+  <button class="filter-btn" data-filter="model">模型</button>
+  <button class="filter-btn" data-filter="market">市场</button>
+  <button class="sort-btn" id="sortBtn">&#x21C5; 正序</button>
+</div>
+
+<!-- ===== TIMELINE ===== -->
+<div class="timeline-container" id="timeline">
+
+<!-- ====== 2026年6月 ====== -->
+<div class="day-header"><span class="day-label">2026年6月</span></div>
+
+<div class="timeline-entry" data-cat="market" data-order="67">
+  <div class="entry-card">
+    <div class="entry-time">6月2日 · Computex</div>
+    <span class="entry-cat cat-market">市场</span>
+    <h3 class="entry-title">黄仁勋称 Marvell 将成下一个万亿美元公司，AI 芯片股集体狂欢</h3>
+    <div class="entry-body">
+      <p>英伟达 CEO 黄仁勋周二在台北 Computex 现场，与 Marvell CEO 同台预测 Marvell 将成为下一家市值万亿美元的公司，相当于其当前市值的五倍多，称"有用的 AI 时代已经到来"。Marvell 当日大涨 25% 至 274.58 美元，为 2023 年 5 月以来最大盘中涨幅，今年累涨约 222%，市值升至约 2,390 亿美元。三个月前英伟达刚以 20 亿美元入股 Marvell，这番话也对自己有利。</p>
+      <p>喊话点燃整条芯片链：SK 海力士计划将存储芯片产能翻倍以缓解供应紧张，意法半导体几乎把 2026 年数据中心收入预期翻番、并称明年还可能再翻一倍，Arm 预计将提前达到 150 亿美元的芯片销售目标。英伟达自身市值已达 5.5 万亿美元，自 2023 年以来涨逾 1,400%。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="funding" data-order="66">
+  <div class="entry-card breaking-card">
+    <div class="entry-time">6月1日</div>
+    <span class="entry-cat cat-funding">融资</span><span class="entry-cat cat-breaking">BREAKING</span>
+    <h3 class="entry-title">Anthropic 抢先提交 IPO 招股文件，AI 上市竞赛打响</h3>
+    <div class="entry-body">
+      <p>Anthropic 周一确认已秘密提交 IPO 招股文件，若市场条件允许，这家 Claude 母公司最早可能在今年秋天上市。文件提交之际，竞争对手 OpenAI 据报也将很快递交自己的申报；银行家告诉双方，谁先上市谁就能定义这个新行业、并优先拿到渴望押注 AI 的大笔资金。Altman 周一在 CNBC 上则称"不存在上市竞赛，时机合适我们才会做"。</p>
+      <p>马斯克的 SpaceX 计划下周进行一场可能是史上规模最大的 IPO，拟募资 800 亿美元以上，其与 xAI 合并后估值已达 1.25 万亿美元。若 Anthropic、OpenAI 与 SpaceX 年内都完成上市，今年有望成为 IPO 募资额最高的一年。</p>
+      <p>Anthropic 由 2021 年从 OpenAI 出走的一批人创办，现任 CEO 为 Dario Amodei，凭 Claude Code、Claude Cowork 等产品在企业与编程场景后来居上。公司 5 月刚以 9,650 亿美元估值募资 650 亿，收入年化运行率从 2025 年底的 90 亿美元跃升至 470 亿美元。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="funding" data-order="65">
+  <div class="entry-card">
+    <div class="entry-time">6月1日</div>
+    <span class="entry-cat cat-funding">融资</span>
+    <h3 class="entry-title">Alphabet 史诗级 800 亿美元股权融资，含伯克希尔 100 亿</h3>
+    <div class="entry-body">
+      <p>谷歌母公司 Alphabet 宣布通过一揽子股权发行募资 800 亿美元，为日益膨胀的 AI 支出融资，规模为史上最大的股权交易之一。方案包括 400 亿美元的"按市价"增发（三季度起择机直接向市场卖股）、300 亿美元的包销股票与强制可转换优先股，以及与伯克希尔的 100 亿美元交易。消息当日 Alphabet 股价跌 4.1% 至 360.89 美元，但过去一年已翻倍有余。</p>
+      <p>Alphabet 主打自研 TPU 芯片，作为英伟达 GPU 的替代正受到追捧。CFO 此前称 2027 年资本开支将"显著"高于 2026 年最高 1,900 亿美元的预算；彭博行业研究估计明年或达 3,000 亿美元，甚至超过其经营性现金流。分析师指出，这笔巨额股权可能从 SpaceX、Anthropic、OpenAI 等即将上市的同业那里抽走资金。Alphabet 现为全球市值第二的公司，仅次于英伟达。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="infra" data-order="64">
+  <div class="entry-card">
+    <div class="entry-time">6月1日</div>
+    <span class="entry-cat cat-infra">基建</span>
+    <h3 class="entry-title">英伟达发布首批 AI 智能体 PC，推 RTX Spark 芯片，AI 板块普涨</h3>
+    <div class="entry-body">
+      <p>英伟达发布首批面向运行 AI"智能体"设计的新一代笔记本原型，搭载新版招牌 AI 芯片 RTX Spark，号称"史上最高能效的 PC 芯片"。最薄机身仅 14 毫米、最轻不到 3 磅，首批联手戴尔、联想、微软、惠普、华硕、微星六家厂商，最终将推出约 30 款笔记本与 10 款台式机，定位创作者、AI 开发者与玩家的高端市场。英伟达高管称 AI 正从面向人类用户的聊天机器人转向自主"智能体"，需要 Vera Rubin 等新硬件支撑。</p>
+      <p>Anthropic 的意外上市申报叠加英伟达入局 PC，给 AI 板块带来普涨：英伟达当日涨逾 6%，微软涨 2.3%，同时生产 AI PC 与服务器的戴尔大涨近 11%，Arm 涨近 16%（市场相信英伟达入局将提升其架构对 Intel、AMD 的 x86 替代）。道指收涨 46 点至 51,079，标普 500 涨 0.3%，纳指涨 0.4%。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market" data-order="63">
+  <div class="entry-card">
+    <div class="entry-time">6月初 · 经济学人</div>
+    <span class="entry-cat cat-market">市场</span>
+    <h3 class="entry-title">大科技正牺牲现金流支撑 AI 繁荣，资本开支强度超页岩革命</h3>
+    <div class="entry-body">
+      <p>经济学人以"一张让硅谷不寒而栗的图表"形容当下：亚马逊、谷歌、Meta、微软与 Oracle 五大云巨头利润持续走高，扣除资本开支后的自由现金流却在跳水。亚马逊、Meta、微软预计今年至少有一个季度自由现金流转负，Oracle"已经在没顶"。今年五家将投入约 8,000 亿美元为数据中心填满芯片，约相当于其收入的 40%，超过 2010 年代页岩革命与 1990 年代互联网泡沫时期的资本开支强度；上一季度股票回购骤然萎缩。</p>
+      <p>投资者如今以面向未来的集中算力合约、而非当期分散的销售来评判这些公司，这类远期收入合约已从上年的 7,300 亿膨胀至 2 万亿美元。资产负债表也从轻资产、现金充裕变得复杂、重资产且负债累累：大五家自去年初已发债 2,600 亿美元，占美国非金融上市公司发债的四分之一，近三分之一以非美元计价，Alphabet 即将发行首只日元债。</p>
+      <p>更大的义务藏在表外：尚未建成的数据中心未来租赁付款已达 8,200 亿美元（上年仅 2,700 亿），芯片采购等承诺增长同样迅猛，亚马逊、谷歌、Meta、Oracle 合计披露 6,800 亿。Oracle 因未来收入高度依赖 OpenAI，股价被重挫，其财务负责人近期谈到要把现金流与资本开支"解耦"；放贷机构则开始私下议论 AI 融资协议中"正在松动的条款"。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="funding" data-order="59">
+  <div class="entry-card">
+    <div class="entry-time">6月初</div>
+    <span class="entry-cat cat-funding">融资</span>
+    <h3 class="entry-title">约 1,200 亿美元 AI 债务移出资产负债表，四巨头借道 SPV</h3>
+    <div class="entry-body">
+      <p>据多家媒体梳理，Oracle、Meta、xAI 与 CoreWeave 正把合计超过 1,200 亿美元的数据中心投入挪到表外，通过华尔街安排的特殊目的实体（SPV）融资，从而在锁定算力的同时，把大额债务留在核心财报之外。</p>
+      <p>具体看，Oracle 与 Crusoe、Vantage、Blue Owl 等共建多个由独立 SPV 持有的数据中心：德州 Abilene 一处获 Blue Owl 与摩根大通约 130 亿美元（含 100 亿美元债务），德州与威斯康星另有 380 亿美元债务包，新墨西哥一处获 180 亿美元贷款。xAI 计划融资 200 亿美元，其中至多 125 亿为债务；CoreWeave 3 月设立 SPV 履行对 OpenAI 的 119 亿美元算力合同。</p>
+      <p>争议在于，租赁回租把原本的资本开支变成了经营性支出，杠杆被分散到一个个项目实体里，外部投资者很难看清母公司真实的负债敞口。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market" data-order="58">
+  <div class="entry-card">
+    <div class="entry-time">6月初</div>
+    <span class="entry-cat cat-market">市场</span>
+    <h3 class="entry-title">"循环融资"争论升温，供应链关联交易据估超 8,000 亿美元</h3>
+    <div class="entry-body">
+      <p>随着发债与建设节奏不断加快，关于 AI 是否过热的争论再度升温。批评者把焦点对准"循环融资"：英伟达投资并供货给 OpenAI，OpenAI 又向 Oracle 等云厂商承诺数千亿美元订单，这些云厂商再回头采购英伟达芯片。据估算，沿 AI 供应链识别出的此类关联安排规模已超过 8,000 亿美元。</p>
+      <p>担忧者认为，供应商为自己的客户提供融资，可能制造出需求的"幻觉"，一旦终端需求不及预期，亏损会被放大。OpenAI 2026 年预计亏损约 140 亿美元，接近 2025 年的三倍，却仍计划在八年内投入约 1.4 万亿美元资本开支。辩护者则强调，建设 AI 本就极其昂贵，把长期采购承诺与融资绑定，是锁定供给的合理方式。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 2026年5月 ====== -->
+<div class="day-header"><span class="day-label">2026年5月</span></div>
+
+<div class="timeline-entry" data-cat="infra" data-order="58">
+  <div class="entry-card">
+    <div class="entry-time">5月30日</div>
+    <span class="entry-cat cat-infra">基建</span>
+    <h3 class="entry-title">软银承诺向法国数据中心投至少 520 亿美元，欧洲最大 AI 项目</h3>
+    <div class="entry-body">
+      <p>软银集团承诺斥资至少 520 亿美元（约 450 亿欧元）在法国建设大型数据中心网络，目标到 2031 年在敦刻尔克、Bosquel 与 Bouchain 三地交付最高 3.1 吉瓦算力；若与伙伴及施耐德电气进一步合作扩展，投资最高可增至 750 亿欧元（约 870 亿美元）、容量达 5 吉瓦，将成为欧洲最大的人工智能基础设施项目。</p>
+      <p>消息正值法国总统马克龙主办年度投资大会前夕。马克龙力推在法国与欧洲多建数据中心，设想用法国的核电网为这些耗电设施供能、而非外输过剩电力，以追赶美国的大手笔 AI 投入。对软银而言，这是其迄今在欧洲最大的 AI 基建投资，它同时还是美国俄亥俄一处 330 亿美元数据中心项目的牵头开发方。世界各地此起彼伏的大型数据中心承诺，也在不断激起关于 AI 基建是否存在泡沫的争论——一些高调宣布的项目后来被推迟或搁置。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="funding" data-order="57">
+  <div class="entry-card breaking-card">
+    <div class="entry-time">5月28日</div>
+    <span class="entry-cat cat-funding">融资</span><span class="entry-cat cat-breaking">BREAKING</span>
+    <h3 class="entry-title">Anthropic 完成 650 亿美元 H 轮，9,650 亿估值超越 OpenAI</h3>
+    <div class="entry-body">
+      <p>Anthropic 宣布完成 650 亿美元 H 轮融资，投后估值达 9,650 亿美元，由 Altimeter、Dragoneer、Greenoaks 与红杉领投，逼近万亿美元，被普遍解读为 IPO 前的最后一跃。这一估值首次把 Anthropic 抬到 OpenAI（3 月底 8,520 亿美元）之上，成为硅谷估值最高的 AI 公司。</p>
+      <p>公司披露收入年化运行率已达 470 亿美元，高于年初的 300 亿美元，2025 全年收入约 100 亿美元。增长主要来自企业级与编程场景，Claude 在开发者工具中的渗透是其叙事核心。这轮融资把一级市场对前沿模型公司的定价推到新高度，与二级市场对 AI 估值的犹疑形成对照。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market" data-order="56">
+  <div class="entry-card">
+    <div class="entry-time">5月20日</div>
+    <span class="entry-cat cat-market">市场</span>
+    <h3 class="entry-title">英伟达 Q1 营收 816 亿、数据中心 752 亿，财报亮眼但股价回落</h3>
+    <div class="entry-body">
+      <p>英伟达公布截至 4 月 26 日的财季业绩：营收 816 亿美元，同比增长 85%；数据中心收入 752 亿美元，同比增长 92%、环比增长 21%，由 Blackwell 300 放量及网络业务驱动，其中网络收入 148 亿美元、同比增长 199%。</p>
+      <p>尽管数据几乎全面超预期，股价在财报后仍走低，反映市场对增速能否持续以及高估值的担忧。管理层重申 Vera Rubin 平台下半年交付。此前 2026 财年全年英伟达收入已达 2,160 亿美元，同比增长 65%。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="model" data-order="55">
+  <div class="entry-card">
+    <div class="entry-time">5月19日</div>
+    <span class="entry-cat cat-model">模型</span>
+    <h3 class="entry-title">谷歌 I/O 发布 Gemini 3.5 Flash 与 Gemini Spark</h3>
+    <div class="entry-body">
+      <p>谷歌在 I/O 2026 上发布 Gemini 3.5 Flash 与 Gemini Spark。此前 Gemini 3.1 Pro 在 GPQA Diamond 上达到 94.3%，定价为每百万 token 输入 2 美元、输出 12 美元，主打多模态。</p>
+      <p>2026 年的前沿模型迭代被普遍形容为史上最密集：2 月至 4 月间就有约七款前沿模型问世，Anthropic、OpenAI、谷歌与 xAI 在编程、推理、写作与企业自动化上各擅胜场，没有一家通吃所有榜单。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market" data-order="54">
+  <div class="entry-card">
+    <div class="entry-time">5月中旬</div>
+    <span class="entry-cat cat-market">市场</span>
+    <h3 class="entry-title">市场回调凸显"七巨头"高 beta 风险</h3>
+    <div class="entry-body">
+      <p>5 月中旬的回调让市场重新审视集中度风险。"七巨头"已占标普 500 约 34.8%，较 2016 年的 12.5% 大幅抬升；其平均远期市盈率约 27 倍，高于标普整体的 21 倍，留给盈利不及预期的安全垫很薄。历史上（如 2022 年）这组股票的回撤幅度曾是大盘的两倍，集中度既是过去两年涨幅的来源，也是潜在的下行放大器。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="funding" data-order="53">
+  <div class="entry-card">
+    <div class="entry-time">5月9日</div>
+    <span class="entry-cat cat-funding">融资</span>
+    <h3 class="entry-title">英伟达股权投资突破 400 亿美元，强化"循环投资"担忧</h3>
+    <div class="entry-body">
+      <p>英伟达对 AI 生态的股权投资规模在 2026 年已突破 400 亿美元。分析人士指出，这些投资"恰好落在循环投资主题里"——芯片厂商出资给买家、买家再回购芯片，进一步加剧了对需求真实性与市场可持续性的疑问。这一模式与对 OpenAI 最高 1,000 亿美元的投资一脉相承。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 2026年4月 ====== -->
+<div class="day-header"><span class="day-label">2026年4月</span></div>
+
+<div class="timeline-entry" data-cat="model" data-order="52">
+  <div class="entry-card">
+    <div class="entry-time">4月23日</div>
+    <span class="entry-cat cat-model">模型</span>
+    <h3 class="entry-title">OpenAI 发布 GPT-5.5，幻觉率较 5.4 下降约六成</h3>
+    <div class="entry-body">
+      <p>OpenAI 发布 GPT-5.5，宣称相较 GPT-5.4 幻觉率下降约 60%，并在第三方综合智能指数上领先。这是 2026 年密集模型迭代中的又一款旗舰，与 Anthropic 的 Claude Opus 系列、谷歌 Gemini 直接竞争，把"谁是最强通用模型"的争夺再次推向白热化。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="debt" data-order="51">
+  <div class="entry-card">
+    <div class="entry-time">4月13日</div>
+    <span class="entry-cat cat-debt">发债</span>
+    <h3 class="entry-title">CoreWeave "数天内融资数百亿"，多轮高收益债登场</h3>
+    <div class="entry-body">
+      <p>CoreWeave 成了 AI 基建被激进融资的样本：公司在很短时间内完成数百亿美元融资，2026 年已发行多笔高收益债，包括 10 亿美元与 17.5 亿美元的发行，用于建设 GPU 密集型数据中心；伊利诺伊州 Elk Grove Village 一处物业还计划为 CoreWeave 数据中心发行 8.5 亿美元垃圾债。</p>
+      <p>作为对比，CoreWeave 2025 年 7 月曾借入 26 亿美元以履行算力合同，3 月又设立 SPV 对接对 OpenAI 的 119 亿美元供货承诺。高增长与高杠杆的组合，使其成为观察 AI 信用风险的风向标。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="model" data-order="50.5">
+  <div class="entry-card">
+    <div class="entry-time">4月7日</div>
+    <span class="entry-cat cat-model">模型</span>
+    <h3 class="entry-title">Anthropic 称新模型 Mythos 过于强大暂缓全面开放，发起 Project Glasswing</h3>
+    <div class="entry-body">
+      <p>Anthropic CEO Dario Amodei 于 4 月 7 日宣布，Claude 家族最新模型"Mythos"过于强大，暂不向公众广泛开放。Anthropic 称其能力"远超此前训练过的任何模型"，尤其令人警惕的是它发现软件漏洞、并据角色设定加以修补或利用的能力——据称 Mythos 已在"每一种主流操作系统与浏览器"中找出严重漏洞，包括一个潜藏了 27 年之久的缺陷。</p>
+      <p>与暂缓发布同步，Anthropic 推出 Project Glasswing，帮助企业在模型广泛开放前用 Mythos 加固网络防御，参与方包括苹果、Linux 基金会、CrowdStrike，以及与其直接竞争的谷歌。Anthropic 将承担该计划前 1 亿美元成本，但日后 Mythos 的使用价格将达其前代 Opus 的五倍。公司 4 月 6 日称年化收入已达 300 亿美元，高于 2025 年底的 90 亿。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 2026年3月 ====== -->
+<div class="day-header"><span class="day-label">2026年3月</span></div>
+
+<div class="timeline-entry" data-cat="funding" data-order="50">
+  <div class="entry-card">
+    <div class="entry-time">3月下旬</div>
+    <span class="entry-cat cat-funding">融资</span>
+    <h3 class="entry-title">OpenAI 完成 1,220 亿美元融资，估值 8,520 亿美元</h3>
+    <div class="entry-body">
+      <p>OpenAI 在 3 月底完成一轮 1,220 亿美元融资，投后估值约 8,520 亿美元，彼时仍是估值最高的 AI 公司，直到 5 月底被 Anthropic 超越。</p>
+      <p>巨额融资的另一面是巨额亏损与天量资本承诺：公司 2025 年收入约 130 亿美元，却背着八年约 1.4 万亿美元的资本开支计划。这种"收入与承诺的鸿沟"，正是市场对 AI 估值分歧的核心。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="debt" data-order="49">
+  <div class="entry-card">
+    <div class="entry-time">3月7日</div>
+    <span class="entry-cat cat-debt">发债</span>
+    <h3 class="entry-title">谷歌、Meta、Oracle 掀万亿美元借贷潮</h3>
+    <div class="entry-body">
+      <p>媒体以"万亿美元借贷潮"形容大科技的发债节奏，债券基金经理直言"这种环境里会分出赢家和输家"。超大规模厂商正从依赖内部现金流转向大举发债，为数据中心、GPU 与电力基建融资。</p>
+      <p>2026 年超大厂商净供给预计较上年增长 30%–50%，至 1,300 亿–1,500 亿美元。如此体量的供给开始考验投资级长久期科技债的市场胃口，也压低了二级市场的相对估值。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 2026年2月 ====== -->
+<div class="day-header"><span class="day-label">2026年2月</span></div>
+
+<div class="timeline-entry" data-cat="debt" data-order="48">
+  <div class="entry-card">
+    <div class="entry-time">2月</div>
+    <span class="entry-cat cat-debt">发债</span>
+    <h3 class="entry-title">Alphabet 发行数十年来首只百年期债券，当月全球募资 315 亿</h3>
+    <div class="entry-body">
+      <p>Alphabet 成为数十年来首家发行 100 年期债券的科技公司。公司 2 月在美元之外同时动用英镑与瑞郎市场，全球发债合计约 315 亿美元；2025 年 11 月它还曾发行 250 亿美元债券。</p>
+      <p>一家以现金充沛著称的公司转而同时动用百年债与英镑、瑞郎等外币债，折射出这轮 AI 基建投入的胃口之大；据经济学人，谷歌还将很快发行首只日元计价债券。（注：6 月 1 日 Alphabet 另宣布 800 亿美元股权融资，见上文。）</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="debt" data-order="47">
+  <div class="entry-card">
+    <div class="entry-time">2月初</div>
+    <span class="entry-cat cat-debt">发债</span>
+    <h3 class="entry-title">Oracle 计划全年募资 450–500 亿，拟一次性发行投资级债</h3>
+    <div class="entry-body">
+      <p>Oracle 表示计划在 2026 年筹集 450 亿–500 亿美元现金，以满足最大云客户的合同需求，并打算在年初一次性发行投资级高级无担保债券（约 200 亿–250 亿美元）覆盖其中一半，且不预期年内再度发债。</p>
+      <p>此前 2025 年 9 月，Oracle 已完成 180 亿美元投资级债券发行。从一次性大额发债到大量借助表外 SPV，Oracle 是这轮 AI 加杠杆中最受信用市场关注的名字之一。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="infra" data-order="46">
+  <div class="entry-card">
+    <div class="entry-time">2月6日</div>
+    <span class="entry-cat cat-infra">基建</span>
+    <h3 class="entry-title">大科技 2026 年 AI 支出逼近 7,000 亿，现金被大幅消耗</h3>
+    <div class="entry-body">
+      <p>亚马逊、微软、谷歌与 Meta 合计将 2026 年资本开支抬至约 7,250 亿美元，较上年的 4,100 亿美元增长约 77%。其中亚马逊约 2,000 亿、微软约 1,900 亿、Alphabet 1,750 亿–1,850 亿、Meta 1,150 亿–1,350 亿。</p>
+      <p>约 75% 的开支投向 AI 相关基础设施，意味着 AI 专项支出约 4,500 亿美元。如此规模的投入正快速消耗各家的自由现金流，也正是它们集体转向债券与表外融资的根本原因。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 2025年9–12月（前史） ====== -->
+<div class="day-header"><span class="day-label">2025年9–12月 · 前史</span></div>
+
+<div class="timeline-entry" data-cat="market" data-order="45">
+  <div class="entry-card">
+    <div class="entry-time">2025年12月</div>
+    <span class="entry-cat cat-market">市场</span>
+    <h3 class="entry-title">Meta 巨型数据中心点燃泡沫担忧，CDS 一度创新高</h3>
+    <div class="entry-body">
+      <p>Meta 在路易斯安那的巨型数据中心引发对 AI 泡沫的担忧。与此同时，公司为德州一处数据中心筹集约 130 亿美元 SPV 融资，其信用违约互换（CDS）一度升至历史高位，反映债券市场对其加杠杆速度的警觉。这是"建设热情"与"信用定价"首次明显背离的时点之一。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="debt" data-order="44">
+  <div class="entry-card">
+    <div class="entry-time">2025年11月</div>
+    <span class="entry-cat cat-debt">发债</span>
+    <h3 class="entry-title">Alphabet 发行 250 亿美元债券</h3>
+    <div class="entry-body">
+      <p>Alphabet 在 11 月完成 250 亿美元债券发行，为日后 2 月的百年债与更大规模融资埋下伏笔。从这一笔起，谷歌正式加入用债券市场为 AI 算力融资的行列。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="debt" data-order="43">
+  <div class="entry-card">
+    <div class="entry-time">2025年10月30日</div>
+    <span class="entry-cat cat-debt">发债</span>
+    <h3 class="entry-title">Meta 发行 300 亿美元六部分债券，认购订单达 1,250 亿</h3>
+    <div class="entry-body">
+      <p>Meta 一次性发行 300 亿美元公司债，据彭博为当年规模最大的投资级公司债发行，并获得创纪录的 1,250 亿美元认购订单。债券分为六档，期限从 5 年到 40 年不等。</p>
+      <p>发行前一天，扎克伯格刚警告公司明年会更激进地投入 AI。天量的订单簿一度被视作市场对 AI 信用的强烈背书，但也成为此后"是否过度发债"争论的起点。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="funding" data-order="42">
+  <div class="entry-card">
+    <div class="entry-time">2025年10月</div>
+    <span class="entry-cat cat-funding">融资</span>
+    <h3 class="entry-title">Meta 与 Blue Owl 达成 270–300 亿美元 Hyperion 私募信贷交易</h3>
+    <div class="entry-body">
+      <p>Meta 与 Blue Owl 就路易斯安那 Hyperion 数据中心达成一笔约 270 亿美元（连同后续合计近 300 亿）的私募信贷交易，是当时规模空前的同类交易。交易设立名为 Beignet Investor 的 SPV，Blue Owl 持股约 80%、Meta 持股 20%，由摩根士丹利安排发行约 270 亿美元 A+ 评级债务与 25 亿美元股权，PIMCO 认购约 180 亿、BlackRock 约 30 亿。</p>
+      <p>Meta 保留运营控制权但不在表内承担债务，建成后以长期经营租赁租回，把本应计入资本开支的支出转化为可预测的经营性支出。这一结构此后被 Oracle、xAI、CoreWeave 等广泛效仿，被市场称作 AI 算力的"华尔街化"。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="infra" data-order="41">
+  <div class="entry-card">
+    <div class="entry-time">2025年9月23日</div>
+    <span class="entry-cat cat-infra">基建</span>
+    <h3 class="entry-title">Stargate 新增五个站点，规划容量逼近 7 吉瓦</h3>
+    <div class="entry-body">
+      <p>OpenAI、Oracle 与 SoftBank 宣布为 Stargate 新增五个数据中心站点，连同 Abilene 旗舰站与 CoreWeave 项目，使规划容量逼近 7 吉瓦、三年投资超 4,000 亿美元，目标是一个 5,000 亿美元、10 吉瓦的全美基建。</p>
+      <p>新增站点分布在德州、新墨西哥与中西部，SoftBank 在俄亥俄 Lordstown 已破土。Oracle 于 6 月开始交付首批英伟达 GB200 机柜，早期训练与推理负载已经启动。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="funding" data-order="40">
+  <div class="entry-card">
+    <div class="entry-time">2025年9月</div>
+    <span class="entry-cat cat-funding">融资</span>
+    <h3 class="entry-title">OpenAI 与英伟达签 10 吉瓦部署合作，英伟达拟投至多 1,000 亿</h3>
+    <div class="entry-body">
+      <p>OpenAI 与英伟达签署意向书，将为 OpenAI 下一代基础设施部署至少 10 吉瓦英伟达系统；作为支持，英伟达拟随每吉瓦落地逐步向 OpenAI 投资至多 1,000 亿美元，第一吉瓦定于 2026 年下半年部署在 Vera Rubin 平台上。</p>
+      <p>这是"循环融资"叙事的起点之一：芯片厂商既是供应商又是股东，把自己的资产负债表与最大客户的扩张深度绑定。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="debt" data-order="39">
+  <div class="entry-card">
+    <div class="entry-time">2025年9月</div>
+    <span class="entry-cat cat-debt">发债</span>
+    <h3 class="entry-title">Oracle 发行 180 亿美元投资级债券</h3>
+    <div class="entry-body">
+      <p>Oracle 完成 180 亿美元投资级债券发行，为其大规模数据中心建设融资，是 2025 年下半年科技板块密集发债的前奏之一，也拉开了超大规模厂商集体转向债券市场的序幕。</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer class="footer">
+  <p>数据来源：<span class="brand">Bloomberg、WSJ、华盛顿邮报、经济学人</span>全文抓取，辅以各公司公告与 SEC 文件</p>
+  <p style="margin-top:6px">本页面基于公开报道整理，不构成任何投资建议</p>
+</footer>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.timeline-entry').forEach(e => { e.style.display = (f === 'all' || e.dataset.cat === f) ? '' : 'none'; });
+  });
+});
+
+let desc = true;
+const sortBtn = document.getElementById('sortBtn');
+const tl = document.getElementById('timeline');
+sortBtn.addEventListener('click', () => {
+  desc = !desc;
+  sortBtn.textContent = desc ? '⇅ 正序' : '⇅ 倒序';
+  const items = Array.from(tl.children);
+  items.reverse();
+  items.forEach(item => tl.appendChild(item));
+  document.querySelectorAll('.timeline-entry').forEach((e, i) => {
+    e.style.animation = 'none'; e.offsetHeight; e.style.animation = ''; e.style.animationDelay = `${i * 0.03}s`;
+  });
+});
+
+document.querySelectorAll('.timeline-entry').forEach((e, i) => { e.style.animationDelay = `${i * 0.04}s`; });
+</script>
+
+</body>
+</html>
