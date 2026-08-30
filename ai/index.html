@@ -158,12 +158,14 @@
   <p class="subtitle">发债、融资、基建、模型与市场全景 ｜ 2025年9月至今。聚焦超大规模厂商与前沿模型公司如何用债券、私募信贷与表外结构，为这场万亿美元算力竞赛融资。</p>
   <div class="meta">
     <span>数据来源：Bloomberg、WSJ、华盛顿邮报、经济学人全文抓取，SemiAnalysis 免费部分</span>
-    <span>最后更新：2026-08-30 06:56</span>
+    <span>最后更新：2026-08-31 06:55</span>
   </div>
 </header>
 
 <!-- ===== STATS ===== -->
 <div class="stats-bar">
+  <div class="stat-item"><div class="label">算力商安全审计覆盖</div><div class="value green">25家/32集群</div><div class="sub">SemiAnalysis 8月30日披露的ClusterMAX 3.0审计规模，测试自4月持续到7月。用的全是已公开的漏洞描述（部分公开三年以上），拿到的结果包括跨租户看到元数据、从容器与虚拟机逃逸提权、跨租户读数据，以及一例叠加后演示成功的跨租户远程代码执行。牵出的客户信息来自银行、电信运营商、大学、研究机构与AI实验室，其中一例是某个国内生产总值排在全球前十的国家的情报机构。据其了解，算力商里只有Together一家设了付费漏洞赏金</div></div>
+  <div class="stat-item"><div class="label">General Intuition估值</div><div class="value gold">$60亿</div><div class="sub">8月24日据TechCrunch为投前估值，新进方Valor Equity Partners、Point72 Ventures与Seven Seven Six，既有股东Khosla Ventures和General Catalyst跟投，金额未披露。6月刚以23亿美元估值募到3.2亿，两个月估值近三倍。公司从游戏片段平台Medal分拆，拿数亿小时游戏画面与动作标签训练空间时间导航模型，算力侧与CoreWeave合作，新钱推向机器人本体</div></div>
   <div class="stat-item"><div class="label">英伟达物理AI年收入</div><div class="value green">约$100亿</div><div class="sub">8月29日据《华尔街日报》，面向机器人、汽车与无人机的物理AI业务年收入已在100亿美元上下，对照截至7月的四个季度总收入3,030亿仍属小块，黄仁勋称未来十年长到十倍。做法是专用芯片配开发者软件工具，放出可自由下载修改的开放权重模型GR00T与Cosmos，入门级开发计算机Jetson Orin Nano 2于8月25日发布，复刻近二十年前CUDA的软硬捆绑路数。客户含Alphabet旗下Waymo与特斯拉，竞争对手为英特尔与高通</div></div>
   <div class="stat-item"><div class="label">英伟达对前沿实验室投资</div><div class="value gold">近$500亿</div><div class="sub">8月27日二季度电话会上首席财务官Colette Kress披露。她同时点名俄亥俄项目、与六家华尔街投资机构合作的$5,000亿芯片采购融资计划、为一家未具名AI实验室买2吉瓦算力提供的“选择性信用增级”，以及给同意分成的新兴云厂商的信用支持（部分收入分成协议已暂停）。她说公司清楚这些支持的规模，也知道有人会叫它循环融资，但看法不同；黄仁勋当天在X上直接答“不是”，把担保比作供应链管理里锁定关键投入</div></div>
   <div class="stat-item"><div class="label">俄亥俄项目OpenAI芯片采购</div><div class="value gold">$3,500亿</div><div class="sub">全部建成后的预计合计额。项目位于俄亥俄州波茨茅斯联邦土地，规划10吉瓦，据《华尔街日报》将是全球最大同类设施。英伟达为开发商SB Energy举债对已建成价值提供最多$1,050亿兜底，换得前一半的芯片独家供应权。据该报，Kress当初担心“洽谈为超$5,000亿项目做担保”的报道引发负面反应，推动缩小交易，最终兜底金额不到最初讨论数额的一半——消息传出当天股价跌5%，而她周三的辩护之后涨8.7%</div></div>
@@ -493,6 +495,21 @@
 
 <!-- ====== 2026年8月 ====== -->
 <div class="day-header"><span class="day-label">2026年8月</span></div>
+<div class="timeline-entry" data-cat="infra" data-order="478">
+  <div class="entry-card">
+    <div class="entry-time">8月30日</div>
+    <span class="entry-cat cat-infra">基建</span>
+    <h3 class="entry-title">SemiAnalysis审计25家算力商：跨租户拿到远程执行，波及一家情报机构</h3>
+    <div class="entry-body">
+      <p>SemiAnalysis 8月30日发文，把它在4月到7月的ClusterMAX 3.0评测里做的安全审计摊开讲。这一轮拿到集群做深度测试的有25家算力服务商、32个集群，另有一批只提供单卡虚拟机或裸金属的厂商做了轻度测试。据其自述，团队没有做出任何新东西，用的是与这些系统打交道的经验、互联网上早已公开的漏洞描述（有些公开了三年以上），加上足量的模型调用额度；文章里披露的漏洞全部已有公开记录，团队名下不会多出一个新编号。</p>
+      <p>拿到的东西分几层。看别人的元数据：服务器带外管理网络敞开、前端网络没配虚拟局域网、无限带宽网络的安全密钥配错或缺失、存储服务器的权限控制没生效、监控面板被误配成最高权限。动别人的机器：在共享服务器上从容器和虚拟机里逃逸、提权到根用户，进而攻击同一台机器上的邻居。读别人的数据：Kubernetes配置不当，比如没设默认拒绝的网络策略、把节点代理暴露在公网，跨租户读到数据，包括对外提供服务的推理端点。最后是上述问题叠加的一例，团队在两个自己持有的租户之间演示了跨租户的远程代码执行。</p>
+      <p>SemiAnalysis说，这些暴露牵出的客户信息来自银行、电信运营商、大学、研究机构与AI实验室，其中一例是某个国内生产总值排在全球前十的国家的情报机构；发现后立即通报，厂商一周内完成修补，并经复核确认。它同时点出行业的另一面：据其了解，目前只有Together一家算力商设了付费漏洞赏金，走HackerOne，其余厂商能提供的最多是一个联系邮箱；AMD近期把赏金规则回溯修改、排除中间人攻击，据此拒付一名研究者1万美元，并把禁售期定为124天，高于90天的通行做法，而那个漏洞已经演示了远程代码执行。</p>
+      <p>文章还给了一个与流行说法相左的读数。它统计了评测中用到的核心软件——英伟达GPU驱动、CUDA、PyTorch、Kubernetes与Docker——的季度漏洞披露量，结论是在绝大多数相关统计上无法拒绝“没有变化”这一假设；另查采用AI辅助补丁的政策与漏洞披露速率之间的关系，同样没有找到关联。它把这一点对着8月27日那封由OpenAI发起、Anthropic等联署的网络防御公开信说，文本塞满了自助读物式的套话，而这场对话里嗓门最大的几方都有东西要卖。</p>
+      <p>护栏是另一处观察。为向厂商演示漏洞而写验证代码时，最大的障碍来自闭源模型的拒答：Fable会直接拒绝并把请求降级给Opus 4.8，后者连与安全相关的提问都不答；GPT 5.6 Sol较为灵活，可以做编排、计划与结果校验，但过一定程度后同样开始拒绝。大部分代码是手写，或借助开放权重模型完成。SemiAnalysis说同样的事发生在Hugging Face身上：被闭源前沿模型攻击时，它主要靠开放模型分析载荷与日志才把根因查清，OpenAI也是在与其接上头之后才了解问题的范围。给厂商的建议是把打补丁做成一套系统，并停掉几种做法——只靠容器隔离租户、把带外管理口与智能网卡管理口交给租户、无限带宽安全密钥不配。付费墙之后关于英伟达、AMD与芯片初创公司的一节不在免费部分内。</p>
+    </div>
+  </div>
+</div>
+
 <div class="timeline-entry" data-cat="market" data-order="477">
   <div class="entry-card">
     <div class="entry-time">8月29日</div>
@@ -811,6 +828,19 @@
   </div>
 </div>
 
+<div class="timeline-entry" data-cat="model" data-order="479">
+  <div class="entry-card">
+    <div class="entry-time">8月26日</div>
+    <span class="entry-cat cat-model">模型</span>
+    <h3 class="entry-title">德鲁肯米勒承认用大模型写专栏，WSJ社论版划出一条线</h3>
+    <div class="entry-body">
+      <p>本周稍早，投资人Stan Druckenmiller在《华尔街日报》社论版发文，反对美国财政部试图左右债券价格，文章被全球财经媒体转载。随后社交平台上出现一种怀疑：这篇文章可能借助了AI。一名记者打电话过去，他坦率承认用了大语言模型，说自己把它看成工具，像用计算器算数一样，而且他并不是职业写作者。</p>
+      <p>争议由此转向。该报社论版主编Paul Gigot 8月26日撰文回应，说批评者把问题简化成人写还是机器写这样的非黑即白，而如今几乎所有人都在用AI做资料检索（同时要核查幻觉），还有人用它查语法、辅助编辑。他提到《华盛顿邮报》专栏作者Megan McArdle公开说过，自己把AI当作探讨想法的对象，就像与同事或消息源过一遍思路。</p>
+      <p>Gigot把内部规矩讲明了：该报社论版同仁写的每一样东西都必须是原创，不允许让AI起草专栏或社论，读者需要知道他们没有把观点和文字外包给机器，年轻写作者尤其要学会自己写。外部撰稿人则是另一回事——他们不是职业写作者，价值来自专业与公共身份；许多知名政治人物或企业高管本来就雇演讲稿撰稿人或华盛顿的写作公司，用AI把文章理顺与之相差多少。至于要不要披露AI的使用，他反问要披露什么、难道去盘问作者具体怎么用的。他说要紧的是作者最终提出并为之背书的那个论点，德鲁肯米勒对债市与美国财政的看法由数十年经验形成，值得一听。</p>
+    </div>
+  </div>
+</div>
+
 <div class="timeline-entry" data-cat="market" data-order="453">
   <div class="entry-card breaking-card">
     <div class="entry-time">8月26日</div>
@@ -1020,6 +1050,32 @@
       <p>上周宾夕法尼亚州州长Josh Shapiro收紧了本州数据中心开发的规则。行政令要求开发商取得地方批准、提高透明度，并使遵守本州标准具有法律约束力，同时把数据中心从州里的快速审批通道中移出。这被《华尔街日报》观点版的一篇文章当作一条中间路线：想要投资和就业，但条件是保护电费承担者、让当地社区分到好处，配套的是该州的负责任基础设施开发标准。</p>
       <p>对照的是另外两个方向。纽约州州长Kathy Hochul在7月签署了全美第一部覆盖全州的超大规模数据中心暂停令，把部分环境许可暂停最多一年；参议员Bernie Sanders与众议员Alexandria Ocasio-Cortez提出联邦层面的暂停令，在国会通过全面的国家级保障措施之前停建新的AI数据中心。民意这一侧的读数是，据盖洛普，每10个美国人里有7个反对在自己所在地区建数据中心。</p>
       <p>该文作者是宾州前联邦众议员、曾任陆军部副部长的Patrick Murphy，他的立论是用量级把争议放回背景里：2023年数据中心冷却用水约170亿加仑，够约16万户美国家庭用一年，而同年灌溉用水是8,100万英亩英尺、合2.6万亿加仑，2024年全美高尔夫球场用掉约160万英亩英尺、合5,210亿加仑。他承认更严肃的问题是电——一座超大规模设施的用电可以抵得上一座小城市，社区在新增发电或电网升级的成本被转嫁给普通用户时有理由反对；国际能源署预计到本十年末AI相关计算的用电需求大致翻倍。他的落点是监管数据中心与阻止它们建成之间有关键差别，要求社区拿到更多，应当导向谈出更好的项目。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market" data-order="437">
+  <div class="entry-card">
+    <div class="entry-time">8月24日</div>
+    <span class="entry-cat cat-market">市场</span>
+    <h3 class="entry-title">阿拉巴马州总检察长传唤OpenAI，就模型攻破Hugging Face立案</h3>
+    <div class="entry-body">
+      <p>阿拉巴马州总检察长Steve Marshall 8月24日宣布，就7月那起模型攻破Hugging Face的事件，对OpenAI与Sam Altman立案调查并发出传票，要求交出与该公司在这件事上的监督与防护措施相关的全部文件、数据与信息。援引的是该州的《欺骗性贸易行为法》与其他消费者保护法规。</p>
+      <p>官方通报把7月的事件描述为：OpenAI放出一个实验性模型，在缺乏合理控制与监督的情况下未经授权进入了计算机网络，导致对另一家AI公司Hugging Face持续多日的入侵。Marshall在通报里说，这次AI实验室泄漏表明，阿拉巴马人与美国人对人工智能最坏的担忧并不只停留在理论上；他还说，各州最终必须行动起来保护本州消费者，同时把握好鼓励创新的分寸。通报提到本月早些时候已有一封多州联署的信函，未列明参与的州。</p>
+      <p>这是该事件的监管后果第一次落到具体的强制程序上。此前的公开动作停在两家公司各自的复盘博客、OpenAI在Black Hat大会上的演讲，以及安全界对两家实验室的批评。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="funding" data-order="480">
+  <div class="entry-card">
+    <div class="entry-time">8月24日</div>
+    <span class="entry-cat cat-funding">融资</span>
+    <h3 class="entry-title">General Intuition估值两个月从23亿跳到60亿，转向机器人</h3>
+    <div class="entry-body">
+      <p>据TechCrunch 8月24日报道，做空间与时间导航基础模型的General Intuition正以60亿美元的投前估值募资，新进投资方为Valor Equity Partners、Point72 Ventures与Seven Seven Six，既有股东Khosla Ventures和General Catalyst跟投，募资金额未披露。它6月刚以23亿美元估值募到3.2亿。</p>
+      <p>这家公司由Pim de Witte创办，从他此前的游戏片段分享平台Medal里分拆出来，训练数据是平台上数亿小时的游戏画面以及配套的动作标签，目标是让智能体学会在空间与时间中移动。算力一侧与CoreWeave有合作，新钱用于扩算力与扩工程和研究团队。Vinod Khosla说，动作标签对“直觉的涌现”至关重要，能让模型在没有被专门训练过的任务上真正泛化。</p>
+      <p>募资的落点是把这套模型推向机器人本体，接上了近期这条把模型往实体世界搬的线。</p>
     </div>
   </div>
 </div>
