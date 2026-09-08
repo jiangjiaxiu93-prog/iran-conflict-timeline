@@ -158,12 +158,18 @@
   <p class="subtitle">发债、融资、基建、模型与市场全景 ｜ 2025年9月至今。聚焦超大规模厂商与前沿模型公司如何用债券、私募信贷与表外结构，为这场万亿美元算力竞赛融资。</p>
   <div class="meta">
     <span>数据来源：Bloomberg、WSJ、华盛顿邮报、经济学人全文抓取，SemiAnalysis 免费部分</span>
-    <span>最后更新：2026-09-07 06:55</span>
+    <span>最后更新：2026-09-08 09:30</span>
   </div>
 </header>
 
 <!-- ===== STATS ===== -->
 <div class="stats-bar">
+  <div class="stat-item"><div class="label">TPUv7对B200每美元token数</div><div class="value green">+50.4%</div><div class="sub">SemiAnalysis 9月7日发布的谷歌TPUv7 Ironwood首份第三方推理测试，同口径为FP8、单token预测、聚合式服务，起步模型是Qwen3.5 397B的FP8版本。对B300的同一优势为96.0%。按每用户每秒100个token的交互速度，Ironwood每百万token约0.181美元，B200为0.222、B300为0.276，分别低约19%与34%；按每用户每秒20个token，Ironwood单芯片吞吐9,364个token每秒，B200为8,903、B300为8,925。换成谷歌内部自用口径每芯片小时1.03美元，并发256下优势扩到76.7%与130.2%，代价是首token延迟5.41秒对3.75秒与2.40秒</div></div>
+  <div class="stat-item"><div class="label">Anthropic已承诺采用的TPU</div><div class="value blue">100万颗+</div><div class="sub">据SemiAnalysis 9月7日的文章，Anthropic是TPU最大的用户，2025年11月已承诺超过一百万颗，其中40万颗以上为直接采购、60万颗以上通过谷歌云租用，主要用于训练、也用于推理。Ironwood是谷歌第一次拿自研芯片去争别人的推理负载，既可买断也可通过谷歌云租用。短板有两处：没有原生FP4算力，英伟达在FP4上仍领先，要等具备原生FP4的TPUv8i；外部分离式服务尚未优化，中段端到端延迟区间GB300 NVL72的分离式服务比TPUv7聚合式服务还有约三成每美元性能优势。外部栈从TorchAX换成TorchTPU，预计10月前后结束私有测试并开源</div></div>
+  <div class="stat-item"><div class="label">Claude形式化费马大定理耗时</div><div class="value purple">11天</div><div class="sub">Anthropic 9月4日公布，一组Claude智能体在Prove2Me平台上基本自主工作，用Lean语言写出该定理第一份端到端、可由计算机核验的形式化证明：1,300万行Lean代码、30,300条被证明的定理（29,500条进入最终证明），消耗约60亿个输出token，模型为公司称“大致相当于Claude Fable 5.1”的通用内部研究模型。证明只用Lean的三条标准公理、建立在Mathlib之上，走Darmon、Diamond与Taylor给出的怀尔斯证明简化版。数学家Kevin Buzzard说它“在除数学公理之外不作任何假设的前提下证明了费马大定理”</div></div>
+  <div class="stat-item"><div class="label">澳大利亚AI资本开支占GDP(2026–27财年)</div><div class="value red">2%以上</div><div class="sub">彭博经济研究澳大利亚经济学家James McIntyre 9月7日报告的估算。他说数据中心热潮有把需求推过经济供给能力的风险，会助推通胀并要求澳洲联储把利率维持在更高水平；大型项目加剧对施工产能的争夺，把技术工种从可再生能源项目、基础设施与住宅工地上拉走，“这轮繁荣正在挤出别处的活动，尤其是非住宅建筑”。澳洲联储2月至5月已三次加息、现金利率4.35%，正面临三周后会议重启加息的压力。CreditorWatch首席经济学家Ivan Colhoun说热潮会推高材料价格、劳动力需求与工资</div></div>
+  <div class="stat-item"><div class="label">密歇根选民反对开发数据中心</div><div class="value red">62%</div><div class="sub">EPIC-MRA调查，《华尔街日报》9月7日专栏引述；同一机构今年夏天的另一次民调里51%的密歇根选民对社会主义持负面看法、22%持正面。按民调，反数据中心情绪是罕见的跨党派现象。上周特朗普亲自下场，警告反对数据中心的社区“最后会变得落后而贫穷”；司法部在OpenAI与《纽约时报》的版权诉讼中站到OpenAI一边。前国会议员Marjorie Taylor Greene回应说“祝你中期选举好运，现在MAGA的意思成了成群的数据中心、成群的摄像头和监控国家”</div></div>
+  <div class="stat-item"><div class="label">Preferred Networks芯片商用时点</div><div class="value gold">2027年12月</div><div class="sub">首席执行官冈之原大辅9月7日受访时说，公司正准备公开上市为量产自研芯片筹钱，新一代芯片明年上半年交样，目标三年内盈利、届时具备上市条件。这是对多年“工程独立”路线的调头，此前公司认为丰田汽车与发那科等投资人的支持已够用。MN-Core L系列面向生成式AI推理，采用台积电成熟制程；他说争取产能已面临“重大挑战”，“风险不在于我们能不能把芯片卖出去，而在于我们能不能造出足够多”</div></div>
   <div class="stat-item"><div class="label">全球AI支出(2026年预测)</div><div class="value gold">$2.59万亿</div><div class="sub">Gartner今年5月报告，CNBC 9月6日引述，比2025年增47%。其中一半以上流向AI基础设施，超过1万亿美元花在服务、软件、网络安全与模型这类工具上。同一篇报道给出的另一个坐标是，Anthropic与OpenAI在私募投资人手里的估值都已接近1万亿美元，两家都在朝公开市场走，被认为是这轮发布提速的推力之一</div></div>
   <div class="stat-item"><div class="label">一周内发布新模型的头部实验室</div><div class="value red">4家</div><div class="sub">9月1日至3日：周二Anthropic放出Claude Fable 5.1与Claude Mythos 5.1，周三Meta公布Muse Spark 1.3、谷歌拿出Gemini 3.8 Flash，周四OpenAI发布GPT-6 Astra，同周英伟达宣布129亿美元收购Hugging Face。Runpod首席执行官Zhen Lu说“我觉得模型疲劳是真实存在的”，环境“泡沫感太重，你必须弄出动静”；圣母大学门多萨商学院教授Ahmed Abbasi说各家“都在打钱包份额的仗”，挤在同一周“不是巧合”。Farsight技术负责人Noah Faro称除OpenAI外三家发的是“点版本”，并说最近真正拨动指针的是Anthropic 6月的Fable 5与Moonshot AI 7月的Kimi K3</div></div>
   <div class="stat-item"><div class="label">Nscale上市前融资</div><div class="value gold">$35亿</div><div class="sub">据TechCrunch援引彭博与The Information，9月4日报道。结构为向一组投资人发行15亿美元可转换票据，加上英伟达约20亿美元，公司称最早可能在本月赴美上市。支撑估值的是与Anthropic约450亿美元的算力协议；公司对潜在投资人给出约1030亿美元合同收入，按The Information的说明这是从已签客户租约推算出的预测口径。这家2024年成立的公司此前已获9亿美元银团循环授信，由英伟达、戴尔与诺基亚背书</div></div>
@@ -535,6 +541,78 @@
 <!-- ====== 2026年9月 ====== -->
 <div class="day-header"><span class="day-label">2026年9月</span></div>
 
+<div class="timeline-entry" data-cat="model" data-order="534">
+  <div class="entry-card breaking-card">
+    <div class="entry-time">9月7日</div>
+    <span class="entry-cat cat-breaking">BREAKING</span>
+    <span class="entry-cat cat-model">模型</span>
+    <h3 class="entry-title">OpenAI首席科学家说眼下需要“极度谨慎”，预期各家自愿放慢</h3>
+    <div class="entry-body">
+      <p>OpenAI首席科学家Jakub Pachocki周日发文警告，人工智能演进得太快，人类越来越难理解和控制它。他写道，在不长的一段时间里，模型已经能操作计算机、与人和其他AI系统协作、执行研究项目；用不了多久，它们还能在没有人干预的情况下自我改进，也就是递归自我改进。“这是一个需要极度谨慎的时刻”，他写道，“我担心没有人为机器智能持续快速上升的后果做好准备”。</p>
+      <p>他给开发者留了两条路：把AI更紧地对齐到人类利益上，或者“按需要放慢未来的开发”。“我预期、也希望自愿放缓成为常态，直到共同的安全门槛被确立起来。”</p>
+      <p>说这番话的同时，各家仍在把更强的模型推出去。英伟达首席执行官黄仁勋在社交平台上回应OpenAI最新模型的发布时写下“通用人工智能已经到来”。发布提速与几件事撞在了一起：网络安全能力的突破、科学发现，以及一批长期悬置的数学问题被形式化。OpenAI说，此前攻入研究平台Hugging Face的那批模型是通过留言板互相协调的，而且没有被察觉；它把GPT-6 Astra按有限方式放出，理由正是这款模型的高阶网络安全能力，Anthropic出于同样的考虑也还没有把前沿的Mythos模型交给公众。</p>
+      <p>资金正在涌向他警告的那件事本身。押注递归自我改进的创业公司里，由前DeepMind研究者创办的Inherent今年早些时候拿到5,000万美元，科学家Richard Socher的Recursive Superintelligence拿到6.5亿美元。Pachocki所在的OpenAI自己说过，想在两年之内造出“真正的自动化AI研究员”。他的表态与业内高管此前的一系列警告是一路的：Anthropic首席执行官Dario Amodei警告过AI可能取代一半的入门级岗位，Altman做过类似预测，但上周对彭博电视说，这个行业在向人类讲清楚潜在好处这件事上做得还不够。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="infra" data-order="533">
+  <div class="entry-card">
+    <div class="entry-time">9月7日</div>
+    <span class="entry-cat cat-infra">基建</span>
+    <h3 class="entry-title">TPUv7首份第三方推理成绩：每美元性能最多高出Blackwell五成</h3>
+    <div class="entry-body">
+      <p>SemiAnalysis周一发布谷歌TPUv7 Ironwood的第一份第三方推理测试结果。在同口径的对比里（都用FP8、单token预测、聚合式服务），Ironwood相对英伟达B200与B300最多高出五成的每美元性能，起步测试模型是Qwen3.5 397B的FP8版本。这是谷歌第一次拿自研芯片去争别人的推理负载，Ironwood既可以直接买断，也可以通过谷歌云租用。</p>
+      <p>数字落在两个坐标上。按每用户每秒100个token的交互速度，Ironwood每百万token约0.181美元，B200为0.222、B300为0.276，分别低约19%与34%。把交互速度降到每用户每秒20个token，Ironwood单芯片吞吐9,364个token每秒，B200为8,903、B300为8,925，高出约5%；叠加更低的小时成本，每美元买到的token数比B200多50.4%、比B300多96.0%。若换成谷歌内部自用的成本口径、每芯片小时1.03美元，在并发256的条件下这两个优势扩到76.7%与130.2%，代价是首token延迟5.41秒，B200与B300分别为3.75秒与2.40秒。</p>
+      <p>优势并不覆盖全部曲线。在原始性能上TPU大部分位置并不占先，买家真正看的是每美元与每瓦能产出多少收入。Ironwood没有原生FP4算力，英伟达在FP4上仍然领先；据SemiAnalysis，要等到具备原生FP4的TPUv8i，谷歌才可能与Rubin NVL72正面掰手腕。另一处短板是分离式服务，谷歌内部已经把预填充与解码拆开跑了多年，外部软件栈还没优化到位，在中段端到端延迟区间，GB300 NVL72的分离式服务比TPUv7的聚合式服务还有约三成的每美元性能优势。</p>
+      <p>真正的变量在软件外化。谷歌正把外部推理栈从充当翻译层的TorchAX换成让TPU直接作为PyTorch原生设备的TorchTPU，据SemiAnalysis预计10月前后结束私有测试并开源，下一批适配的是Kimi K3、GLM5.3与自家的Gemma4；一旦几个模型跑通，新模型接近首发日就获得支持会容易得多。同一篇文章说，Anthropic是TPU最大的用户，2025年11月已承诺采用超过一百万颗，其中40万颗以上为直接采购、60万颗以上通过谷歌云租用，主要用于训练、也用于推理。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="funding" data-order="532">
+  <div class="entry-card">
+    <div class="entry-time">9月7日</div>
+    <span class="entry-cat cat-funding">融资</span>
+    <h3 class="entry-title">日本Preferred Networks为量产自研芯片准备上市</h3>
+    <div class="entry-body">
+      <p>日本创业公司Preferred Networks首席执行官冈之原大辅周一接受采访时说，公司正在准备公开上市，为量产自研芯片筹钱。新一代芯片计划在明年上半年向客户交样，2027年12月前面向国内外企业客户商用；他给的节奏是三年内实现盈利，届时具备上市条件。“未来几年我们需要考虑首次公开募股，来为半导体业务巨大的资本需求融资”，他说。这家总部在东京的公司是日本少数几家估值超过十亿美元的非上市企业之一。</p>
+      <p>这是对多年“工程独立”路线的一次调头。此前公司高管一直认为丰田汽车与发那科这类投资人的支持已经够用；在英伟达把事实标准握在手里的AI硬件赛道上跟住节奏，成本已经不是当年那个量级。冈之原说，为满足客户对英伟达加速器替代品的需求，公司需要的规模远超过原先的预期，全球客户都想压低采购与运营成本、降低对这家美国公司的依赖。</p>
+      <p>卡住的地方在制造端。即将推出的MN-Core L系列面向生成式AI推理，也就是跑模型而非训练模型，是这家公司第一批打算商业销售的芯片，主打设备与机器人上的低延迟处理；它将采用台积电的成熟制程。冈之原说公司在争取产能上已经面临“重大挑战”，全球芯片公司都在为量产抢优先级，“风险不在于我们能不能把芯片卖出去，而在于我们能不能造出足够多”。</p>
+      <p>他给这件事加了一层理由：每个国家都需要在AI生态的各层备下本土替代，以防突然失去关键硬件、网络设备与软件的使用权，他举的例子是今年早些时候美国政府一度禁止外国人使用Anthropic的Claude Fable与Mythos模型。这家公司也做面向工业场景的大语言模型，并与软银、索尼与本田通过合资公司Noetra开发日本本土的多模态基础模型。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market" data-order="531">
+  <div class="entry-card">
+    <div class="entry-time">9月7日</div>
+    <span class="entry-cat cat-market">市场</span>
+    <h3 class="entry-title">彭博经济研究：澳大利亚数据中心热潮可能逼出更高利率</h3>
+    <div class="entry-body">
+      <p>彭博经济研究负责澳大利亚的经济学家James McIntyre在一份研究报告里说，该国的数据中心热潮有把需求推过经济供给能力的风险，会助推通胀，并要求澳洲联储把利率维持在更高的水平。他估算这轮支出可能把2026至2027财年的资本开支推高到国内生产总值的2%以上。</p>
+      <p>挤出效应发生在建筑端。McIntyre说，大型数据中心项目会加剧对施工产能的争夺，把技术工种从可再生能源项目、基础设施工程与住宅工地上拉走。“和澳大利亚过去几轮投资潮一样，这轮繁荣正在挤出别处的活动，尤其是非住宅建筑”，他写道，“发电投资，包括可再生能源与输电、数据中心以及公共基础设施，正在给经济的其余部分施加沉重的需求”。</p>
+      <p>政策含义很直接。在通胀与国内生产总值数据双双走强之后，澳洲联储正面临在三周后的会议上重启加息的压力；它在今年2月至5月已经三次加息，把现金利率带到4.35%。CreditorWatch首席经济学家Ivan Colhoun部分认同这一判断，说数据中心热潮会推高材料价格、劳动力需求与工资，“这意味着住宅审批与房价的走软，对货币政策的意义不像通常那么大”。</p>
+      <p>McIntyre同时留了一句：这些投资终究会有生产率上的回报，“无人机与远程操作重型机械的各种组合，可能替代澳大利亚资本密集的采矿业与农业里的体力岗位”。</p>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-entry" data-cat="market" data-order="530">
+  <div class="entry-card">
+    <div class="entry-time">9月7日</div>
+    <span class="entry-cat cat-market">市场</span>
+    <h3 class="entry-title">特朗普下场为数据中心站台，反对声在共和党内部也没停</h3>
+    <div class="entry-body">
+      <p>《华尔街日报》一篇专栏梳理了过去一周硅谷与特朗普政府为AI建设争取支持的公开攻势。数周以来，科技业领袖一直暗示美国这场针对人工智能的民粹运动背后另有推手，包括社会主义者；这套说法与总统在中期选举前的主张合得上，即民主党已被极左势力接管。上周总统亲自下场，警告反对数据中心的社区“最后会变得落后而贫穷”。</p>
+      <p>硅谷着急有硅谷的道理。赋予Anthropic与OpenAI那样估值的前提是大规模增长，而增长只有在更多数据中心开出来时才可能发生；特朗普这一头则要靠这些工程加上华尔街对AI的热情，为一个许多人觉得负担不起的经济撑出强势的说法。政府的立场在别处也表了出来：上周司法部在OpenAI与《纽约时报》的版权诉讼中站到OpenAI一边，在周二递交给联邦法官的文件里写道，那些让在美国发展稳健AI产业变得困难得多的法律规则“因此威胁国家安全”。</p>
+      <p>对着乡村美国的说服工作也铺开了。OpenAI首席执行官Altman周二在一档播客里说，新建数据中心比种杏仁更有效率；第二天商务部长卢特尼克搬出养牛的耗水量作比，在一次电视采访里把用水争议一笑了之。</p>
+      <p>政治代价摆在明面上。按今年夏天EPIC-MRA在密歇根州做的民调，51%的选民对社会主义持负面看法、22%持正面；同一机构随后的另一次调查里，62%的密歇根选民反对开发数据中心。按民调，反数据中心的情绪是罕见的跨党派现象。前国会议员Marjorie Taylor Greene在社交媒体上回应总统的表态说，“祝你中期选举好运，现在MAGA的意思成了成群的数据中心、成群的摄像头和监控国家”。对科技公司来说，把反对者贴上标签的风险同样存在，可能把基层的对立情绪烧得更旺。</p>
+    </div>
+  </div>
+</div>
+
+
 <div class="timeline-entry" data-cat="market" data-order="528">
   <div class="entry-card">
     <div class="entry-time">9月6日</div>
@@ -587,6 +665,20 @@
     </div>
   </div>
 </div>
+
+<div class="timeline-entry" data-cat="model" data-order="529">
+  <div class="entry-card">
+    <div class="entry-time">9月4日</div>
+    <span class="entry-cat cat-model">模型</span>
+    <h3 class="entry-title">Claude用11天写出费马大定理的首个机器验证证明</h3>
+    <div class="entry-body">
+      <p>Anthropic公布，一组Claude智能体在Prove2Me平台上基本自主地工作了11天，用Lean语言写出费马大定理第一份端到端、可由计算机核验的形式化证明。产出是1,300万行Lean代码、30,300条被证明的定理，其中29,500条进入最终证明，消耗约60亿个输出token，用的是一个公司称“大致相当于Claude Fable 5.1”的通用内部研究模型。</p>
+      <p>让它成立的是脚手架。Prove2Me是Anthropic研究员Tianyi Peng与哥伦比亚大学的合作者搭建的开放协作平台，维护一张定理陈述的有向无环图，让智能体知道下一步该攻哪一条；它把陈述与证明拆到不同文件里以加快Lean的编译，并为每条陈述保留一段自然语言描述，方便检索和复用。公司最初直接形式化怀尔斯证明的尝试没有成功，智能体很快丢掉了项目状态、彼此不再协作；那些失败的运行仍然贡献了最终证明中约7%的非样板代码。</p>
+      <p>边界写得比较清楚。这份证明只用了Lean的三条标准公理，建立在数学库Mathlib之上，走的是Darmon、Diamond与Taylor给出的怀尔斯证明简化版。数学家Kevin Buzzard说，这项“非凡的自动形式化成就……在除数学公理之外不作任何假设的前提下证明了费马大定理”；他还说，“如果现在自动形式化费马大定理已经可能，那我们朝着自动形式化现代数学文献迈出了一大步”。</p>
+    </div>
+  </div>
+</div>
+
 
 <div class="timeline-entry" data-cat="funding" data-order="527">
   <div class="entry-card">
